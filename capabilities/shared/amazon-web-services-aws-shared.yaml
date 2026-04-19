@@ -1,0 +1,5 @@
+id: amazon-web-services-aws
+name: Amazon Web Services AWS
+description: Shared capability definition for Amazon Web Services AWS
+namespace: amazon-web-services-aws
+operations: []

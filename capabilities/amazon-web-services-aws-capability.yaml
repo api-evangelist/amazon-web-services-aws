@@ -1,0 +1,7 @@
+id: amazon-web-services-aws-capability
+name: Amazon Web Services AWS Capability
+description: Workflow-oriented capability for Amazon Web Services AWS
+tags:
+- AWS
+consumes:
+- ref: capabilities/shared/amazon-web-services-aws-shared.yaml
