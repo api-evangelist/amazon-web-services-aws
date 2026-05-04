@@ -1,0 +1,934 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Amazon Web Services (AWS)
+providerId: amazon-web-services-aws
+publisherName: Amazon Web Services (AWS)
+serviceCategory: API
+created: '2026-05-04'
+modified: '2026-05-04'
+tags:
+  - Analytics
+  - Artificial Intelligence
+  - Cloud Computing
+  - Computing
+  - Containers
+  - Databases
+  - Devops
+  - Iaas
+  - Infrastructure
+  - Machine Learning
+  - Networking
+  - Paas
+  - Platform As A Service
+  - Security
+  - Serverless
+  - Storage
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: FinOps framework definition for the Amazon Web Services (AWS) API surface. Provides a FOCUS-aligned
+  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+principles:
+  - name: Visibility
+    description: Make API consumption costs visible to engineering, product, and finance teams in near
+      real-time.
+  - name: Allocation
+    description: Tag every chargeable API call with the consuming team, environment, application, and
+      feature so cost can be allocated.
+  - name: Optimization
+    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
+      cost per useful unit of work.
+  - name: Accountability
+    description: Establish budget owners and chargeback or showback flows for each consuming team.
+domains:
+  - name: Understand Usage and Cost
+    capabilities:
+      - Data Ingestion
+      - Allocation
+      - Reporting and Analytics
+      - Anomaly Management
+  - name: Quantify Business Value
+    capabilities:
+      - Planning and Estimating
+      - Forecasting
+      - Budgeting
+      - Benchmarking
+      - Unit Economics
+  - name: Optimize Usage and Cost
+    capabilities:
+      - Architecting for Cloud
+      - Rate Optimization
+      - Workload Optimization
+      - Cloud Sustainability
+      - Licensing and SaaS
+  - name: Manage the FinOps Practice
+    capabilities:
+      - FinOps Practice Operations
+      - FinOps Education and Enablement
+      - Invoicing and Chargeback
+      - Onboarding Workloads
+      - Intersecting Disciplines
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  chargeFrequency: Recurring
+focusColumns:
+  ServiceName: Amazon Web Services (AWS)
+  ServiceCategory: Developer Tools / API
+  ProviderName: Amazon Web Services (AWS)
+  PublisherName: Amazon Web Services (AWS)
+  InvoiceIssuerName: Amazon Web Services (AWS)
+  PricingCategory: Usage-Based
+  PricingUnit: request
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: api_requests
+    description: Count of billable API requests
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api
+      - endpoint
+      - tier
+      - region
+      - consumer
+  - name: data_egress
+    description: Bytes returned over the network in API responses
+    unit: GB
+    aggregation: sum
+    dimensions:
+      - api
+      - region
+      - consumer
+  - name: compute_seconds
+    description: Server-side compute consumed by the request, where applicable
+    unit: second
+    aggregation: sum
+    dimensions:
+      - api
+      - endpoint
+      - tier
+apis:
+  - name: Amazon EC2 API
+    baseURL: https://ec2.amazonaws.com
+    tags:
+      - Compute
+      - Instances
+      - Virtual Machines
+    serviceName: Amazon EC2 API
+    serviceCategory: API
+  - name: Amazon S3 API
+    baseURL: https://s3.amazonaws.com
+    tags:
+      - Cloud Storage
+      - Object Storage
+      - Storage
+    serviceName: Amazon S3 API
+    serviceCategory: API
+  - name: Amazon Lambda API
+    baseURL: https://lambda.amazonaws.com
+    tags:
+      - Compute
+      - Functions
+      - Serverless
+    serviceName: Amazon Lambda API
+    serviceCategory: API
+  - name: Amazon RDS API
+    baseURL: https://rds.amazonaws.com
+    tags:
+      - Database
+      - MySQL
+      - PostgreSQL
+      - Relational Database
+    serviceName: Amazon RDS API
+    serviceCategory: API
+  - name: Amazon DynamoDB API
+    baseURL: https://dynamodb.amazonaws.com
+    tags:
+      - Database
+      - Key-Value Store
+      - NoSQL
+    serviceName: Amazon DynamoDB API
+    serviceCategory: API
+  - name: Amazon API Gateway API
+    baseURL: https://apigateway.amazonaws.com
+    tags:
+      - API Gateway
+      - API Management
+      - REST APIs
+      - WebSocket
+    serviceName: Amazon API Gateway API
+    serviceCategory: API
+  - name: Amazon SQS API
+    baseURL: https://sqs.amazonaws.com
+    tags:
+      - Messaging
+      - Microservices
+      - Queues
+    serviceName: Amazon SQS API
+    serviceCategory: API
+  - name: Amazon SNS API
+    baseURL: https://sns.amazonaws.com
+    tags:
+      - Messaging
+      - Notifications
+      - Pub/Sub
+    serviceName: Amazon SNS API
+    serviceCategory: API
+  - name: AWS CloudFormation API
+    baseURL: https://cloudformation.amazonaws.com
+    tags:
+      - DevOps
+      - Infrastructure as Code
+      - Provisioning
+    serviceName: AWS CloudFormation API
+    serviceCategory: API
+  - name: AWS IAM API
+    baseURL: https://iam.amazonaws.com
+    tags:
+      - Access Management
+      - Authentication
+      - Identity
+      - Security
+    serviceName: AWS IAM API
+    serviceCategory: API
+  - name: Amazon ECS API
+    baseURL: https://ecs.amazonaws.com
+    tags:
+      - Containers
+      - Docker
+      - Orchestration
+    serviceName: Amazon ECS API
+    serviceCategory: API
+  - name: Amazon EKS API
+    baseURL: https://eks.amazonaws.com
+    tags:
+      - Containers
+      - Kubernetes
+      - Orchestration
+    serviceName: Amazon EKS API
+    serviceCategory: API
+  - name: Amazon CloudWatch API
+    baseURL: https://monitoring.amazonaws.com
+    tags:
+      - Logging
+      - Metrics
+      - Monitoring
+      - Observability
+    serviceName: Amazon CloudWatch API
+    serviceCategory: API
+  - name: Amazon Kinesis API
+    baseURL: https://kinesis.amazonaws.com
+    tags:
+      - Analytics
+      - Data Processing
+      - Real-Time
+      - Streaming
+    serviceName: Amazon Kinesis API
+    serviceCategory: API
+  - name: Amazon CloudFront API
+    baseURL: https://cloudfront.amazonaws.com
+    tags:
+      - Caching
+      - CDN
+      - Content Delivery
+      - Edge Computing
+    serviceName: Amazon CloudFront API
+    serviceCategory: API
+  - name: Amazon Route 53 API
+    baseURL: https://route53.amazonaws.com
+    tags:
+      - DNS
+      - Domain Names
+      - Networking
+      - Traffic Routing
+    serviceName: Amazon Route 53 API
+    serviceCategory: API
+  - name: Amazon Cognito API
+    baseURL: https://cognito-idp.amazonaws.com
+    tags:
+      - Authentication
+      - Authorization
+      - Identity
+      - User Management
+    serviceName: Amazon Cognito API
+    serviceCategory: API
+  - name: AWS Step Functions API
+    baseURL: https://states.amazonaws.com
+    tags:
+      - Orchestration
+      - Serverless
+      - State Machines
+      - Workflows
+    serviceName: AWS Step Functions API
+    serviceCategory: API
+  - name: Amazon SageMaker API
+    baseURL: https://api.sagemaker.amazonaws.com
+    tags:
+      - Artificial Intelligence
+      - Data Science
+      - Machine Learning
+      - Model Training
+    serviceName: Amazon SageMaker API
+    serviceCategory: API
+  - name: Amazon Bedrock API
+    baseURL: https://bedrock.amazonaws.com
+    tags:
+      - Artificial Intelligence
+      - Foundation Models
+      - Generative AI
+      - Large Language Models
+    serviceName: Amazon Bedrock API
+    serviceCategory: API
+  - name: Amazon EventBridge API
+    baseURL: https://events.amazonaws.com
+    tags:
+      - Event-Driven
+      - Events
+      - Integration
+      - Serverless
+    serviceName: Amazon EventBridge API
+    serviceCategory: API
+  - name: Elastic Load Balancing API
+    baseURL: https://elasticloadbalancing.amazonaws.com
+    tags:
+      - High Availability
+      - Load Balancing
+      - Networking
+      - Traffic Distribution
+    serviceName: Elastic Load Balancing API
+    serviceCategory: API
+  - name: Amazon VPC API
+    baseURL: https://ec2.amazonaws.com
+    tags:
+      - Isolation
+      - Networking
+      - Security
+      - Virtual Private Cloud
+    serviceName: Amazon VPC API
+    serviceCategory: API
+  - name: AWS Secrets Manager API
+    baseURL: https://secretsmanager.amazonaws.com
+    tags:
+      - Credentials
+      - Key Management
+      - Secrets
+      - Security
+    serviceName: AWS Secrets Manager API
+    serviceCategory: API
+  - name: Amazon Athena API
+    baseURL: https://athena.amazonaws.com
+    tags:
+      - Analytics
+      - Data Lake
+      - Query
+      - SQL
+    serviceName: Amazon Athena API
+    serviceCategory: API
+  - name: Amazon Aurora API
+    baseURL: https://rds.amazonaws.com
+    tags:
+      - Database
+      - MySQL
+      - PostgreSQL
+      - Relational Database
+    serviceName: Amazon Aurora API
+    serviceCategory: API
+  - name: Amazon AppFlow API
+    baseURL: https://appflow.amazonaws.com
+    tags:
+      - Data Transfer
+      - ETL
+      - Integration
+      - SaaS
+    serviceName: Amazon AppFlow API
+    serviceCategory: API
+  - name: AWS AppSync API
+    baseURL: https://appsync.amazonaws.com
+    tags:
+      - GraphQL
+      - Real-Time
+      - Serverless
+    serviceName: AWS AppSync API
+    serviceCategory: API
+  - name: AWS App Runner API
+    baseURL: https://apprunner.amazonaws.com
+    tags:
+      - Containers
+      - Deployment
+      - Serverless
+      - Web Applications
+    serviceName: AWS App Runner API
+    serviceCategory: API
+  - name: AWS Batch API
+    baseURL: https://batch.amazonaws.com
+    tags:
+      - Batch Computing
+      - Compute
+      - HPC
+      - Job Scheduling
+    serviceName: AWS Batch API
+    serviceCategory: API
+  - name: AWS Backup API
+    baseURL: https://backup.amazonaws.com
+    tags:
+      - Backup
+      - Data Protection
+      - Disaster Recovery
+      - Storage
+    serviceName: AWS Backup API
+    serviceCategory: API
+  - name: AWS Certificate Manager API
+    baseURL: https://acm.amazonaws.com
+    tags:
+      - Certificates
+      - Security
+      - SSL
+      - TLS
+    serviceName: AWS Certificate Manager API
+    serviceCategory: API
+  - name: AWS CloudTrail API
+    baseURL: https://cloudtrail.amazonaws.com
+    tags:
+      - Audit
+      - Compliance
+      - Governance
+      - Logging
+    serviceName: AWS CloudTrail API
+    serviceCategory: API
+  - name: Amazon CloudSearch API
+    baseURL: https://cloudsearch.amazonaws.com
+    tags:
+      - Full-Text Search
+      - Indexing
+      - Search
+    serviceName: Amazon CloudSearch API
+    serviceCategory: API
+  - name: AWS CodeBuild API
+    baseURL: https://codebuild.amazonaws.com
+    tags:
+      - Build
+      - CI/CD
+      - Continuous Integration
+      - DevOps
+    serviceName: AWS CodeBuild API
+    serviceCategory: API
+  - name: AWS CodeDeploy API
+    baseURL: https://codedeploy.amazonaws.com
+    tags:
+      - Automation
+      - CI/CD
+      - Deployment
+      - DevOps
+    serviceName: AWS CodeDeploy API
+    serviceCategory: API
+  - name: AWS CodePipeline API
+    baseURL: https://codepipeline.amazonaws.com
+    tags:
+      - CI/CD
+      - Continuous Delivery
+      - DevOps
+      - Pipeline
+    serviceName: AWS CodePipeline API
+    serviceCategory: API
+  - name: Amazon Comprehend API
+    baseURL: https://comprehend.amazonaws.com
+    tags:
+      - AI
+      - Machine Learning
+      - NLP
+      - Text Analysis
+    serviceName: Amazon Comprehend API
+    serviceCategory: API
+  - name: AWS Config API
+    baseURL: https://config.amazonaws.com
+    tags:
+      - Audit
+      - Compliance
+      - Configuration
+      - Governance
+    serviceName: AWS Config API
+    serviceCategory: API
+  - name: Amazon Connect API
+    baseURL: https://connect.amazonaws.com
+    tags:
+      - Contact Center
+      - Customer Service
+      - Omnichannel
+      - Telephony
+    serviceName: Amazon Connect API
+    serviceCategory: API
+  - name: AWS Database Migration Service API
+    baseURL: https://dms.amazonaws.com
+    tags:
+      - Data Transfer
+      - Database
+      - Migration
+      - Replication
+    serviceName: AWS Database Migration Service API
+    serviceCategory: API
+  - name: AWS Direct Connect API
+    baseURL: https://directconnect.amazonaws.com
+    tags:
+      - Dedicated Connection
+      - Hybrid Cloud
+      - Networking
+    serviceName: AWS Direct Connect API
+    serviceCategory: API
+  - name: Amazon DocumentDB API
+    baseURL: https://rds.amazonaws.com
+    tags:
+      - Database
+      - Document Database
+      - MongoDB
+      - NoSQL
+    serviceName: Amazon DocumentDB API
+    serviceCategory: API
+  - name: Amazon ECR API
+    baseURL: https://api.ecr.amazonaws.com
+    tags:
+      - Container Registry
+      - Containers
+      - Docker
+      - Images
+    serviceName: Amazon ECR API
+    serviceCategory: API
+  - name: Amazon EBS API
+    baseURL: https://ec2.amazonaws.com
+    tags:
+      - Block Storage
+      - Snapshots
+      - Storage
+      - Volumes
+    serviceName: Amazon EBS API
+    serviceCategory: API
+  - name: Amazon EFS API
+    baseURL: https://elasticfilesystem.amazonaws.com
+    tags:
+      - File Storage
+      - NFS
+      - Shared Storage
+      - Storage
+    serviceName: Amazon EFS API
+    serviceCategory: API
+  - name: Amazon ElastiCache API
+    baseURL: https://elasticache.amazonaws.com
+    tags:
+      - Caching
+      - In-Memory
+      - Memcached
+      - Redis
+    serviceName: Amazon ElastiCache API
+    serviceCategory: API
+  - name: AWS Elastic Beanstalk API
+    baseURL: https://elasticbeanstalk.amazonaws.com
+    tags:
+      - Compute
+      - Deployment
+      - PaaS
+      - Web Applications
+    serviceName: AWS Elastic Beanstalk API
+    serviceCategory: API
+  - name: Amazon EMR API
+    baseURL: https://elasticmapreduce.amazonaws.com
+    tags:
+      - Analytics
+      - Big Data
+      - Hadoop
+      - Spark
+    serviceName: Amazon EMR API
+    serviceCategory: API
+  - name: AWS Fargate API
+    baseURL: https://ecs.amazonaws.com
+    tags:
+      - Compute
+      - Containers
+      - Docker
+      - Serverless
+    serviceName: AWS Fargate API
+    serviceCategory: API
+  - name: Amazon FSx API
+    baseURL: https://fsx.amazonaws.com
+    tags:
+      - File System
+      - Lustre
+      - Storage
+      - Windows
+    serviceName: Amazon FSx API
+    serviceCategory: API
+  - name: AWS Global Accelerator API
+    baseURL: https://globalaccelerator.amazonaws.com
+    tags:
+      - Availability
+      - Global
+      - Networking
+      - Performance
+    serviceName: AWS Global Accelerator API
+    serviceCategory: API
+  - name: AWS Glue API
+    baseURL: https://glue.amazonaws.com
+    tags:
+      - Analytics
+      - Data Catalog
+      - Data Integration
+      - ETL
+    serviceName: AWS Glue API
+    serviceCategory: API
+  - name: Amazon GuardDuty API
+    baseURL: https://guardduty.amazonaws.com
+    tags:
+      - Compliance
+      - Monitoring
+      - Security
+      - Threat Detection
+    serviceName: Amazon GuardDuty API
+    serviceCategory: API
+  - name: Amazon Inspector API
+    baseURL: https://inspector2.amazonaws.com
+    tags:
+      - Compliance
+      - Scanning
+      - Security
+      - Vulnerability
+    serviceName: Amazon Inspector API
+    serviceCategory: API
+  - name: AWS IoT Core API
+    baseURL: https://iot.amazonaws.com
+    tags:
+      - Device Management
+      - Internet of Things
+      - IoT
+      - MQTT
+    serviceName: AWS IoT Core API
+    serviceCategory: API
+  - name: Amazon Kendra API
+    baseURL: https://kendra.amazonaws.com
+    tags:
+      - AI
+      - Enterprise Search
+      - Machine Learning
+      - Search
+    serviceName: Amazon Kendra API
+    serviceCategory: API
+  - name: Amazon Keyspaces API
+    baseURL: https://cassandra.amazonaws.com
+    tags:
+      - Cassandra
+      - Database
+      - NoSQL
+      - Wide Column
+    serviceName: Amazon Keyspaces API
+    serviceCategory: API
+  - name: AWS KMS API
+    baseURL: https://kms.amazonaws.com
+    tags:
+      - Cryptography
+      - Encryption
+      - Key Management
+      - Security
+    serviceName: AWS KMS API
+    serviceCategory: API
+  - name: AWS Lake Formation API
+    baseURL: https://lakeformation.amazonaws.com
+    tags:
+      - Analytics
+      - Data Governance
+      - Data Lake
+      - Security
+    serviceName: AWS Lake Formation API
+    serviceCategory: API
+  - name: Amazon Lex API
+    baseURL: https://models-v2-lex.amazonaws.com
+    tags:
+      - Chatbot
+      - Conversational AI
+      - NLP
+      - Voice
+    serviceName: Amazon Lex API
+    serviceCategory: API
+  - name: Amazon Lightsail API
+    baseURL: https://lightsail.amazonaws.com
+    tags:
+      - Compute
+      - Simple Cloud
+      - VPS
+      - Web Hosting
+    serviceName: Amazon Lightsail API
+    serviceCategory: API
+  - name: Amazon Macie API
+    baseURL: https://macie2.amazonaws.com
+    tags:
+      - Compliance
+      - Data Privacy
+      - Machine Learning
+      - Security
+    serviceName: Amazon Macie API
+    serviceCategory: API
+  - name: Amazon MemoryDB API
+    baseURL: https://memory-db.amazonaws.com
+    tags:
+      - Caching
+      - Database
+      - In-Memory
+      - Redis
+    serviceName: Amazon MemoryDB API
+    serviceCategory: API
+  - name: Amazon MQ API
+    baseURL: https://mq.amazonaws.com
+    tags:
+      - ActiveMQ
+      - Message Broker
+      - Messaging
+      - RabbitMQ
+    serviceName: Amazon MQ API
+    serviceCategory: API
+  - name: Amazon MSK API
+    baseURL: https://kafka.amazonaws.com
+    tags:
+      - Apache Kafka
+      - Event Streaming
+      - Real-Time
+      - Streaming
+    serviceName: Amazon MSK API
+    serviceCategory: API
+  - name: Amazon OpenSearch Service API
+    baseURL: https://es.amazonaws.com
+    tags:
+      - Analytics
+      - Log Analytics
+      - OpenSearch
+      - Search
+    serviceName: Amazon OpenSearch Service API
+    serviceCategory: API
+  - name: AWS Organizations API
+    baseURL: https://organizations.amazonaws.com
+    tags:
+      - Governance
+      - Management
+      - Multi-Account
+      - Policy
+    serviceName: AWS Organizations API
+    serviceCategory: API
+  - name: Amazon Personalize API
+    baseURL: https://personalize.amazonaws.com
+    tags:
+      - AI
+      - Machine Learning
+      - Personalization
+      - Recommendations
+    serviceName: Amazon Personalize API
+    serviceCategory: API
+  - name: Amazon Pinpoint API
+    baseURL: https://pinpoint.amazonaws.com
+    tags:
+      - Email
+      - Marketing
+      - Messaging
+      - Push Notifications
+    serviceName: Amazon Pinpoint API
+    serviceCategory: API
+  - name: Amazon Polly API
+    baseURL: https://polly.amazonaws.com
+    tags:
+      - AI
+      - Speech Synthesis
+      - Text-To-Speech
+      - Voice
+    serviceName: Amazon Polly API
+    serviceCategory: API
+  - name: Amazon QuickSight API
+    baseURL: https://quicksight.amazonaws.com
+    tags:
+      - Analytics
+      - Business Intelligence
+      - Dashboards
+      - Visualization
+    serviceName: Amazon QuickSight API
+    serviceCategory: API
+  - name: Amazon Rekognition API
+    baseURL: https://rekognition.amazonaws.com
+    tags:
+      - AI
+      - Computer Vision
+      - Image Analysis
+      - Video Analysis
+    serviceName: Amazon Rekognition API
+    serviceCategory: API
+  - name: Amazon SES API
+    baseURL: https://email.amazonaws.com
+    tags:
+      - Email
+      - Marketing
+      - Messaging
+      - Transactional Email
+    serviceName: Amazon SES API
+    serviceCategory: API
+  - name: AWS Security Hub API
+    baseURL: https://securityhub.amazonaws.com
+    tags:
+      - Compliance
+      - CSPM
+      - Monitoring
+      - Security
+    serviceName: AWS Security Hub API
+    serviceCategory: API
+  - name: AWS Systems Manager API
+    baseURL: https://ssm.amazonaws.com
+    tags:
+      - Automation
+      - Management
+      - Operations
+      - Patching
+    serviceName: AWS Systems Manager API
+    serviceCategory: API
+  - name: Amazon Textract API
+    baseURL: https://textract.amazonaws.com
+    tags:
+      - AI
+      - Document Processing
+      - Machine Learning
+      - OCR
+    serviceName: Amazon Textract API
+    serviceCategory: API
+  - name: Amazon Timestream API
+    baseURL: https://ingest.timestream.amazonaws.com
+    tags:
+      - Analytics
+      - Database
+      - IoT
+      - Time Series
+    serviceName: Amazon Timestream API
+    serviceCategory: API
+  - name: Amazon Transcribe API
+    baseURL: https://transcribe.amazonaws.com
+    tags:
+      - AI
+      - Machine Learning
+      - Speech-To-Text
+      - Transcription
+    serviceName: Amazon Transcribe API
+    serviceCategory: API
+  - name: Amazon Translate API
+    baseURL: https://translate.amazonaws.com
+    tags:
+      - AI
+      - Localization
+      - NLP
+      - Translation
+    serviceName: Amazon Translate API
+    serviceCategory: API
+  - name: AWS Transit Gateway API
+    baseURL: https://ec2.amazonaws.com
+    tags:
+      - Hybrid Cloud
+      - Networking
+      - Transit
+      - VPC
+    serviceName: AWS Transit Gateway API
+    serviceCategory: API
+  - name: AWS WAF API
+    baseURL: https://wafv2.amazonaws.com
+    tags:
+      - DDoS Protection
+      - Firewall
+      - Security
+      - Web Application Security
+    serviceName: AWS WAF API
+    serviceCategory: API
+  - name: AWS X-Ray API
+    baseURL: https://xray.amazonaws.com
+    tags:
+      - Debugging
+      - Monitoring
+      - Observability
+      - Tracing
+    serviceName: AWS X-Ray API
+    serviceCategory: API
+  - name: Amazon Location Service API
+    baseURL: https://geo.amazonaws.com
+    tags:
+      - Geofencing
+      - Location
+      - Maps
+      - Routing
+    serviceName: Amazon Location Service API
+    serviceCategory: API
+  - name: AWS Amplify API
+    baseURL: https://amplify.amazonaws.com
+    tags:
+      - Frontend
+      - Full-Stack
+      - Mobile
+      - Web Development
+    serviceName: AWS Amplify API
+    serviceCategory: API
+  - name: AWS Storage Gateway API
+    baseURL: https://storagegateway.amazonaws.com
+    tags:
+      - Backup
+      - Gateway
+      - Hybrid Cloud
+      - Storage
+    serviceName: AWS Storage Gateway API
+    serviceCategory: API
+  - name: AWS DataSync API
+    baseURL: https://datasync.amazonaws.com
+    tags:
+      - Data Transfer
+      - Migration
+      - Storage
+      - Sync
+    serviceName: AWS DataSync API
+    serviceCategory: API
+  - name: Amazon S3 Glacier API
+    baseURL: https://glacier.amazonaws.com
+    tags:
+      - Archive
+      - Backup
+      - Cold Storage
+      - Storage
+    serviceName: Amazon S3 Glacier API
+    serviceCategory: API
+  - name: AWS Shield API
+    baseURL: https://shield.amazonaws.com
+    tags:
+      - DDoS Protection
+      - Networking
+      - Protection
+      - Security
+    serviceName: AWS Shield API
+    serviceCategory: API
+  - name: Amazon Detective API
+    baseURL: https://api.detective.amazonaws.com
+    tags:
+      - Forensics
+      - Investigation
+      - Security
+      - Threat Analysis
+    serviceName: Amazon Detective API
+    serviceCategory: API
+unitEconomics:
+  - name: Cost per 1K Requests
+    metric: billed_cost / (api_requests / 1000)
+    target: TBD
+  - name: Cost per Active Consumer
+    metric: billed_cost / active_consumers
+    target: TBD
+maintainers:
+  - name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com

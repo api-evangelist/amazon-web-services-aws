@@ -1,0 +1,927 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Amazon Web Services (AWS)
+providerId: amazon-web-services-aws
+created: '2026-05-04'
+modified: '2026-05-04'
+tags:
+  - Analytics
+  - Artificial Intelligence
+  - Cloud Computing
+  - Computing
+  - Containers
+  - Databases
+  - Devops
+  - Iaas
+  - Infrastructure
+  - Machine Learning
+  - Networking
+  - Paas
+  - Platform As A Service
+  - Security
+  - Serverless
+  - Storage
+description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
+  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+plans:
+  - id: amazon-web-services-aws-free
+    name: Free
+    type: freemium
+    description: Free entry tier for the Amazon Web Services (AWS) API surface. Intended for evaluation,
+      prototyping, and low-volume integrations. Real limits and pricing must be reconciled with the provider's
+      published plan documentation.
+    entries:
+      - label: API Requests
+        description: Monthly API request quota across all included endpoints
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 1000
+        timeFrame: month
+        geo: global
+        domains:
+          - https://ec2.amazonaws.com
+          - https://s3.amazonaws.com
+          - https://lambda.amazonaws.com
+          - https://rds.amazonaws.com
+          - https://dynamodb.amazonaws.com
+          - https://apigateway.amazonaws.com
+          - https://sqs.amazonaws.com
+          - https://sns.amazonaws.com
+          - https://cloudformation.amazonaws.com
+          - https://iam.amazonaws.com
+          - https://ecs.amazonaws.com
+          - https://eks.amazonaws.com
+          - https://monitoring.amazonaws.com
+          - https://kinesis.amazonaws.com
+          - https://cloudfront.amazonaws.com
+          - https://route53.amazonaws.com
+          - https://cognito-idp.amazonaws.com
+          - https://states.amazonaws.com
+          - https://api.sagemaker.amazonaws.com
+          - https://bedrock.amazonaws.com
+          - https://events.amazonaws.com
+          - https://elasticloadbalancing.amazonaws.com
+          - https://secretsmanager.amazonaws.com
+          - https://athena.amazonaws.com
+          - https://appflow.amazonaws.com
+          - https://appsync.amazonaws.com
+          - https://apprunner.amazonaws.com
+          - https://batch.amazonaws.com
+          - https://backup.amazonaws.com
+          - https://acm.amazonaws.com
+          - https://cloudtrail.amazonaws.com
+          - https://cloudsearch.amazonaws.com
+          - https://codebuild.amazonaws.com
+          - https://codedeploy.amazonaws.com
+          - https://codepipeline.amazonaws.com
+          - https://comprehend.amazonaws.com
+          - https://config.amazonaws.com
+          - https://connect.amazonaws.com
+          - https://dms.amazonaws.com
+          - https://directconnect.amazonaws.com
+          - https://api.ecr.amazonaws.com
+          - https://elasticfilesystem.amazonaws.com
+          - https://elasticache.amazonaws.com
+          - https://elasticbeanstalk.amazonaws.com
+          - https://elasticmapreduce.amazonaws.com
+          - https://fsx.amazonaws.com
+          - https://globalaccelerator.amazonaws.com
+          - https://glue.amazonaws.com
+          - https://guardduty.amazonaws.com
+          - https://inspector2.amazonaws.com
+          - https://iot.amazonaws.com
+          - https://kendra.amazonaws.com
+          - https://cassandra.amazonaws.com
+          - https://kms.amazonaws.com
+          - https://lakeformation.amazonaws.com
+          - https://models-v2-lex.amazonaws.com
+          - https://lightsail.amazonaws.com
+          - https://macie2.amazonaws.com
+          - https://memory-db.amazonaws.com
+          - https://mq.amazonaws.com
+          - https://kafka.amazonaws.com
+          - https://es.amazonaws.com
+          - https://organizations.amazonaws.com
+          - https://personalize.amazonaws.com
+          - https://pinpoint.amazonaws.com
+          - https://polly.amazonaws.com
+          - https://quicksight.amazonaws.com
+          - https://rekognition.amazonaws.com
+          - https://email.amazonaws.com
+          - https://securityhub.amazonaws.com
+          - https://ssm.amazonaws.com
+          - https://textract.amazonaws.com
+          - https://ingest.timestream.amazonaws.com
+          - https://transcribe.amazonaws.com
+          - https://translate.amazonaws.com
+          - https://wafv2.amazonaws.com
+          - https://xray.amazonaws.com
+          - https://geo.amazonaws.com
+          - https://amplify.amazonaws.com
+          - https://storagegateway.amazonaws.com
+          - https://datasync.amazonaws.com
+          - https://glacier.amazonaws.com
+          - https://shield.amazonaws.com
+          - https://api.detective.amazonaws.com
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per minute on the free tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 10
+        timeFrame: minute
+        geo: global
+        domains:
+          - https://ec2.amazonaws.com
+          - https://s3.amazonaws.com
+          - https://lambda.amazonaws.com
+          - https://rds.amazonaws.com
+          - https://dynamodb.amazonaws.com
+          - https://apigateway.amazonaws.com
+          - https://sqs.amazonaws.com
+          - https://sns.amazonaws.com
+          - https://cloudformation.amazonaws.com
+          - https://iam.amazonaws.com
+          - https://ecs.amazonaws.com
+          - https://eks.amazonaws.com
+          - https://monitoring.amazonaws.com
+          - https://kinesis.amazonaws.com
+          - https://cloudfront.amazonaws.com
+          - https://route53.amazonaws.com
+          - https://cognito-idp.amazonaws.com
+          - https://states.amazonaws.com
+          - https://api.sagemaker.amazonaws.com
+          - https://bedrock.amazonaws.com
+          - https://events.amazonaws.com
+          - https://elasticloadbalancing.amazonaws.com
+          - https://secretsmanager.amazonaws.com
+          - https://athena.amazonaws.com
+          - https://appflow.amazonaws.com
+          - https://appsync.amazonaws.com
+          - https://apprunner.amazonaws.com
+          - https://batch.amazonaws.com
+          - https://backup.amazonaws.com
+          - https://acm.amazonaws.com
+          - https://cloudtrail.amazonaws.com
+          - https://cloudsearch.amazonaws.com
+          - https://codebuild.amazonaws.com
+          - https://codedeploy.amazonaws.com
+          - https://codepipeline.amazonaws.com
+          - https://comprehend.amazonaws.com
+          - https://config.amazonaws.com
+          - https://connect.amazonaws.com
+          - https://dms.amazonaws.com
+          - https://directconnect.amazonaws.com
+          - https://api.ecr.amazonaws.com
+          - https://elasticfilesystem.amazonaws.com
+          - https://elasticache.amazonaws.com
+          - https://elasticbeanstalk.amazonaws.com
+          - https://elasticmapreduce.amazonaws.com
+          - https://fsx.amazonaws.com
+          - https://globalaccelerator.amazonaws.com
+          - https://glue.amazonaws.com
+          - https://guardduty.amazonaws.com
+          - https://inspector2.amazonaws.com
+          - https://iot.amazonaws.com
+          - https://kendra.amazonaws.com
+          - https://cassandra.amazonaws.com
+          - https://kms.amazonaws.com
+          - https://lakeformation.amazonaws.com
+          - https://models-v2-lex.amazonaws.com
+          - https://lightsail.amazonaws.com
+          - https://macie2.amazonaws.com
+          - https://memory-db.amazonaws.com
+          - https://mq.amazonaws.com
+          - https://kafka.amazonaws.com
+          - https://es.amazonaws.com
+          - https://organizations.amazonaws.com
+          - https://personalize.amazonaws.com
+          - https://pinpoint.amazonaws.com
+          - https://polly.amazonaws.com
+          - https://quicksight.amazonaws.com
+          - https://rekognition.amazonaws.com
+          - https://email.amazonaws.com
+          - https://securityhub.amazonaws.com
+          - https://ssm.amazonaws.com
+          - https://textract.amazonaws.com
+          - https://ingest.timestream.amazonaws.com
+          - https://transcribe.amazonaws.com
+          - https://translate.amazonaws.com
+          - https://wafv2.amazonaws.com
+          - https://xray.amazonaws.com
+          - https://geo.amazonaws.com
+          - https://amplify.amazonaws.com
+          - https://storagegateway.amazonaws.com
+          - https://datasync.amazonaws.com
+          - https://glacier.amazonaws.com
+          - https://shield.amazonaws.com
+          - https://api.detective.amazonaws.com
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Public Documentation
+      - name: Community Support
+      - name: Sandbox Access
+      - name: Amazon EC2 API
+      - name: Amazon S3 API
+      - name: Amazon Lambda API
+      - name: Amazon RDS API
+      - name: Amazon DynamoDB API
+      - name: Amazon API Gateway API
+      - name: Amazon SQS API
+      - name: Amazon SNS API
+  - id: amazon-web-services-aws-pro
+    name: Professional
+    type: paid
+    description: Production tier for Amazon Web Services (AWS). Provides higher quotas, priority support,
+      and access to the broader API portfolio. Pricing placeholder; align with the provider's pricing
+      page.
+    entries:
+      - label: API Requests
+        description: Monthly API request quota
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 100000
+        timeFrame: month
+        geo: global
+        domains:
+          - https://ec2.amazonaws.com
+          - https://s3.amazonaws.com
+          - https://lambda.amazonaws.com
+          - https://rds.amazonaws.com
+          - https://dynamodb.amazonaws.com
+          - https://apigateway.amazonaws.com
+          - https://sqs.amazonaws.com
+          - https://sns.amazonaws.com
+          - https://cloudformation.amazonaws.com
+          - https://iam.amazonaws.com
+          - https://ecs.amazonaws.com
+          - https://eks.amazonaws.com
+          - https://monitoring.amazonaws.com
+          - https://kinesis.amazonaws.com
+          - https://cloudfront.amazonaws.com
+          - https://route53.amazonaws.com
+          - https://cognito-idp.amazonaws.com
+          - https://states.amazonaws.com
+          - https://api.sagemaker.amazonaws.com
+          - https://bedrock.amazonaws.com
+          - https://events.amazonaws.com
+          - https://elasticloadbalancing.amazonaws.com
+          - https://secretsmanager.amazonaws.com
+          - https://athena.amazonaws.com
+          - https://appflow.amazonaws.com
+          - https://appsync.amazonaws.com
+          - https://apprunner.amazonaws.com
+          - https://batch.amazonaws.com
+          - https://backup.amazonaws.com
+          - https://acm.amazonaws.com
+          - https://cloudtrail.amazonaws.com
+          - https://cloudsearch.amazonaws.com
+          - https://codebuild.amazonaws.com
+          - https://codedeploy.amazonaws.com
+          - https://codepipeline.amazonaws.com
+          - https://comprehend.amazonaws.com
+          - https://config.amazonaws.com
+          - https://connect.amazonaws.com
+          - https://dms.amazonaws.com
+          - https://directconnect.amazonaws.com
+          - https://api.ecr.amazonaws.com
+          - https://elasticfilesystem.amazonaws.com
+          - https://elasticache.amazonaws.com
+          - https://elasticbeanstalk.amazonaws.com
+          - https://elasticmapreduce.amazonaws.com
+          - https://fsx.amazonaws.com
+          - https://globalaccelerator.amazonaws.com
+          - https://glue.amazonaws.com
+          - https://guardduty.amazonaws.com
+          - https://inspector2.amazonaws.com
+          - https://iot.amazonaws.com
+          - https://kendra.amazonaws.com
+          - https://cassandra.amazonaws.com
+          - https://kms.amazonaws.com
+          - https://lakeformation.amazonaws.com
+          - https://models-v2-lex.amazonaws.com
+          - https://lightsail.amazonaws.com
+          - https://macie2.amazonaws.com
+          - https://memory-db.amazonaws.com
+          - https://mq.amazonaws.com
+          - https://kafka.amazonaws.com
+          - https://es.amazonaws.com
+          - https://organizations.amazonaws.com
+          - https://personalize.amazonaws.com
+          - https://pinpoint.amazonaws.com
+          - https://polly.amazonaws.com
+          - https://quicksight.amazonaws.com
+          - https://rekognition.amazonaws.com
+          - https://email.amazonaws.com
+          - https://securityhub.amazonaws.com
+          - https://ssm.amazonaws.com
+          - https://textract.amazonaws.com
+          - https://ingest.timestream.amazonaws.com
+          - https://transcribe.amazonaws.com
+          - https://translate.amazonaws.com
+          - https://wafv2.amazonaws.com
+          - https://xray.amazonaws.com
+          - https://geo.amazonaws.com
+          - https://amplify.amazonaws.com
+          - https://storagegateway.amazonaws.com
+          - https://datasync.amazonaws.com
+          - https://glacier.amazonaws.com
+          - https://shield.amazonaws.com
+          - https://api.detective.amazonaws.com
+        unit: 1
+        price: TBD
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per minute on the professional tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 100
+        timeFrame: minute
+        geo: global
+        domains:
+          - https://ec2.amazonaws.com
+          - https://s3.amazonaws.com
+          - https://lambda.amazonaws.com
+          - https://rds.amazonaws.com
+          - https://dynamodb.amazonaws.com
+          - https://apigateway.amazonaws.com
+          - https://sqs.amazonaws.com
+          - https://sns.amazonaws.com
+          - https://cloudformation.amazonaws.com
+          - https://iam.amazonaws.com
+          - https://ecs.amazonaws.com
+          - https://eks.amazonaws.com
+          - https://monitoring.amazonaws.com
+          - https://kinesis.amazonaws.com
+          - https://cloudfront.amazonaws.com
+          - https://route53.amazonaws.com
+          - https://cognito-idp.amazonaws.com
+          - https://states.amazonaws.com
+          - https://api.sagemaker.amazonaws.com
+          - https://bedrock.amazonaws.com
+          - https://events.amazonaws.com
+          - https://elasticloadbalancing.amazonaws.com
+          - https://secretsmanager.amazonaws.com
+          - https://athena.amazonaws.com
+          - https://appflow.amazonaws.com
+          - https://appsync.amazonaws.com
+          - https://apprunner.amazonaws.com
+          - https://batch.amazonaws.com
+          - https://backup.amazonaws.com
+          - https://acm.amazonaws.com
+          - https://cloudtrail.amazonaws.com
+          - https://cloudsearch.amazonaws.com
+          - https://codebuild.amazonaws.com
+          - https://codedeploy.amazonaws.com
+          - https://codepipeline.amazonaws.com
+          - https://comprehend.amazonaws.com
+          - https://config.amazonaws.com
+          - https://connect.amazonaws.com
+          - https://dms.amazonaws.com
+          - https://directconnect.amazonaws.com
+          - https://api.ecr.amazonaws.com
+          - https://elasticfilesystem.amazonaws.com
+          - https://elasticache.amazonaws.com
+          - https://elasticbeanstalk.amazonaws.com
+          - https://elasticmapreduce.amazonaws.com
+          - https://fsx.amazonaws.com
+          - https://globalaccelerator.amazonaws.com
+          - https://glue.amazonaws.com
+          - https://guardduty.amazonaws.com
+          - https://inspector2.amazonaws.com
+          - https://iot.amazonaws.com
+          - https://kendra.amazonaws.com
+          - https://cassandra.amazonaws.com
+          - https://kms.amazonaws.com
+          - https://lakeformation.amazonaws.com
+          - https://models-v2-lex.amazonaws.com
+          - https://lightsail.amazonaws.com
+          - https://macie2.amazonaws.com
+          - https://memory-db.amazonaws.com
+          - https://mq.amazonaws.com
+          - https://kafka.amazonaws.com
+          - https://es.amazonaws.com
+          - https://organizations.amazonaws.com
+          - https://personalize.amazonaws.com
+          - https://pinpoint.amazonaws.com
+          - https://polly.amazonaws.com
+          - https://quicksight.amazonaws.com
+          - https://rekognition.amazonaws.com
+          - https://email.amazonaws.com
+          - https://securityhub.amazonaws.com
+          - https://ssm.amazonaws.com
+          - https://textract.amazonaws.com
+          - https://ingest.timestream.amazonaws.com
+          - https://transcribe.amazonaws.com
+          - https://translate.amazonaws.com
+          - https://wafv2.amazonaws.com
+          - https://xray.amazonaws.com
+          - https://geo.amazonaws.com
+          - https://amplify.amazonaws.com
+          - https://storagegateway.amazonaws.com
+          - https://datasync.amazonaws.com
+          - https://glacier.amazonaws.com
+          - https://shield.amazonaws.com
+          - https://api.detective.amazonaws.com
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Overage
+        description: Per-request price after monthly quota is exceeded
+        name: overage
+        type: metered
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://ec2.amazonaws.com
+          - https://s3.amazonaws.com
+          - https://lambda.amazonaws.com
+          - https://rds.amazonaws.com
+          - https://dynamodb.amazonaws.com
+          - https://apigateway.amazonaws.com
+          - https://sqs.amazonaws.com
+          - https://sns.amazonaws.com
+          - https://cloudformation.amazonaws.com
+          - https://iam.amazonaws.com
+          - https://ecs.amazonaws.com
+          - https://eks.amazonaws.com
+          - https://monitoring.amazonaws.com
+          - https://kinesis.amazonaws.com
+          - https://cloudfront.amazonaws.com
+          - https://route53.amazonaws.com
+          - https://cognito-idp.amazonaws.com
+          - https://states.amazonaws.com
+          - https://api.sagemaker.amazonaws.com
+          - https://bedrock.amazonaws.com
+          - https://events.amazonaws.com
+          - https://elasticloadbalancing.amazonaws.com
+          - https://secretsmanager.amazonaws.com
+          - https://athena.amazonaws.com
+          - https://appflow.amazonaws.com
+          - https://appsync.amazonaws.com
+          - https://apprunner.amazonaws.com
+          - https://batch.amazonaws.com
+          - https://backup.amazonaws.com
+          - https://acm.amazonaws.com
+          - https://cloudtrail.amazonaws.com
+          - https://cloudsearch.amazonaws.com
+          - https://codebuild.amazonaws.com
+          - https://codedeploy.amazonaws.com
+          - https://codepipeline.amazonaws.com
+          - https://comprehend.amazonaws.com
+          - https://config.amazonaws.com
+          - https://connect.amazonaws.com
+          - https://dms.amazonaws.com
+          - https://directconnect.amazonaws.com
+          - https://api.ecr.amazonaws.com
+          - https://elasticfilesystem.amazonaws.com
+          - https://elasticache.amazonaws.com
+          - https://elasticbeanstalk.amazonaws.com
+          - https://elasticmapreduce.amazonaws.com
+          - https://fsx.amazonaws.com
+          - https://globalaccelerator.amazonaws.com
+          - https://glue.amazonaws.com
+          - https://guardduty.amazonaws.com
+          - https://inspector2.amazonaws.com
+          - https://iot.amazonaws.com
+          - https://kendra.amazonaws.com
+          - https://cassandra.amazonaws.com
+          - https://kms.amazonaws.com
+          - https://lakeformation.amazonaws.com
+          - https://models-v2-lex.amazonaws.com
+          - https://lightsail.amazonaws.com
+          - https://macie2.amazonaws.com
+          - https://memory-db.amazonaws.com
+          - https://mq.amazonaws.com
+          - https://kafka.amazonaws.com
+          - https://es.amazonaws.com
+          - https://organizations.amazonaws.com
+          - https://personalize.amazonaws.com
+          - https://pinpoint.amazonaws.com
+          - https://polly.amazonaws.com
+          - https://quicksight.amazonaws.com
+          - https://rekognition.amazonaws.com
+          - https://email.amazonaws.com
+          - https://securityhub.amazonaws.com
+          - https://ssm.amazonaws.com
+          - https://textract.amazonaws.com
+          - https://ingest.timestream.amazonaws.com
+          - https://transcribe.amazonaws.com
+          - https://translate.amazonaws.com
+          - https://wafv2.amazonaws.com
+          - https://xray.amazonaws.com
+          - https://geo.amazonaws.com
+          - https://amplify.amazonaws.com
+          - https://storagegateway.amazonaws.com
+          - https://datasync.amazonaws.com
+          - https://glacier.amazonaws.com
+          - https://shield.amazonaws.com
+          - https://api.detective.amazonaws.com
+        unit: 1000
+        price: TBD
+        userMultiplied: false
+    elements:
+      - name: All Production Endpoints
+      - name: Email Support
+      - name: SLA Targets
+      - name: Webhook Subscriptions
+      - name: Amazon EC2 API
+      - name: Amazon S3 API
+      - name: Amazon Lambda API
+      - name: Amazon RDS API
+      - name: Amazon DynamoDB API
+      - name: Amazon API Gateway API
+      - name: Amazon SQS API
+      - name: Amazon SNS API
+      - name: AWS CloudFormation API
+      - name: AWS IAM API
+      - name: Amazon ECS API
+      - name: Amazon EKS API
+      - name: Amazon CloudWatch API
+      - name: Amazon Kinesis API
+      - name: Amazon CloudFront API
+      - name: Amazon Route 53 API
+      - name: Amazon Cognito API
+      - name: AWS Step Functions API
+      - name: Amazon SageMaker API
+      - name: Amazon Bedrock API
+      - name: Amazon EventBridge API
+      - name: Elastic Load Balancing API
+      - name: Amazon VPC API
+      - name: AWS Secrets Manager API
+      - name: Amazon Athena API
+      - name: Amazon Aurora API
+      - name: Amazon AppFlow API
+      - name: AWS AppSync API
+      - name: AWS App Runner API
+      - name: AWS Batch API
+      - name: AWS Backup API
+      - name: AWS Certificate Manager API
+      - name: AWS CloudTrail API
+      - name: Amazon CloudSearch API
+      - name: AWS CodeBuild API
+      - name: AWS CodeDeploy API
+      - name: AWS CodePipeline API
+      - name: Amazon Comprehend API
+      - name: AWS Config API
+      - name: Amazon Connect API
+      - name: AWS Database Migration Service API
+      - name: AWS Direct Connect API
+      - name: Amazon DocumentDB API
+      - name: Amazon ECR API
+      - name: Amazon EBS API
+      - name: Amazon EFS API
+      - name: Amazon ElastiCache API
+      - name: AWS Elastic Beanstalk API
+      - name: Amazon EMR API
+      - name: AWS Fargate API
+      - name: Amazon FSx API
+      - name: AWS Global Accelerator API
+      - name: AWS Glue API
+      - name: Amazon GuardDuty API
+      - name: Amazon Inspector API
+      - name: AWS IoT Core API
+      - name: Amazon Kendra API
+      - name: Amazon Keyspaces API
+      - name: AWS KMS API
+      - name: AWS Lake Formation API
+      - name: Amazon Lex API
+      - name: Amazon Lightsail API
+      - name: Amazon Macie API
+      - name: Amazon MemoryDB API
+      - name: Amazon MQ API
+      - name: Amazon MSK API
+      - name: Amazon OpenSearch Service API
+      - name: AWS Organizations API
+      - name: Amazon Personalize API
+      - name: Amazon Pinpoint API
+      - name: Amazon Polly API
+      - name: Amazon QuickSight API
+      - name: Amazon Rekognition API
+      - name: Amazon SES API
+      - name: AWS Security Hub API
+      - name: AWS Systems Manager API
+      - name: Amazon Textract API
+      - name: Amazon Timestream API
+      - name: Amazon Transcribe API
+      - name: Amazon Translate API
+      - name: AWS Transit Gateway API
+      - name: AWS WAF API
+      - name: AWS X-Ray API
+      - name: Amazon Location Service API
+      - name: AWS Amplify API
+      - name: AWS Storage Gateway API
+      - name: AWS DataSync API
+      - name: Amazon S3 Glacier API
+      - name: AWS Shield API
+      - name: Amazon Detective API
+  - id: amazon-web-services-aws-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom-negotiated tier for Amazon Web Services (AWS). Includes dedicated capacity, contractual
+      SLAs, security review, data residency options, and named technical account management.
+    entries:
+      - label: API Requests
+        description: Negotiated request volume; -1 indicates uncapped subject to fair use
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: configurable
+        domains:
+          - https://ec2.amazonaws.com
+          - https://s3.amazonaws.com
+          - https://lambda.amazonaws.com
+          - https://rds.amazonaws.com
+          - https://dynamodb.amazonaws.com
+          - https://apigateway.amazonaws.com
+          - https://sqs.amazonaws.com
+          - https://sns.amazonaws.com
+          - https://cloudformation.amazonaws.com
+          - https://iam.amazonaws.com
+          - https://ecs.amazonaws.com
+          - https://eks.amazonaws.com
+          - https://monitoring.amazonaws.com
+          - https://kinesis.amazonaws.com
+          - https://cloudfront.amazonaws.com
+          - https://route53.amazonaws.com
+          - https://cognito-idp.amazonaws.com
+          - https://states.amazonaws.com
+          - https://api.sagemaker.amazonaws.com
+          - https://bedrock.amazonaws.com
+          - https://events.amazonaws.com
+          - https://elasticloadbalancing.amazonaws.com
+          - https://secretsmanager.amazonaws.com
+          - https://athena.amazonaws.com
+          - https://appflow.amazonaws.com
+          - https://appsync.amazonaws.com
+          - https://apprunner.amazonaws.com
+          - https://batch.amazonaws.com
+          - https://backup.amazonaws.com
+          - https://acm.amazonaws.com
+          - https://cloudtrail.amazonaws.com
+          - https://cloudsearch.amazonaws.com
+          - https://codebuild.amazonaws.com
+          - https://codedeploy.amazonaws.com
+          - https://codepipeline.amazonaws.com
+          - https://comprehend.amazonaws.com
+          - https://config.amazonaws.com
+          - https://connect.amazonaws.com
+          - https://dms.amazonaws.com
+          - https://directconnect.amazonaws.com
+          - https://api.ecr.amazonaws.com
+          - https://elasticfilesystem.amazonaws.com
+          - https://elasticache.amazonaws.com
+          - https://elasticbeanstalk.amazonaws.com
+          - https://elasticmapreduce.amazonaws.com
+          - https://fsx.amazonaws.com
+          - https://globalaccelerator.amazonaws.com
+          - https://glue.amazonaws.com
+          - https://guardduty.amazonaws.com
+          - https://inspector2.amazonaws.com
+          - https://iot.amazonaws.com
+          - https://kendra.amazonaws.com
+          - https://cassandra.amazonaws.com
+          - https://kms.amazonaws.com
+          - https://lakeformation.amazonaws.com
+          - https://models-v2-lex.amazonaws.com
+          - https://lightsail.amazonaws.com
+          - https://macie2.amazonaws.com
+          - https://memory-db.amazonaws.com
+          - https://mq.amazonaws.com
+          - https://kafka.amazonaws.com
+          - https://es.amazonaws.com
+          - https://organizations.amazonaws.com
+          - https://personalize.amazonaws.com
+          - https://pinpoint.amazonaws.com
+          - https://polly.amazonaws.com
+          - https://quicksight.amazonaws.com
+          - https://rekognition.amazonaws.com
+          - https://email.amazonaws.com
+          - https://securityhub.amazonaws.com
+          - https://ssm.amazonaws.com
+          - https://textract.amazonaws.com
+          - https://ingest.timestream.amazonaws.com
+          - https://transcribe.amazonaws.com
+          - https://translate.amazonaws.com
+          - https://wafv2.amazonaws.com
+          - https://xray.amazonaws.com
+          - https://geo.amazonaws.com
+          - https://amplify.amazonaws.com
+          - https://storagegateway.amazonaws.com
+          - https://datasync.amazonaws.com
+          - https://glacier.amazonaws.com
+          - https://shield.amazonaws.com
+          - https://api.detective.amazonaws.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Rate Limit
+        description: Negotiated burst and steady-state rate
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 1000
+        timeFrame: minute
+        geo: configurable
+        domains:
+          - https://ec2.amazonaws.com
+          - https://s3.amazonaws.com
+          - https://lambda.amazonaws.com
+          - https://rds.amazonaws.com
+          - https://dynamodb.amazonaws.com
+          - https://apigateway.amazonaws.com
+          - https://sqs.amazonaws.com
+          - https://sns.amazonaws.com
+          - https://cloudformation.amazonaws.com
+          - https://iam.amazonaws.com
+          - https://ecs.amazonaws.com
+          - https://eks.amazonaws.com
+          - https://monitoring.amazonaws.com
+          - https://kinesis.amazonaws.com
+          - https://cloudfront.amazonaws.com
+          - https://route53.amazonaws.com
+          - https://cognito-idp.amazonaws.com
+          - https://states.amazonaws.com
+          - https://api.sagemaker.amazonaws.com
+          - https://bedrock.amazonaws.com
+          - https://events.amazonaws.com
+          - https://elasticloadbalancing.amazonaws.com
+          - https://secretsmanager.amazonaws.com
+          - https://athena.amazonaws.com
+          - https://appflow.amazonaws.com
+          - https://appsync.amazonaws.com
+          - https://apprunner.amazonaws.com
+          - https://batch.amazonaws.com
+          - https://backup.amazonaws.com
+          - https://acm.amazonaws.com
+          - https://cloudtrail.amazonaws.com
+          - https://cloudsearch.amazonaws.com
+          - https://codebuild.amazonaws.com
+          - https://codedeploy.amazonaws.com
+          - https://codepipeline.amazonaws.com
+          - https://comprehend.amazonaws.com
+          - https://config.amazonaws.com
+          - https://connect.amazonaws.com
+          - https://dms.amazonaws.com
+          - https://directconnect.amazonaws.com
+          - https://api.ecr.amazonaws.com
+          - https://elasticfilesystem.amazonaws.com
+          - https://elasticache.amazonaws.com
+          - https://elasticbeanstalk.amazonaws.com
+          - https://elasticmapreduce.amazonaws.com
+          - https://fsx.amazonaws.com
+          - https://globalaccelerator.amazonaws.com
+          - https://glue.amazonaws.com
+          - https://guardduty.amazonaws.com
+          - https://inspector2.amazonaws.com
+          - https://iot.amazonaws.com
+          - https://kendra.amazonaws.com
+          - https://cassandra.amazonaws.com
+          - https://kms.amazonaws.com
+          - https://lakeformation.amazonaws.com
+          - https://models-v2-lex.amazonaws.com
+          - https://lightsail.amazonaws.com
+          - https://macie2.amazonaws.com
+          - https://memory-db.amazonaws.com
+          - https://mq.amazonaws.com
+          - https://kafka.amazonaws.com
+          - https://es.amazonaws.com
+          - https://organizations.amazonaws.com
+          - https://personalize.amazonaws.com
+          - https://pinpoint.amazonaws.com
+          - https://polly.amazonaws.com
+          - https://quicksight.amazonaws.com
+          - https://rekognition.amazonaws.com
+          - https://email.amazonaws.com
+          - https://securityhub.amazonaws.com
+          - https://ssm.amazonaws.com
+          - https://textract.amazonaws.com
+          - https://ingest.timestream.amazonaws.com
+          - https://transcribe.amazonaws.com
+          - https://translate.amazonaws.com
+          - https://wafv2.amazonaws.com
+          - https://xray.amazonaws.com
+          - https://geo.amazonaws.com
+          - https://amplify.amazonaws.com
+          - https://storagegateway.amazonaws.com
+          - https://datasync.amazonaws.com
+          - https://glacier.amazonaws.com
+          - https://shield.amazonaws.com
+          - https://api.detective.amazonaws.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Unlimited / Negotiated Volume
+      - name: 24/7 Dedicated Support
+      - name: Contractual SLA
+      - name: Security & Compliance Review
+      - name: Dedicated Account Manager
+      - name: Custom Data Residency
+      - name: Amazon EC2 API
+      - name: Amazon S3 API
+      - name: Amazon Lambda API
+      - name: Amazon RDS API
+      - name: Amazon DynamoDB API
+      - name: Amazon API Gateway API
+      - name: Amazon SQS API
+      - name: Amazon SNS API
+      - name: AWS CloudFormation API
+      - name: AWS IAM API
+      - name: Amazon ECS API
+      - name: Amazon EKS API
+      - name: Amazon CloudWatch API
+      - name: Amazon Kinesis API
+      - name: Amazon CloudFront API
+      - name: Amazon Route 53 API
+      - name: Amazon Cognito API
+      - name: AWS Step Functions API
+      - name: Amazon SageMaker API
+      - name: Amazon Bedrock API
+      - name: Amazon EventBridge API
+      - name: Elastic Load Balancing API
+      - name: Amazon VPC API
+      - name: AWS Secrets Manager API
+      - name: Amazon Athena API
+      - name: Amazon Aurora API
+      - name: Amazon AppFlow API
+      - name: AWS AppSync API
+      - name: AWS App Runner API
+      - name: AWS Batch API
+      - name: AWS Backup API
+      - name: AWS Certificate Manager API
+      - name: AWS CloudTrail API
+      - name: Amazon CloudSearch API
+      - name: AWS CodeBuild API
+      - name: AWS CodeDeploy API
+      - name: AWS CodePipeline API
+      - name: Amazon Comprehend API
+      - name: AWS Config API
+      - name: Amazon Connect API
+      - name: AWS Database Migration Service API
+      - name: AWS Direct Connect API
+      - name: Amazon DocumentDB API
+      - name: Amazon ECR API
+      - name: Amazon EBS API
+      - name: Amazon EFS API
+      - name: Amazon ElastiCache API
+      - name: AWS Elastic Beanstalk API
+      - name: Amazon EMR API
+      - name: AWS Fargate API
+      - name: Amazon FSx API
+      - name: AWS Global Accelerator API
+      - name: AWS Glue API
+      - name: Amazon GuardDuty API
+      - name: Amazon Inspector API
+      - name: AWS IoT Core API
+      - name: Amazon Kendra API
+      - name: Amazon Keyspaces API
+      - name: AWS KMS API
+      - name: AWS Lake Formation API
+      - name: Amazon Lex API
+      - name: Amazon Lightsail API
+      - name: Amazon Macie API
+      - name: Amazon MemoryDB API
+      - name: Amazon MQ API
+      - name: Amazon MSK API
+      - name: Amazon OpenSearch Service API
+      - name: AWS Organizations API
+      - name: Amazon Personalize API
+      - name: Amazon Pinpoint API
+      - name: Amazon Polly API
+      - name: Amazon QuickSight API
+      - name: Amazon Rekognition API
+      - name: Amazon SES API
+      - name: AWS Security Hub API
+      - name: AWS Systems Manager API
+      - name: Amazon Textract API
+      - name: Amazon Timestream API
+      - name: Amazon Transcribe API
+      - name: Amazon Translate API
+      - name: AWS Transit Gateway API
+      - name: AWS WAF API
+      - name: AWS X-Ray API
+      - name: Amazon Location Service API
+      - name: AWS Amplify API
+      - name: AWS Storage Gateway API
+      - name: AWS DataSync API
+      - name: Amazon S3 Glacier API
+      - name: AWS Shield API
+      - name: Amazon Detective API
+maintainers:
+  - name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
