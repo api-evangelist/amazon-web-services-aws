@@ -1,5 +1,7 @@
 name: Amazon Web Services (AWS)
-description: Amazon Web Services offers reliable, scalable, and inexpensive cloud computing services. Free to join, pay only for what you use.
+description: >-
+  Amazon Web Services offers reliable, scalable, and inexpensive cloud computing services. Free to join, pay only for
+  what you use.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 created: '2024'
 modified: '2026-04-19'
@@ -24,9 +26,7 @@ tags:
 url: https://aws.amazon.com/
 apis:
 - name: Amazon EC2 API
-  description: >-
-    Amazon Elastic Compute Cloud (EC2) provides scalable computing capacity in the
-    AWS cloud.
+  description: Amazon Elastic Compute Cloud (EC2) provides scalable computing capacity in the AWS cloud.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/ec2/
   baseURL: https://ec2.amazonaws.com
@@ -50,9 +50,7 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-ec2
 - name: Amazon S3 API
-  description: >-
-    Amazon Simple Storage Service is storage for the Internet designed to make web-scale
-    computing easier.
+  description: Amazon Simple Storage Service is storage for the Internet designed to make web-scale computing easier.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/s3/
   baseURL: https://s3.amazonaws.com
@@ -76,8 +74,7 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-s3
 - name: Amazon Lambda API
-  description: >-
-    AWS Lambda lets you run code without provisioning or managing servers.
+  description: AWS Lambda lets you run code without provisioning or managing servers.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/lambda/
   baseURL: https://lambda.amazonaws.com
@@ -101,9 +98,7 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-lambda
 - name: Amazon RDS API
-  description: >-
-    Amazon Relational Database Service makes it easy to set up, operate, and scale
-    a relational database in the cloud.
+  description: Amazon Relational Database Service makes it easy to set up, operate, and scale a relational database in the cloud.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/rds/
   baseURL: https://rds.amazonaws.com
@@ -129,8 +124,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-rds
 - name: Amazon DynamoDB API
   description: >-
-    Amazon DynamoDB is a fast and flexible NoSQL database service for applications
-    that need consistent, single-digit millisecond latency.
+    Amazon DynamoDB is a fast and flexible NoSQL database service for applications that need consistent, single-digit
+    millisecond latency.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/dynamodb/
   baseURL: https://dynamodb.amazonaws.com
@@ -155,8 +150,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-dynamodb
 - name: Amazon API Gateway API
   description: >-
-    Amazon API Gateway is a fully managed service that makes it easy for developers
-    to create, publish, maintain, monitor, and secure APIs at any scale.
+    Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain,
+    monitor, and secure APIs at any scale.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/api-gateway/
   baseURL: https://apigateway.amazonaws.com
@@ -182,8 +177,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-api-gateway
 - name: Amazon SQS API
   description: >-
-    Amazon Simple Queue Service is a fully managed message queuing service for decoupling
-    and scaling microservices, distributed systems, and serverless applications.
+    Amazon Simple Queue Service is a fully managed message queuing service for decoupling and scaling microservices,
+    distributed systems, and serverless applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/sqs/
   baseURL: https://sqs.amazonaws.com
@@ -208,8 +203,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-sqs
 - name: Amazon SNS API
   description: >-
-    Amazon Simple Notification Service is a fully managed pub/sub messaging service
-    for application-to-application and application-to-person communication.
+    Amazon Simple Notification Service is a fully managed pub/sub messaging service for application-to-application and
+    application-to-person communication.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/sns/
   baseURL: https://sns.amazonaws.com
@@ -234,8 +229,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-sns
 - name: AWS CloudFormation API
   description: >-
-    AWS CloudFormation provides infrastructure as code to model, provision, and
-    manage AWS and third-party resources by treating infrastructure as code.
+    AWS CloudFormation provides infrastructure as code to model, provision, and manage AWS and third-party resources
+    by treating infrastructure as code.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/cloudformation/
   baseURL: https://cloudformation.amazonaws.com
@@ -260,8 +255,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-cloudformation
 - name: AWS IAM API
   description: >-
-    AWS Identity and Access Management enables you to securely manage identities
-    and access to AWS services and resources.
+    AWS Identity and Access Management enables you to securely manage identities and access to AWS services and
+    resources.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/iam/
   baseURL: https://iam.amazonaws.com
@@ -285,8 +280,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-iam
 - name: Amazon ECS API
   description: >-
-    Amazon Elastic Container Service is a fully managed container orchestration
-    service that helps you deploy, manage, and scale containerized applications.
+    Amazon Elastic Container Service is a fully managed container orchestration service that helps you deploy, manage,
+    and scale containerized applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/ecs/
   baseURL: https://ecs.amazonaws.com
@@ -311,8 +306,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-ecs
 - name: Amazon EKS API
   description: >-
-    Amazon Elastic Kubernetes Service is a managed Kubernetes service that makes
-    it easy to run Kubernetes on AWS and on-premises.
+    Amazon Elastic Kubernetes Service is a managed Kubernetes service that makes it easy to run Kubernetes on AWS and
+    on-premises.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/eks/
   baseURL: https://eks.amazonaws.com
@@ -337,8 +332,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-eks
 - name: Amazon CloudWatch API
   description: >-
-    Amazon CloudWatch is an observability service that provides monitoring and operational
-    data in the form of logs, metrics, and events for AWS resources and applications.
+    Amazon CloudWatch is an observability service that provides monitoring and operational data in the form of logs,
+    metrics, and events for AWS resources and applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/cloudwatch/
   baseURL: https://monitoring.amazonaws.com
@@ -364,8 +359,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-cloudwatch
 - name: Amazon Kinesis API
   description: >-
-    Amazon Kinesis makes it easy to collect, process, and analyze real-time streaming
-    data so you can get timely insights and react quickly to new information.
+    Amazon Kinesis makes it easy to collect, process, and analyze real-time streaming data so you can get timely
+    insights and react quickly to new information.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/kinesis/
   baseURL: https://kinesis.amazonaws.com
@@ -391,9 +386,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-kinesis
 - name: Amazon CloudFront API
   description: >-
-    Amazon CloudFront is a fast content delivery network service that securely delivers
-    data, videos, applications, and APIs to customers globally with low latency
-    and high transfer speeds.
+    Amazon CloudFront is a fast content delivery network service that securely delivers data, videos, applications,
+    and APIs to customers globally with low latency and high transfer speeds.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/cloudfront/
   baseURL: https://cloudfront.amazonaws.com
@@ -419,8 +413,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-cloudfront
 - name: Amazon Route 53 API
   description: >-
-    Amazon Route 53 is a highly available and scalable Domain Name System web service
-    for reliable and cost-effective domain routing.
+    Amazon Route 53 is a highly available and scalable Domain Name System web service for reliable and cost-effective
+    domain routing.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/route53/
   baseURL: https://route53.amazonaws.com
@@ -446,8 +440,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-route-53
 - name: Amazon Cognito API
   description: >-
-    Amazon Cognito provides customer identity and access management enabling secure
-    sign-in and access control for web and mobile applications.
+    Amazon Cognito provides customer identity and access management enabling secure sign-in and access control for web
+    and mobile applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/cognito/
   baseURL: https://cognito-idp.amazonaws.com
@@ -473,8 +467,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-cognito
 - name: AWS Step Functions API
   description: >-
-    AWS Step Functions is a serverless orchestration service that lets you build
-    visual workflows to coordinate distributed applications and microservices.
+    AWS Step Functions is a serverless orchestration service that lets you build visual workflows to coordinate
+    distributed applications and microservices.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/step-functions/
   baseURL: https://states.amazonaws.com
@@ -500,8 +494,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-step-functions
 - name: Amazon SageMaker API
   description: >-
-    Amazon SageMaker is a fully managed service that provides the ability to build,
-    train, and deploy machine learning models at scale.
+    Amazon SageMaker is a fully managed service that provides the ability to build, train, and deploy machine learning
+    models at scale.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/sagemaker/
   baseURL: https://api.sagemaker.amazonaws.com
@@ -527,8 +521,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-sagemaker
 - name: Amazon Bedrock API
   description: >-
-    Amazon Bedrock is a fully managed service that provides access to foundation
-    models from leading AI companies for building generative AI applications.
+    Amazon Bedrock is a fully managed service that provides access to foundation models from leading AI companies for
+    building generative AI applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/bedrock/
   baseURL: https://bedrock.amazonaws.com
@@ -552,9 +546,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-bedrock
 - name: Amazon EventBridge API
   description: >-
-    Amazon EventBridge is a serverless event bus service that makes it easy to connect
-    applications using data from your own applications, SaaS applications, and AWS
-    services.
+    Amazon EventBridge is a serverless event bus service that makes it easy to connect applications using data from
+    your own applications, SaaS applications, and AWS services.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/eventbridge/
   baseURL: https://events.amazonaws.com
@@ -580,8 +573,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-eventbridge
 - name: Elastic Load Balancing API
   description: >-
-    Elastic Load Balancing automatically distributes incoming application traffic
-    across multiple targets and virtual appliances in one or more Availability Zones.
+    Elastic Load Balancing automatically distributes incoming application traffic across multiple targets and virtual
+    appliances in one or more Availability Zones.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/elasticloadbalancing/
   baseURL: https://elasticloadbalancing.amazonaws.com
@@ -607,8 +600,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-elastic-load-balancing
 - name: Amazon VPC API
   description: >-
-    Amazon Virtual Private Cloud lets you define and launch AWS resources in a logically
-    isolated virtual network with full control over your networking environment.
+    Amazon Virtual Private Cloud lets you define and launch AWS resources in a logically isolated virtual network with
+    full control over your networking environment.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/vpc/
   baseURL: https://ec2.amazonaws.com
@@ -632,8 +625,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-vpc
 - name: AWS Secrets Manager API
   description: >-
-    AWS Secrets Manager helps you centrally manage the lifecycle of secrets including
-    database credentials, API keys, and other secrets used throughout your applications.
+    AWS Secrets Manager helps you centrally manage the lifecycle of secrets including database credentials, API keys,
+    and other secrets used throughout your applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/secrets-manager/
   baseURL: https://secretsmanager.amazonaws.com
@@ -659,8 +652,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-secrets-manager
 - name: Amazon Athena API
   description: >-
-    Amazon Athena is an interactive query service that makes it easy to analyze
-    data directly in Amazon S3 using standard SQL.
+    Amazon Athena is an interactive query service that makes it easy to analyze data directly in Amazon S3 using
+    standard SQL.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/athena/
   baseURL: https://athena.amazonaws.com
@@ -686,10 +679,9 @@ apis:
     url: https://github.com/api-evangelist/amazon-athena
 - name: Amazon Aurora API
   description: >-
-    Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built
-    for the cloud that combines the performance and availability of traditional
-    enterprise databases with the simplicity and cost-effectiveness of open source
-    databases.
+    Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud that combines the
+    performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness of
+    open source databases.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/rds/aurora/
   baseURL: https://rds.amazonaws.com
@@ -713,8 +705,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-aurora
 - name: Amazon AppFlow API
   description: >-
-    Amazon AppFlow is a fully managed integration service that enables you to securely
-    transfer data between SaaS applications and AWS services.
+    Amazon AppFlow is a fully managed integration service that enables you to securely transfer data between SaaS
+    applications and AWS services.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/appflow/
   baseURL: https://appflow.amazonaws.com
@@ -740,8 +732,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-appflow
 - name: AWS AppSync API
   description: >-
-    AWS AppSync creates serverless GraphQL and Pub/Sub APIs that simplify application
-    development through a single endpoint for data querying, updating, and publishing.
+    AWS AppSync creates serverless GraphQL and Pub/Sub APIs that simplify application development through a single
+    endpoint for data querying, updating, and publishing.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/appsync/
   baseURL: https://appsync.amazonaws.com
@@ -764,11 +756,12 @@ apis:
     url: https://aws.amazon.com/appsync/faqs/
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-appsync
+  - url: graphql/amazon-web-services-aws-graphql.md
+    type: GraphQL
 - name: AWS App Runner API
   description: >-
-    AWS App Runner is a fully managed container application service that makes it
-    easy to quickly deploy from source code or a container image directly to a scalable
-    and secure web application.
+    AWS App Runner is a fully managed container application service that makes it easy to quickly deploy from source
+    code or a container image directly to a scalable and secure web application.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/apprunner/
   baseURL: https://apprunner.amazonaws.com
@@ -793,9 +786,7 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-app-runner
 - name: AWS Batch API
-  description: >-
-    AWS Batch enables developers to easily and efficiently run hundreds of thousands
-    of batch computing jobs on AWS.
+  description: AWS Batch enables developers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/batch/
   baseURL: https://batch.amazonaws.com
@@ -821,8 +812,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-batch
 - name: AWS Backup API
   description: >-
-    AWS Backup is a fully managed backup service that makes it easy to centralize
-    and automate the backup of data across AWS services.
+    AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backup of data
+    across AWS services.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/backup/
   baseURL: https://backup.amazonaws.com
@@ -848,9 +839,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-backup
 - name: AWS Certificate Manager API
   description: >-
-    AWS Certificate Manager lets you easily provision, manage, and deploy public
-    and private SSL/TLS certificates for use with AWS services and your internal
-    connected resources.
+    AWS Certificate Manager lets you easily provision, manage, and deploy public and private SSL/TLS certificates for
+    use with AWS services and your internal connected resources.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/certificate-manager/
   baseURL: https://acm.amazonaws.com
@@ -876,8 +866,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-certificate-manager
 - name: AWS CloudTrail API
   description: >-
-    AWS CloudTrail is a service that enables governance, compliance, operational
-    auditing, and risk auditing of your AWS account by logging API calls.
+    AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your
+    AWS account by logging API calls.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/cloudtrail/
   baseURL: https://cloudtrail.amazonaws.com
@@ -903,9 +893,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-cloudtrail
 - name: Amazon CloudSearch API
   description: >-
-    Amazon CloudSearch is a managed service in the AWS Cloud that makes it simple
-    and cost-effective to set up, manage, and scale a search solution for your website
-    or application.
+    Amazon CloudSearch is a managed service in the AWS Cloud that makes it simple and cost-effective to set up,
+    manage, and scale a search solution for your website or application.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/cloudsearch/
   baseURL: https://cloudsearch.amazonaws.com
@@ -930,8 +919,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-cloudsearch
 - name: AWS CodeBuild API
   description: >-
-    AWS CodeBuild is a fully managed continuous integration service that compiles
-    source code, runs tests, and produces software packages that are ready to deploy.
+    AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and
+    produces software packages that are ready to deploy.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/codebuild/
   baseURL: https://codebuild.amazonaws.com
@@ -957,9 +946,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-codebuild
 - name: AWS CodeDeploy API
   description: >-
-    AWS CodeDeploy is a fully managed deployment service that automates software
-    deployments to a variety of compute services such as EC2, Fargate, Lambda, and
-    on-premises servers.
+    AWS CodeDeploy is a fully managed deployment service that automates software deployments to a variety of compute
+    services such as EC2, Fargate, Lambda, and on-premises servers.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/codedeploy/
   baseURL: https://codedeploy.amazonaws.com
@@ -985,9 +973,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-codedeploy
 - name: AWS CodePipeline API
   description: >-
-    AWS CodePipeline is a fully managed continuous delivery service that helps you
-    automate your release pipelines for fast and reliable application and infrastructure
-    updates.
+    AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for
+    fast and reliable application and infrastructure updates.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/codepipeline/
   baseURL: https://codepipeline.amazonaws.com
@@ -1013,8 +1000,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-codepipeline
 - name: Amazon Comprehend API
   description: >-
-    Amazon Comprehend is a natural language processing service that uses machine
-    learning to find insights and relationships in text.
+    Amazon Comprehend is a natural language processing service that uses machine learning to find insights and
+    relationships in text.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/comprehend/
   baseURL: https://comprehend.amazonaws.com
@@ -1040,8 +1027,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-comprehend
 - name: AWS Config API
   description: >-
-    AWS Config is a service that enables you to assess, audit, and evaluate the
-    configurations of your AWS resources for compliance and security.
+    AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources
+    for compliance and security.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/config/
   baseURL: https://config.amazonaws.com
@@ -1067,8 +1054,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-config
 - name: Amazon Connect API
   description: >-
-    Amazon Connect is a cloud-based contact center service that makes it easy to
-    deliver customer service at any scale with omnichannel communications.
+    Amazon Connect is a cloud-based contact center service that makes it easy to deliver customer service at any scale
+    with omnichannel communications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/connect/
   baseURL: https://connect.amazonaws.com
@@ -1094,8 +1081,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-connect
 - name: AWS Database Migration Service API
   description: >-
-    AWS Database Migration Service helps you migrate databases to AWS quickly and
-    securely while the source database remains fully operational during the migration.
+    AWS Database Migration Service helps you migrate databases to AWS quickly and securely while the source database
+    remains fully operational during the migration.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/dms/
   baseURL: https://dms.amazonaws.com
@@ -1121,8 +1108,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-dms
 - name: AWS Direct Connect API
   description: >-
-    AWS Direct Connect is a cloud service that links your network directly to AWS
-    to deliver consistent, low-latency performance.
+    AWS Direct Connect is a cloud service that links your network directly to AWS to deliver consistent, low-latency
+    performance.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/directconnect/
   baseURL: https://directconnect.amazonaws.com
@@ -1147,8 +1134,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-direct-connect
 - name: Amazon DocumentDB API
   description: >-
-    Amazon DocumentDB is a fast, scalable, highly available, and fully managed document
-    database service that supports MongoDB workloads.
+    Amazon DocumentDB is a fast, scalable, highly available, and fully managed document database service that supports
+    MongoDB workloads.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/documentdb/
   baseURL: https://rds.amazonaws.com
@@ -1174,9 +1161,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-documentdb
 - name: Amazon ECR API
   description: >-
-    Amazon Elastic Container Registry is a fully managed container registry offering
-    high-performance hosting so you can reliably deploy application images and artifacts
-    anywhere.
+    Amazon Elastic Container Registry is a fully managed container registry offering high-performance hosting so you
+    can reliably deploy application images and artifacts anywhere.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/ecr/
   baseURL: https://api.ecr.amazonaws.com
@@ -1202,8 +1188,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-ecr
 - name: Amazon EBS API
   description: >-
-    Amazon Elastic Block Store provides persistent block storage volumes for use
-    with Amazon EC2 instances in the AWS Cloud.
+    Amazon Elastic Block Store provides persistent block storage volumes for use with Amazon EC2 instances in the AWS
+    Cloud.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/ebs/
   baseURL: https://ec2.amazonaws.com
@@ -1227,8 +1213,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-ebs
 - name: Amazon EFS API
   description: >-
-    Amazon Elastic File System provides a simple, serverless, elastic file system
-    that lets you share file data without provisioning or managing storage.
+    Amazon Elastic File System provides a simple, serverless, elastic file system that lets you share file data
+    without provisioning or managing storage.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/efs/
   baseURL: https://elasticfilesystem.amazonaws.com
@@ -1254,8 +1240,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-efs
 - name: Amazon ElastiCache API
   description: >-
-    Amazon ElastiCache is a fully managed in-memory caching service supporting Redis
-    and Memcached for real-time applications requiring sub-millisecond latency.
+    Amazon ElastiCache is a fully managed in-memory caching service supporting Redis and Memcached for real-time
+    applications requiring sub-millisecond latency.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/elasticache/
   baseURL: https://elasticache.amazonaws.com
@@ -1281,9 +1267,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-elasticache
 - name: AWS Elastic Beanstalk API
   description: >-
-    AWS Elastic Beanstalk is a service for deploying and scaling web applications
-    and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and
-    Docker.
+    AWS Elastic Beanstalk is a service for deploying and scaling web applications and services developed with Java,
+    .NET, PHP, Node.js, Python, Ruby, Go, and Docker.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/elasticbeanstalk/
   baseURL: https://elasticbeanstalk.amazonaws.com
@@ -1309,8 +1294,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-elastic-beanstalk
 - name: Amazon EMR API
   description: >-
-    Amazon EMR is a cloud big data platform for processing vast amounts of data
-    using open source tools such as Apache Spark, Hive, HBase, Flink, and Presto.
+    Amazon EMR is a cloud big data platform for processing vast amounts of data using open source tools such as Apache
+    Spark, Hive, HBase, Flink, and Presto.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/emr/
   baseURL: https://elasticmapreduce.amazonaws.com
@@ -1336,8 +1321,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-emr
 - name: AWS Fargate API
   description: >-
-    AWS Fargate is a serverless compute engine for containers that works with both
-    Amazon ECS and Amazon EKS removing the need to manage servers.
+    AWS Fargate is a serverless compute engine for containers that works with both Amazon ECS and Amazon EKS removing
+    the need to manage servers.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/fargate/
   baseURL: https://ecs.amazonaws.com
@@ -1361,9 +1346,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-fargate
 - name: Amazon FSx API
   description: >-
-    Amazon FSx provides fully managed third-party file systems with the native compatibility
-    and feature sets for workloads including Windows, Lustre, NetApp ONTAP, and
-    OpenZFS.
+    Amazon FSx provides fully managed third-party file systems with the native compatibility and feature sets for
+    workloads including Windows, Lustre, NetApp ONTAP, and OpenZFS.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/fsx/
   baseURL: https://fsx.amazonaws.com
@@ -1389,9 +1373,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-fsx
 - name: AWS Global Accelerator API
   description: >-
-    AWS Global Accelerator is a networking service that improves the availability
-    and performance of your applications with users globally using the AWS global
-    network.
+    AWS Global Accelerator is a networking service that improves the availability and performance of your applications
+    with users globally using the AWS global network.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/global-accelerator/
   baseURL: https://globalaccelerator.amazonaws.com
@@ -1417,8 +1400,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-global-accelerator
 - name: AWS Glue API
   description: >-
-    AWS Glue is a serverless data integration service that makes it easy to discover,
-    prepare, and combine data for analytics, machine learning, and application development.
+    AWS Glue is a serverless data integration service that makes it easy to discover, prepare, and combine data for
+    analytics, machine learning, and application development.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/glue/
   baseURL: https://glue.amazonaws.com
@@ -1444,9 +1427,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-glue
 - name: Amazon GuardDuty API
   description: >-
-    Amazon GuardDuty is a threat detection service that continuously monitors for
-    malicious activity and unauthorized behavior to protect your AWS accounts and
-    workloads.
+    Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized
+    behavior to protect your AWS accounts and workloads.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/guardduty/
   baseURL: https://guardduty.amazonaws.com
@@ -1472,8 +1454,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-guardduty
 - name: Amazon Inspector API
   description: >-
-    Amazon Inspector is an automated vulnerability management service that continually
-    scans AWS workloads for software vulnerabilities and unintended network exposure.
+    Amazon Inspector is an automated vulnerability management service that continually scans AWS workloads for
+    software vulnerabilities and unintended network exposure.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/inspector/
   baseURL: https://inspector2.amazonaws.com
@@ -1499,8 +1481,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-inspector
 - name: AWS IoT Core API
   description: >-
-    AWS IoT Core lets connected devices easily and securely interact with cloud
-    applications and other devices using MQTT, HTTPS, and LoRaWAN protocols.
+    AWS IoT Core lets connected devices easily and securely interact with cloud applications and other devices using
+    MQTT, HTTPS, and LoRaWAN protocols.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/iot-core/
   baseURL: https://iot.amazonaws.com
@@ -1526,8 +1508,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-iot-core
 - name: Amazon Kendra API
   description: >-
-    Amazon Kendra is an intelligent search service powered by machine learning that
-    enables you to search across different content repositories with built-in connectors.
+    Amazon Kendra is an intelligent search service powered by machine learning that enables you to search across
+    different content repositories with built-in connectors.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/kendra/
   baseURL: https://kendra.amazonaws.com
@@ -1553,8 +1535,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-kendra
 - name: Amazon Keyspaces API
   description: >-
-    Amazon Keyspaces is a scalable, highly available, and managed Apache Cassandra-compatible
-    database service for running Cassandra workloads in the cloud.
+    Amazon Keyspaces is a scalable, highly available, and managed Apache Cassandra-compatible database service for
+    running Cassandra workloads in the cloud.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/keyspaces/
   baseURL: https://cassandra.amazonaws.com
@@ -1578,8 +1560,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-keyspaces
 - name: AWS KMS API
   description: >-
-    AWS Key Management Service makes it easy for you to create and manage cryptographic
-    keys and control their use across a wide range of AWS services and in your applications.
+    AWS Key Management Service makes it easy for you to create and manage cryptographic keys and control their use
+    across a wide range of AWS services and in your applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/kms/
   baseURL: https://kms.amazonaws.com
@@ -1605,9 +1587,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-kms
 - name: AWS Lake Formation API
   description: >-
-    AWS Lake Formation is a service that makes it easy to set up a secure data lake
-    in days by simplifying and automating data ingestion, cataloging, transformation,
-    and security.
+    AWS Lake Formation is a service that makes it easy to set up a secure data lake in days by simplifying and
+    automating data ingestion, cataloging, transformation, and security.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/lake-formation/
   baseURL: https://lakeformation.amazonaws.com
@@ -1633,8 +1614,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-lakeformation
 - name: Amazon Lex API
   description: >-
-    Amazon Lex is a service for building conversational interfaces into any application
-    using voice and text, powered by the same technology as Amazon Alexa.
+    Amazon Lex is a service for building conversational interfaces into any application using voice and text, powered
+    by the same technology as Amazon Alexa.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/lex/
   baseURL: https://models-v2-lex.amazonaws.com
@@ -1660,8 +1641,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-lex
 - name: Amazon Lightsail API
   description: >-
-    Amazon Lightsail offers easy-to-use virtual private server instances, containers,
-    storage, databases, and more at a cost-effective monthly price.
+    Amazon Lightsail offers easy-to-use virtual private server instances, containers, storage, databases, and more at
+    a cost-effective monthly price.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/lightsail/
   baseURL: https://lightsail.amazonaws.com
@@ -1687,9 +1668,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-lightsail
 - name: Amazon Macie API
   description: >-
-    Amazon Macie is a data security service that discovers sensitive data using
-    machine learning and pattern matching and provides visibility into data security
-    risks.
+    Amazon Macie is a data security service that discovers sensitive data using machine learning and pattern matching
+    and provides visibility into data security risks.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/macie/
   baseURL: https://macie2.amazonaws.com
@@ -1715,8 +1695,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-macie
 - name: Amazon MemoryDB API
   description: >-
-    Amazon MemoryDB is a Redis-compatible, durable, in-memory database service that
-    delivers ultra-fast performance for modern applications.
+    Amazon MemoryDB is a Redis-compatible, durable, in-memory database service that delivers ultra-fast performance
+    for modern applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/memorydb/
   baseURL: https://memory-db.amazonaws.com
@@ -1742,8 +1722,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-memorydb
 - name: Amazon MQ API
   description: >-
-    Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ
-    that makes it easy to set up and operate message brokers in the cloud.
+    Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and
+    operate message brokers in the cloud.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/amazon-mq/
   baseURL: https://mq.amazonaws.com
@@ -1769,9 +1749,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-mq
 - name: Amazon MSK API
   description: >-
-    Amazon Managed Streaming for Apache Kafka is a fully managed service that makes
-    it easy to build and run applications that use Apache Kafka to process streaming
-    data.
+    Amazon Managed Streaming for Apache Kafka is a fully managed service that makes it easy to build and run
+    applications that use Apache Kafka to process streaming data.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/msk/
   baseURL: https://kafka.amazonaws.com
@@ -1797,8 +1776,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-msk
 - name: Amazon OpenSearch Service API
   description: >-
-    Amazon OpenSearch Service makes it easy to deploy, operate, and scale OpenSearch
-    clusters for log analytics, full-text search, application monitoring, and more.
+    Amazon OpenSearch Service makes it easy to deploy, operate, and scale OpenSearch clusters for log analytics,
+    full-text search, application monitoring, and more.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/opensearch-service/
   baseURL: https://es.amazonaws.com
@@ -1824,8 +1803,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-opensearch
 - name: AWS Organizations API
   description: >-
-    AWS Organizations helps you centrally manage and govern your environment as
-    you grow and scale your AWS resources across multiple accounts.
+    AWS Organizations helps you centrally manage and govern your environment as you grow and scale your AWS resources
+    across multiple accounts.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/organizations/
   baseURL: https://organizations.amazonaws.com
@@ -1849,8 +1828,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-organizations
 - name: Amazon Personalize API
   description: >-
-    Amazon Personalize enables developers to build applications with the same machine
-    learning technology used by Amazon.com for real-time personalized recommendations.
+    Amazon Personalize enables developers to build applications with the same machine learning technology used by
+    Amazon.com for real-time personalized recommendations.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/personalize/
   baseURL: https://personalize.amazonaws.com
@@ -1876,8 +1855,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-personalize
 - name: Amazon Pinpoint API
   description: >-
-    Amazon Pinpoint is a flexible and scalable outbound and inbound marketing communications
-    service for engaging customers across multiple channels.
+    Amazon Pinpoint is a flexible and scalable outbound and inbound marketing communications service for engaging
+    customers across multiple channels.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/pinpoint/
   baseURL: https://pinpoint.amazonaws.com
@@ -1903,9 +1882,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-pinpoint
 - name: Amazon Polly API
   description: >-
-    Amazon Polly is a service that turns text into lifelike speech, allowing you
-    to create applications that talk and build entirely new categories of speech-enabled
-    products.
+    Amazon Polly is a service that turns text into lifelike speech, allowing you to create applications that talk and
+    build entirely new categories of speech-enabled products.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/polly/
   baseURL: https://polly.amazonaws.com
@@ -1931,8 +1909,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-polly
 - name: Amazon QuickSight API
   description: >-
-    Amazon QuickSight is a fast, cloud-powered business intelligence service that
-    makes it easy to deliver insights and visualizations to everyone in your organization.
+    Amazon QuickSight is a fast, cloud-powered business intelligence service that makes it easy to deliver insights
+    and visualizations to everyone in your organization.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/quicksight/
   baseURL: https://quicksight.amazonaws.com
@@ -1958,8 +1936,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-q
 - name: Amazon Rekognition API
   description: >-
-    Amazon Rekognition offers pre-trained and customizable computer vision capabilities
-    to extract information and insights from your images and videos.
+    Amazon Rekognition offers pre-trained and customizable computer vision capabilities to extract information and
+    insights from your images and videos.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/rekognition/
   baseURL: https://rekognition.amazonaws.com
@@ -1985,9 +1963,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-rekognition
 - name: Amazon SES API
   description: >-
-    Amazon Simple Email Service is a cost-effective, flexible, and scalable email
-    service that enables you to send and receive email using your own email addresses
-    and domains.
+    Amazon Simple Email Service is a cost-effective, flexible, and scalable email service that enables you to send and
+    receive email using your own email addresses and domains.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/ses/
   baseURL: https://email.amazonaws.com
@@ -2013,8 +1990,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-ses
 - name: AWS Security Hub API
   description: >-
-    AWS Security Hub is a cloud security posture management service that performs
-    security best practice checks, aggregates alerts, and enables automated remediation.
+    AWS Security Hub is a cloud security posture management service that performs security best practice checks,
+    aggregates alerts, and enables automated remediation.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/security-hub/
   baseURL: https://securityhub.amazonaws.com
@@ -2040,9 +2017,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-security-hub
 - name: AWS Systems Manager API
   description: >-
-    AWS Systems Manager is a management service that helps you automatically collect
-    software inventory, apply OS patches, create system images, and configure Windows
-    and Linux operating systems.
+    AWS Systems Manager is a management service that helps you automatically collect software inventory, apply OS
+    patches, create system images, and configure Windows and Linux operating systems.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/systems-manager/
   baseURL: https://ssm.amazonaws.com
@@ -2068,8 +2044,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-systems-manager
 - name: Amazon Textract API
   description: >-
-    Amazon Textract is a machine learning service that automatically extracts text,
-    handwriting, and data from scanned documents.
+    Amazon Textract is a machine learning service that automatically extracts text, handwriting, and data from scanned
+    documents.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/textract/
   baseURL: https://textract.amazonaws.com
@@ -2095,9 +2071,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-textract
 - name: Amazon Timestream API
   description: >-
-    Amazon Timestream is a fast, scalable, and serverless time series database service
-    for IoT and operational applications that can store and analyze trillions of
-    events per day.
+    Amazon Timestream is a fast, scalable, and serverless time series database service for IoT and operational
+    applications that can store and analyze trillions of events per day.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/timestream/
   baseURL: https://ingest.timestream.amazonaws.com
@@ -2123,8 +2098,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-timestream
 - name: Amazon Transcribe API
   description: >-
-    Amazon Transcribe is an automatic speech recognition service that makes it easy
-    to add speech-to-text capability to your applications.
+    Amazon Transcribe is an automatic speech recognition service that makes it easy to add speech-to-text capability
+    to your applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/transcribe/
   baseURL: https://transcribe.amazonaws.com
@@ -2150,8 +2125,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-transcribe
 - name: Amazon Translate API
   description: >-
-    Amazon Translate is a neural machine translation service that delivers fast,
-    high-quality, affordable, and customizable language translation.
+    Amazon Translate is a neural machine translation service that delivers fast, high-quality, affordable, and
+    customizable language translation.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/translate/
   baseURL: https://translate.amazonaws.com
@@ -2177,8 +2152,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-translate
 - name: AWS Transit Gateway API
   description: >-
-    AWS Transit Gateway connects VPCs and on-premises networks through a central
-    hub simplifying your network and putting an end to complex peering relationships.
+    AWS Transit Gateway connects VPCs and on-premises networks through a central hub simplifying your network and
+    putting an end to complex peering relationships.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/transit-gateway/
   baseURL: https://ec2.amazonaws.com
@@ -2202,9 +2177,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-transit-gateway
 - name: AWS WAF API
   description: >-
-    AWS WAF is a web application firewall that helps protect your web applications
-    or APIs against common web exploits and bots that may affect availability or
-    security.
+    AWS WAF is a web application firewall that helps protect your web applications or APIs against common web exploits
+    and bots that may affect availability or security.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/waf/
   baseURL: https://wafv2.amazonaws.com
@@ -2230,8 +2204,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-waf
 - name: AWS X-Ray API
   description: >-
-    AWS X-Ray helps developers analyze and debug production and distributed applications
-    such as those built using a microservices architecture.
+    AWS X-Ray helps developers analyze and debug production and distributed applications such as those built using a
+    microservices architecture.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/xray/
   baseURL: https://xray.amazonaws.com
@@ -2257,8 +2231,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-xray
 - name: Amazon Location Service API
   description: >-
-    Amazon Location Service makes it easy for developers to add location functionality
-    to applications without compromising data security and user privacy.
+    Amazon Location Service makes it easy for developers to add location functionality to applications without
+    compromising data security and user privacy.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/location/
   baseURL: https://geo.amazonaws.com
@@ -2284,8 +2258,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-location-service
 - name: AWS Amplify API
   description: >-
-    AWS Amplify is a set of tools and features that enables frontend web and mobile
-    developers to quickly and easily build full-stack applications on AWS.
+    AWS Amplify is a set of tools and features that enables frontend web and mobile developers to quickly and easily
+    build full-stack applications on AWS.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/amplify/
   baseURL: https://amplify.amazonaws.com
@@ -2311,8 +2285,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-amplify
 - name: AWS Storage Gateway API
   description: >-
-    AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises
-    access to virtually unlimited cloud storage.
+    AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to virtually unlimited
+    cloud storage.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/storagegateway/
   baseURL: https://storagegateway.amazonaws.com
@@ -2338,8 +2312,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-storage-gateway
 - name: AWS DataSync API
   description: >-
-    AWS DataSync is an online data movement and discovery service that simplifies
-    and accelerates data migration to and between AWS storage services.
+    AWS DataSync is an online data movement and discovery service that simplifies and accelerates data migration to
+    and between AWS storage services.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/datasync/
   baseURL: https://datasync.amazonaws.com
@@ -2365,8 +2339,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-datasync
 - name: Amazon S3 Glacier API
   description: >-
-    Amazon S3 Glacier and S3 Glacier Deep Archive are secure, durable, and extremely
-    low-cost cloud storage classes for data archiving and long-term backup.
+    Amazon S3 Glacier and S3 Glacier Deep Archive are secure, durable, and extremely low-cost cloud storage classes
+    for data archiving and long-term backup.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/s3/storage-classes/glacier/
   baseURL: https://glacier.amazonaws.com
@@ -2392,8 +2366,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-s3
 - name: AWS Shield API
   description: >-
-    AWS Shield is a managed DDoS protection service that safeguards applications
-    running on AWS with always-on detection and automatic inline mitigations.
+    AWS Shield is a managed DDoS protection service that safeguards applications running on AWS with always-on
+    detection and automatic inline mitigations.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/shield/
   baseURL: https://shield.amazonaws.com
@@ -2419,8 +2393,8 @@ apis:
     url: https://github.com/api-evangelist/amazon-shield
 - name: Amazon Detective API
   description: >-
-    Amazon Detective makes it easy to analyze, investigate, and quickly identify
-    the root cause of potential security issues or suspicious activities.
+    Amazon Detective makes it easy to analyze, investigate, and quickly identify the root cause of potential security
+    issues or suspicious activities.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/detective/
   baseURL: https://api.detective.amazonaws.com
@@ -2494,11 +2468,11 @@ common:
 - type: Contact
   url: https://aws.amazon.com/contact-us/
 - type: SpectralRules
-  url: https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/rules/amazon-web-services-aws-spectral-rules.yml
+  url: >-
+    https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/rules/amazon-web-services-aws-spectral-rules.yml
 - type: Vocabulary
-  url: https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/vocabulary/amazon-web-services-aws-vocabulary.yaml
-- type: NaftikoCapability
-  url: https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/capabilities/amazon-web-services-aws-capability.yaml
+  url: >-
+    https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/vocabulary/amazon-web-services-aws-vocabulary.yaml
 - type: Features
   data:
   - name: Automation
