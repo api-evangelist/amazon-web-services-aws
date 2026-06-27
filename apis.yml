@@ -2443,7 +2443,7 @@ common:
   url: https://console.aws.amazon.com/
 - type: About
   url: https://aws.amazon.com/what-is-aws/
-- type: SignUp
+- type: Signup
   url: https://aws.amazon.com/free/
 - type: CLI
   url: https://aws.amazon.com/cli/
