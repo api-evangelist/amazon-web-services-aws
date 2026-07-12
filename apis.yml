@@ -2419,6 +2419,14 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-detective
 common:
+- type: TrustCenter
+  url: security/amazon-web-services-aws-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-web-services-aws-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-web-services-aws-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-web-services-aws-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/
 - type: Documentation
