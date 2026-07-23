@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Amazon EC2 Amazon EC2 API API
+  version: '2016-11-15'
+  description: 'Amazon Elastic Compute Cloud (EC2) Query API for managing virtual
+
+    machines, EBS volumes, security groups, key pairs, AMIs, VPCs,
+
+    subnets, and related infrastructure. All operations are invoked
+
+    by POSTing form-encoded `Action=<Name>&Version=2016-11-15` to the
+
+    regional endpoint, signed with AWS Signature Version 4 (SigV4),
+
+    and return XML responses.
+
+    '
+  contact:
+    name: Amazon Web Services
+    url: https://docs.aws.amazon.com/ec2/
+servers:
+- url: https://ec2.{region}.amazonaws.com
+  description: Amazon EC2 regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS region identifier.
+security:
+- SigV4: []
+tags:
+- name: Amazon EC2 API
+paths:
+  /:
+    post:
+      summary: Invoke an EC2 action
+      description: 'EC2 operations are invoked by POSTing form-encoded parameters with
+
+        `Action=<OperationName>` and `Version=2016-11-15`. Examples include
+
+        `RunInstances`, `DescribeInstances`, `CreateVolume`,
+
+        `AuthorizeSecurityGroupIngress`, etc.
+
+        '
+      operationId: invokeEc2Action
+      parameters:
+      - in: query
+        name: Action
+        required: true
+        schema:
+          type: string
+          enum:
+          - RunInstances
+          - TerminateInstances
+          - DescribeInstances
+          - StartInstances
+          - StopInstances
+          - RebootInstances
+          - DescribeInstanceStatus
+          - CreateSecurityGroup
+          - DescribeSecurityGroups
+          - DeleteSecurityGroup
+          - AuthorizeSecurityGroupIngress
+          - RevokeSecurityGroupIngress
+          - CreateKeyPair
+          - DescribeKeyPairs
+          - DeleteKeyPair
+          - DescribeImages
+          - CreateImage
+          - DeregisterImage
+          - CreateVolume
+          - DescribeVolumes
+          - DeleteVolume
+          - AttachVolume
+          - DetachVolume
+          - CreateSnapshot
+          - DescribeSnapshots
+          - DeleteSnapshot
+          - CreateVpc
+          - DescribeVpcs
+          - DeleteVpc
+          - CreateSubnet
+          - DescribeSubnets
+          - DeleteSubnet
+          - CreateRouteTable
+          - DescribeRouteTables
+          - CreateInternetGateway
+          - AttachInternetGateway
+          - DescribeAvailabilityZones
+          - DescribeRegions
+      - in: query
+        name: Version
+        required: true
+        schema:
+          type: string
+          enum:
+          - '2016-11-15'
+      requestBody:
+        required: false
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              description: Action-specific parameters.
+      responses:
+        '200':
+          description: Action-specific XML response.
+          content:
+            text/xml:
+              schema:
+                type: object
+        '400':
+          description: Client error.
+        '500':
+          description: Server error.
+      tags:
+      - Amazon EC2 API
+components:
+  securitySchemes:
+    SigV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 signed request.
