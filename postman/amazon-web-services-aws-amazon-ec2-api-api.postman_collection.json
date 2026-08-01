@@ -1,0 +1,272 @@
+{
+  "info": {
+    "_postman_id": "d75eb3ca-78f7-4688-a18a-fe2686f50619",
+    "name": "Amazon EC2 Amazon EC2 API API",
+    "description": "Amazon Elastic Compute Cloud (EC2) Query API for managing virtual\nmachines, EBS volumes, security groups, key pairs, AMIs, VPCs,\nsubnets, and related infrastructure. All operations are invoked\nby POSTing form-encoded `Action=<Name>&Version=2016-11-15` to the\nregional endpoint, signed with AWS Signature Version 4 (SigV4),\nand return XML responses.\n\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:57:44.000Z",
+    "updatedAt": "2026-07-28T00:57:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d75eb3ca-78f7-4688-a18a-fe2686f50619"
+  },
+  "item": [
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "Invoke an EC2 action",
+          "id": "ecc96cd7-1d61-499a-b776-3173871f8075",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteSecurityGroup&Version=2016-11-15",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DeleteSecurityGroup"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2016-11-15"
+                }
+              ]
+            },
+            "description": "EC2 operations are invoked by POSTing form-encoded parameters with\n`Action=<OperationName>` and `Version=2016-11-15`. Examples include\n`RunInstances`, `DescribeInstances`, `CreateVolume`,\n`AuthorizeSecurityGroupIngress`, etc.\n"
+          },
+          "response": [
+            {
+              "id": "bae4e20c-d8c2-4e78-88b4-30407391bf66",
+              "name": "Action-specific XML response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": []
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteSecurityGroup&Version=2016-11-15",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteSecurityGroup"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "createdAt": "2026-07-28T00:57:44.000Z",
+              "updatedAt": "2026-07-28T00:57:44.000Z",
+              "uid": "35240-bae4e20c-d8c2-4e78-88b4-30407391bf66"
+            },
+            {
+              "id": "c3505d70-1aca-4d12-8a84-2a76258d1c5c",
+              "name": "Client error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": []
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteSecurityGroup&Version=2016-11-15",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteSecurityGroup"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:44.000Z",
+              "updatedAt": "2026-07-28T00:57:44.000Z",
+              "uid": "35240-c3505d70-1aca-4d12-8a84-2a76258d1c5c"
+            },
+            {
+              "id": "166b8349-932c-4139-955d-2847e977234e",
+              "name": "Server error.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": []
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteSecurityGroup&Version=2016-11-15",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteSecurityGroup"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2016-11-15"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:44.000Z",
+              "updatedAt": "2026-07-28T00:57:44.000Z",
+              "uid": "35240-166b8349-932c-4139-955d-2847e977234e"
+            }
+          ],
+          "createdAt": "2026-07-28T00:57:44.000Z",
+          "updatedAt": "2026-07-28T00:57:44.000Z",
+          "uid": "35240-ecc96cd7-1d61-499a-b776-3173871f8075"
+        }
+      ],
+      "id": "9da68526-db4f-4bd2-a8cc-f02924afb3bf",
+      "createdAt": "2026-07-28T00:57:44.000Z",
+      "updatedAt": "2026-07-28T00:57:44.000Z",
+      "uid": "35240-9da68526-db4f-4bd2-a8cc-f02924afb3bf"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://ec2.{{region}}.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "provider": "amazon-web-services-aws",
+  "sources": [
+    "amazon-web-services-aws-amazon-ec2-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-web-services-aws-amazon-ec2-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
