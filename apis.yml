@@ -1245,6 +1245,9 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-detective
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-web-services-aws-capability-edges.yml
+  name: Amazon Web Services (AWS) Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-web-services-aws/overview
 - type: AgenticAccess

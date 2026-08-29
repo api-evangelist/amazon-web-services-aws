@@ -1,0 +1,25 @@
+slug: amazon-web-services-aws
+provider: Amazon Web Services (AWS)
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Amazon EC2 API
+  spec_file: amazon-web-services-aws-amazon-ec2-api-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: '"Query API for managing virtual machines, EBS volumes, security groups, key pairs, AMIs,
+    VPCs, subnets, and related infrastructure"'
+  reason: Compute, storage and network resource provisioning in the cloud maps directly to IT Infrastructure
+    Management.
