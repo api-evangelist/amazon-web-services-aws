@@ -1,0 +1,79 @@
+generated: '2026-09-01'
+method: searched
+source: https://aws.amazon.com/cli/
+docs: https://docs.aws.amazon.com/cli/latest/reference/
+repository: https://github.com/aws/aws-cli
+name: AWS Command Line Interface (AWS CLI)
+current_major: v2
+description: >-
+  One binary that fronts every AWS service. The command surface is generated from the same internal
+  service models the SDKs are generated from, so `aws <service> <operation>` maps one-to-one onto the
+  service's API actions — which makes the CLI the most complete public enumeration of the AWS API
+  surface that exists in a form a human can read.
+install:
+- platform: macos
+  method: installer
+  command: >-
+    curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg" && sudo installer -pkg AWSCLIV2.pkg -target /
+- platform: linux
+  method: bundle
+  command: >-
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
+- platform: windows
+  method: msi
+  command: https://awscli.amazonaws.com/AWSCLIV2.msi
+- platform: any
+  method: pypi
+  command: pip install awscli
+  note: PyPI ships AWS CLI v1 only (see packages/). v2 is installer-distributed.
+- platform: docker
+  method: docker
+  command: docker run --rm -it amazon/aws-cli
+command_surface:
+  shape: aws <service> <operation> [--parameters]
+  service_count: 400+
+  note: >-
+    Every service the CLI knows about is a top-level command group; operations under it mirror the
+    service's API actions in kebab-case (RunInstances becomes `aws ec2 run-instances`).
+  examples:
+  - aws ec2 run-instances
+  - aws ec2 describe-instances
+  - aws s3 cp / aws s3 sync
+  - aws s3api put-object
+  - aws lambda invoke
+  - aws iam create-role
+  - aws sts assume-role
+  - aws bedrock-runtime invoke-model
+  - aws cloudformation deploy
+global_flags:
+- --profile
+- --region
+- --output (json|text|table|yaml|yaml-stream)
+- --query (JMESPath)
+- --dry-run (on services that support it, e.g. ec2)
+- --no-cli-pager
+- --endpoint-url
+- --cli-input-json / --generate-cli-skeleton
+key_flows:
+- name: Credential configuration
+  command: aws configure / aws configure sso
+  note: Writes ~/.aws/credentials and ~/.aws/config; SSO issues short-lived credentials.
+- name: Skeleton-driven calls
+  command: aws <service> <op> --generate-cli-skeleton then --cli-input-json file://input.json
+  note: >-
+    The most agent-relevant flow in the CLI. The skeleton is a machine-readable input template for any
+    operation, which is effectively a per-operation request schema on demand.
+- name: Server-side filtering and client-side query
+  command: --filters (server) and --query (JMESPath, client)
+  note: Filtering server-side keeps calls in the larger throttling bucket; see rate-limits/.
+- name: Pagination control
+  command: --page-size / --max-items / --starting-token
+related_tools:
+- name: AWS CDK
+  package: aws-cdk-lib
+  docs: https://aws.amazon.com/cdk/
+- name: AWS SAM CLI
+  docs: https://aws.amazon.com/serverless/sam/
+- name: eksctl
+  docs: https://eksctl.io/
+  official: false

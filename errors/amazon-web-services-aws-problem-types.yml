@@ -1,0 +1,107 @@
+generated: '2026-09-01'
+method: searched
+source: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/CommonErrors.html
+format: aws-query-xml
+note: >-
+  NOT RFC 9457. AWS Query APIs return an XML <Response><Errors><Error><Code>/<Message> envelope and the
+  JSON protocols return {"__type": "...", "message": "..."} with an x-amzn-ErrorType header; neither is
+  application/problem+json. The catalogue below is the AWS COMMON error set — the codes any AWS service
+  may return — captured verbatim from the EC2 API Reference. Per-action error codes are documented on
+  each action's own reference page and are not enumerated here.
+envelope:
+  query_xml: <Response><Errors><Error><Code/><Message/></Error></Errors><RequestID/></Response>
+  json: '{"__type": "<ErrorCode>", "message": "<text>"}'
+  headers: [x-amzn-RequestId, x-amzn-ErrorType]
+problems:
+- code: AccessDeniedException
+  status: 403
+  title: You don't have permission to perform this action.
+  remediation: Verify that your IAM policy includes the required permissions.
+- code: ExpiredTokenException
+  status: 403
+  title: The security token included in the request has expired.
+  remediation: Request a new security token and try again.
+- code: IncompleteSignature
+  status: 400
+  title: The request signature doesn't conform to AWS standards.
+  remediation: Verify valid AWS credentials and a properly formatted request; update your SDK.
+- code: InternalFailure
+  status: 500
+  title: The request can't be processed right now because of an internal server issue.
+  remediation: Try again later; contact AWS Support if it persists.
+- code: InvalidParameterCombination
+  status: 400
+  title: Parameters that must not be used together were used together.
+  remediation: Remove one of the conflicting parameters.
+- code: InvalidParameterValue
+  status: 400
+  title: A value provided for a parameter isn't valid.
+  remediation: Check the parameter constraints.
+- code: InvalidQueryParameter
+  status: 400
+  title: The AWS query string is malformed or doesn't adhere to AWS standards.
+  remediation: Verify the query string format.
+- code: MalformedQueryString
+  status: 404
+  title: The query string contains a syntax error.
+  remediation: Verify the query string.
+- code: MissingAction
+  status: 400
+  title: The request is missing the Action parameter.
+  remediation: Add the Action parameter.
+- code: MissingAuthenticationToken
+  status: 403
+  title: The request must contain a valid AWS access key ID or X.509 certificate.
+  remediation: Include credentials in the request.
+- code: MissingParameter
+  status: 400
+  title: A required parameter for the specified action isn't included in the request.
+  remediation: Add the missing parameter.
+- code: NotAuthorized
+  status: 401
+  title: You don't have permissions to perform this action.
+  remediation: Verify that your IAM policy includes the required permissions.
+- code: OptInRequired
+  status: 403
+  title: Your AWS account needs a subscription for this service.
+  remediation: Enable the service in your account.
+- code: RequestExpired
+  status: 400
+  title: The request has expired.
+  remediation: >-
+    Generate a new request with a current timestamp. Triggered when the request took more than 15
+    minutes to reach the service, the date stamp is more than 15 minutes in the future, or a pre-signed
+    URL expired.
+- code: ServiceUnavailable
+  status: 503
+  title: The service is temporarily unavailable.
+  remediation: Try again later.
+  retryable: true
+- code: ThrottlingException
+  status: 400
+  title: Your request rate is too high.
+  remediation: Reduce the frequency of requests; the AWS SDKs retry this automatically.
+  retryable: true
+  cross_reference: rate-limits/amazon-web-services-aws-rate-limits.yml
+- code: RequestLimitExceeded
+  status: 503
+  title: You exceeded an EC2 API throttling limit.
+  remediation: Back off exponentially and retry.
+  retryable: true
+  source: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/throttling.html
+  cross_reference: rate-limits/amazon-web-services-aws-rate-limits.yml
+- code: UnrecognizedClientException
+  status: 403
+  title: The X.509 certificate or AWS access key ID you provided doesn't exist in our records.
+  remediation: Verify credentials and that they haven't expired.
+- code: ValidationError
+  status: 400
+  title: The input doesn't meet the required format or constraints.
+  remediation: Check that all required parameters are included and values are valid.
+- code: IdempotentParameterMismatch
+  status: 400
+  title: A retry reused a client token with different parameters.
+  remediation: >-
+    Reuse a client token only with identical parameters. See
+    https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html
+  cross_reference: conventions/amazon-web-services-aws-conventions.yml

@@ -1,16 +1,73 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/amazon-web-services-aws-openapi.yml
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html and
+  https://docs.aws.amazon.com/AWSEC2/latest/APIReference/CommonParameters.html, reconciled with the
+  securitySchemes declared in openapi/amazon-web-services-aws-amazon-ec2-api-api-openapi.yml
+docs: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html
 summary:
   types:
   - apiKey
+  - custom-request-signing
   api_key_in:
   - header
+  - query
+  oauth2_flows: []
+  note: >-
+    AWS does not use bearer tokens, API keys or OAuth on its control plane. Every request is SIGNED with
+    AWS Signature Version 4 using an access key pair, and authorization is decided separately by IAM
+    policy evaluation. The OpenAPI models this as an apiKey scheme on the Authorization header because
+    OpenAPI has no vocabulary for request signing — the scheme name SigV4 carries the real meaning.
 schemes:
 - name: SigV4
   type: apiKey
   in: header
   parameter: Authorization
-  description: AWS Signature Version 4 signed request.
+  description: >-
+    AWS Signature Version 4. The client derives a signing key from its secret access key, the date, the
+    Region and the service, signs a canonical request, and sends
+    "AWS4-HMAC-SHA256 Credential=<access-key>/<date>/<region>/<service>/aws4_request,
+    SignedHeaders=..., Signature=..." on the Authorization header.
+  algorithm: AWS4-HMAC-SHA256
   sources:
-  - openapi/amazon-web-services-aws-openapi.yml
+  - openapi/amazon-web-services-aws-amazon-ec2-api-api-openapi.yml
+- name: SigV4-QueryString
+  type: apiKey
+  in: query
+  parameter: X-Amz-Signature
+  description: >-
+    The same signature carried in the query string instead of the header, using X-Amz-Algorithm,
+    X-Amz-Credential, X-Amz-Date, X-Amz-SignedHeaders and X-Amz-Signature. This is the mechanism behind
+    pre-signed URLs.
+  sources:
+  - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/CommonParameters.html
+- name: STS-TemporaryCredentials
+  type: apiKey
+  in: header
+  parameter: X-Amz-Security-Token
+  description: >-
+    Temporary credentials issued by AWS STS (AssumeRole, AssumeRoleWithWebIdentity,
+    AssumeRoleWithSAML, GetSessionToken) are sent as a session token alongside the signed request. This
+    is the recommended path for anything that is not a long-lived human credential, and the only path
+    for instance/task/pod roles and OIDC federation from GitHub Actions or Kubernetes.
+  docs: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html
+authorization:
+  model: IAM policy evaluation
+  note: >-
+    Authentication proves who the caller is; every AWS API call is then authorized by evaluating
+    identity-based policies, resource-based policies, permission boundaries, Organizations service
+    control policies and session policies together. There is no OAuth scope surface — the equivalent of
+    a scope is an IAM Action such as ec2:RunInstances, and the full action vocabulary is published in
+    the IAM service authorization reference.
+  action_reference: https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html
+  machine_readable_action_index: https://servicereference.us-east-1.amazonaws.com/
+  machine_readable_note: >-
+    AWS publishes a machine-readable service reference at servicereference.us-east-1.amazonaws.com
+    (HTTP 200 anonymously on 2026-09-01) listing every service and the Actions it supports — the closest
+    thing AWS has to a published scope catalogue.
+oauth:
+  supported: false
+  note: >-
+    Amazon Cognito is an OAuth 2.0 / OIDC authorization server that AWS OPERATES FOR CUSTOMERS' OWN
+    applications. It does not authenticate calls to AWS APIs, so no scopes/ artifact is emitted for this
+    provider.

@@ -1,0 +1,48 @@
+generated: '2026-09-01'
+method: searched
+source: https://aws.amazon.com/about-aws/whats-new/recent/feed/
+docs: https://aws.amazon.com/new/
+scheme: dated-announcements
+note: >-
+  AWS's changelog is the "What's New" announcement stream — an RSS feed carrying every service and
+  feature launch across the whole platform, typically several per day. It is not versioned and it does
+  not separate breaking from additive changes, because AWS's dated API versions are additive by policy;
+  per-service SDK changelogs (CHANGELOG.md in each SDK repo) carry the operation-level detail. The
+  window below is the most recent entries observed on the probe date, not a full history.
+current_version: null
+current_version_note: >-
+  No single platform version exists. The closest thing to a version is the per-service dated API version
+  (EC2: 2016-11-15) recorded in lifecycle/.
+entries_window: '2026-08-31 to 2026-09-01'
+entry_count_in_feed: 100
+entries:
+- date: '2026-09-01'
+  breaking: false
+  highlight: Amazon Quick now lets you build custom apps with natural language.
+- date: '2026-09-01'
+  breaking: false
+  highlight: Amazon CloudWatch Database Insights now supports self-managed PostgreSQL.
+- date: '2026-09-01'
+  breaking: false
+  highlight: Amazon Kinesis Data Streams now supports a dry run feature to validate API requests.
+- date: '2026-09-01'
+  breaking: false
+  highlight: AWS Backup now supports protecting more than 1,000 Amazon S3 buckets per account.
+- date: '2026-09-01'
+  breaking: false
+  highlight: Amazon Connect Customer dashboards now support compact mode.
+- date: '2026-09-01'
+  breaking: false
+  highlight: Amazon MWAA supports Apache Airflow version 3.3.1.
+- date: '2026-09-01'
+  breaking: false
+  highlight: Amazon CloudWatch now supports warm-up periods for alarms.
+- date: '2026-09-01'
+  breaking: false
+  highlight: Amazon RDS Custom now supports the latest CU and GDR updates for Microsoft SQL Server.
+- date: '2026-08-31'
+  breaking: false
+  highlight: Amazon DocumentDB now supports direct major version upgrades to version 8.0.
+- date: '2026-08-31'
+  breaking: false
+  highlight: AWS Elemental MediaTailor introduces in-console analytics for ad monetization.

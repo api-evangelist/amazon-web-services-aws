@@ -1,0 +1,78 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html,
+  https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html,
+  https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html
+spec_type: none
+asyncapi_published: false
+asyncapi_note: >-
+  AWS publishes NO AsyncAPI document. This was probed, not assumed: /asyncapi.yaml and /asyncapi.json
+  miss on the docs and API hosts, and no AsyncAPI appears in the aws or awslabs GitHub organizations'
+  event documentation. AWS describes its event surface in prose and JSON examples per service. Recorded
+  as a measured absence — nothing is fabricated to fill it.
+event_surface: true
+event_surface_note: >-
+  AWS has a large and genuinely outbound event surface, it just is not shaped like a webhook product.
+  The three mechanisms below are the ones that deliver an HTTP POST to an endpoint the consumer
+  controls, which is the thing a webhook catalogue is actually about.
+webhooks:
+- name: Amazon SNS HTTP/HTTPS subscription
+  direction: outbound
+  transport: HTTPS POST
+  docs: https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html
+  description: >-
+    An SNS topic delivers each published message to a subscribed HTTP/HTTPS endpoint as a POST. This is
+    AWS's general-purpose webhook mechanism — any AWS service or application that publishes to SNS can
+    reach an external endpoint through it.
+  message_types:
+  - SubscriptionConfirmation
+  - Notification
+  - UnsubscribeConfirmation
+  headers:
+  - x-amz-sns-message-type
+  - x-amz-sns-message-id
+  - x-amz-sns-topic-arn
+  - x-amz-sns-subscription-arn
+  verification: >-
+    Each message carries Signature, SigningCertURL and SignatureVersion; consumers must verify the
+    signature against the certificate.
+  handshake: >-
+    Subscription requires an explicit confirmation round trip — SNS POSTs a SubscriptionConfirmation
+    carrying a SubscribeURL that the endpoint must GET before deliveries begin.
+  retry: Delivery retry policy is configurable per subscription; failures can be routed to a dead-letter queue.
+- name: Amazon S3 Event Notifications
+  direction: outbound
+  transport: SNS / SQS / Lambda / EventBridge
+  docs: https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html
+  description: >-
+    S3 emits object-level events to a configured destination. Reaching an external HTTP endpoint means
+    chaining through SNS or EventBridge; S3 does not POST directly.
+  event_types:
+  - s3:ObjectCreated:*
+  - s3:ObjectRemoved:*
+  - s3:ObjectRestore:*
+  - s3:ObjectTagging:*
+  - s3:LifecycleExpiration:*
+  - s3:ReducedRedundancyLostObject
+  - s3:Replication:*
+- name: Amazon EventBridge API destinations
+  direction: outbound
+  transport: HTTPS POST/PUT/PATCH to a customer-supplied endpoint
+  docs: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html
+  description: >-
+    EventBridge rules can invoke an arbitrary external HTTPS endpoint as a target, with a stored
+    connection carrying the auth (Basic, API key or OAuth client credentials) and a configurable
+    invocation rate. This is the closest AWS gets to a first-class, managed webhook sender, and it can
+    carry any of the several hundred AWS service event types EventBridge receives.
+  auth_supported: [basic, api-key, oauth2-client-credentials]
+  event_catalog: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html
+streaming:
+- name: Amazon Kinesis Data Streams
+  docs: https://aws.amazon.com/kinesis/data-streams/
+- name: Amazon MSK (managed Apache Kafka)
+  docs: https://aws.amazon.com/msk/
+- name: Amazon MQ (managed ActiveMQ / RabbitMQ, supports AMQP 0-9-1, MQTT, STOMP)
+  docs: https://aws.amazon.com/amazon-mq/
+- name: AWS IoT Core (MQTT)
+  docs: https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html

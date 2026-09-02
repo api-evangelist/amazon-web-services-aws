@@ -1,4 +1,34 @@
 {
-  "service": "amazon-web-services-aws",
-  "example": "Request/response example"
+  "generated": "2026-09-01",
+  "method": "searched",
+  "source": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRegions.html",
+  "note": "Real request/response examples published by AWS in the Amazon EC2 API Reference, captured verbatim on 2026-09-01. This replaces a placeholder scaffold that carried the string 'Request/response example' and no actual example. AUTHPARAMS is AWS's own shorthand in these samples for the SigV4 authentication parameters; it is not a literal value.",
+  "api": "Amazon EC2 API",
+  "protocol": "AWS Query (form-encoded POST or GET, XML response)",
+  "base_url": "https://ec2.{region}.amazonaws.com",
+  "examples": [
+    {
+      "name": "DescribeRegions \u2014 all Regions enabled for the account",
+      "action": "DescribeRegions",
+      "request": "https://ec2.amazonaws.com/?Action=DescribeRegions\n&AUTHPARAMS"
+    },
+    {
+      "name": "DescribeRegions \u2014 include Regions disabled for the account",
+      "action": "DescribeRegions",
+      "request": "https://ec2.amazonaws.com/?Action=DescribeRegions\n&AllRegions=true\n&AUTHPARAMS"
+    },
+    {
+      "name": "DescribeRegions \u2014 specific Regions only",
+      "action": "DescribeRegions",
+      "request": "https://ec2.amazonaws.com/?Action=DescribeRegions\n&RegionName.1=us-east-1\n&RegionName.2=eu-west-1\n&AUTHPARAMS",
+      "response_content_type": "text/xml",
+      "response": "<DescribeRegionsResponse xmlns=\"http://ec2.amazonaws.com/doc/2016-11-15/\">\n   <requestId>59dbff89-35bd-4eac-99ed-be587EXAMPLE</requestId>\n   <regionInfo>\n      <item>\n         <regionName>us-east-1</regionName>\n         <regionEndpoint>ec2.us-east-1.amazonaws.com</regionEndpoint>\n         <optInStatus>opt-in-not-required</optInStatus>\n         <geographySet>\n            <item>\n               <name>United States of America</name>\n            </item>\n         </geographySet>\n      </item>\n      <item>\n         <regionName>eu-west-1</regionName>\n         <regionEndpoint>ec2.eu-west-1.amazonaws.com</regionEndpoint>\n         <optInStatus>opt-in-not-required</optInStatus>\n         <geographySet>\n            <item>\n               <name>Ireland</name>\n            </item>\n         </geographySet>\n      </item>\n   </regionInfo>\n</DescribeRegionsResponse>"
+    },
+    {
+      "name": "Common error envelope (AWS Query XML)",
+      "response_content_type": "text/xml",
+      "response": "<Response>\n   <Errors>\n      <Error>\n         <Code>RequestLimitExceeded</Code>\n         <Message>Request limit exceeded.</Message>\n      </Error>\n   </Errors>\n   <RequestID>59dbff89-35bd-4eac-99ed-be587EXAMPLE</RequestID>\n</Response>",
+      "source": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/CommonErrors.html"
+    }
+  ]
 }

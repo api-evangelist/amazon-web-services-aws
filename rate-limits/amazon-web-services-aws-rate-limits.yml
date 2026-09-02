@@ -4,546 +4,120 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Amazon Web Services (AWS)
 providerId: amazon-web-services-aws
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+modified: '2026-09-01'
+generated: '2026-09-01'
+method: searched
+source: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/throttling.html
+docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/throttling.html
+description: >-
+  Published Amazon EC2 API throttling limits, read from the EC2 API Reference on 2026-09-01. This
+  replaces the 2026-05-04 scaffold, whose tiers were placeholder defaults. AWS throttles per AWS account
+  per Region using a token-bucket algorithm, and publishes the exact bucket capacity and refill rate for
+  each action category. Limits are per service — these are EC2's; other AWS services publish their own,
+  and account-level quotas are visible and adjustable through AWS Service Quotas.
+algorithm: token-bucket
+scope: per-account, per-Region, per-API-action
+limit_count: 8
+rate_limits:
+- name: Non-mutating actions
+  scope: per-account per-Region per-action
+  applies_to: Describe*, List*, Search*, Get* actions not in another category
+  limit: 100
+  unit: requests
+  window: 1s
+  burst: 100
+  refill_rate: 20 per second
+  type: request-token-bucket
+- name: Unfiltered and unpaginated non-mutating actions
+  scope: per-account per-Region per-action
+  applies_to: DescribeInstances, DescribeInstanceStatus, DescribeNetworkInterfaces, DescribeSecurityGroups,
+    DescribeSnapshots, DescribeSpotInstanceRequests, DescribeVolumes — when called without pagination or a filter
+  limit: 50
+  unit: requests
+  window: 1s
+  burst: 50
+  refill_rate: 10 per second
+  type: request-token-bucket
+  note: Using pagination or a filter moves the call into the larger non-mutating bucket.
+- name: Mutating actions
+  scope: per-account per-Region per-action
+  applies_to: All mutating actions that are not resource-intensive or uncategorized
+  limit: 50
+  unit: requests
+  window: 1s
+  burst: 50
+  refill_rate: 5 per second
+  type: request-token-bucket
+- name: Resource-intensive actions
+  scope: per-account per-Region per-action
+  applies_to: AcceptVpcPeeringConnection, AuthorizeSecurityGroupIngress, CancelSpotInstanceRequests,
+    CreateKeyPair, CreateVpcPeeringConnection, DeleteVpcPeeringConnection, RejectVpcPeeringConnection,
+    RevokeSecurityGroupIngress, RequestSpotInstances
+  limit: 50
+  unit: requests
+  window: 1s
+  burst: 50
+  refill_rate: 5 per second
+  type: request-token-bucket
+- name: Console non-mutating actions
+  scope: per-account per-Region per-action
+  applies_to: Describe*/List*/Search*/Get* actions called from the Amazon EC2 console
+  limit: 100
+  unit: requests
+  window: 1s
+  burst: 100
+  refill_rate: 10 per second
+  type: request-token-bucket
+- name: Uncategorized actions
+  scope: per-account per-Region per-action
+  applies_to: Named actions with their own published bucket, e.g. AcceptVpcEndpointConnections (10 / 1 per second),
+    AssignPrivateIpAddresses (100 / 5 per second), AdvertiseByoipCidr (1 / 0.1 per second), CopyImage (100 / 1 per second)
+  limit: null
+  unit: requests
+  window: 1s
+  type: request-token-bucket
+  note: >-
+    Per-action values, published as a table in the throttling reference. Not enumerated here; read the
+    docs URL for the full list.
+- name: RunInstances resource rate limit
+  scope: per-account per-Region
+  applies_to: RunInstances
+  limit: 1000
+  unit: instances
+  burst: 1000
+  refill_rate: 2 per second
+  type: resource-token-bucket
+  note: >-
+    Independent of the request bucket and depletes by the number of RESOURCES affected, so one request
+    for 1000 instances and four requests for 250 cost the same.
+- name: TerminateInstances resource rate limit
+  scope: per-account per-Region
+  applies_to: TerminateInstances
+  limit: null
+  unit: instances
+  type: resource-token-bucket
+  note: >-
+    AWS documents TerminateInstances as resource-rate-limited alongside RunInstances but the published
+    bucket values are in the per-action table rather than the prose; recorded as present, value unread
+    rather than guessed.
+response_headers: []
+response_headers_note: >-
+  AWS returns NO rate-limit headers. There is no RateLimit-*, no X-RateLimit-*, and no Retry-After on a
+  throttled response. An agent learns it is throttled only from the error, which is the significant gap
+  in this contract.
+exhaustion:
+  error_code: RequestLimitExceeded
+  http_status: 503
+  alternate_error_code: ThrottlingException
+  alternate_http_status: 400
+  guidance: Retry with exponential backoff and jitter; the AWS SDKs do this automatically.
+  docs: https://docs.aws.amazon.com/general/latest/gr/api-retries.html
+quota_management:
+  service: AWS Service Quotas
+  docs: https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html
+  note: Current limits are viewable and increases requestable through the Service Quotas console and API.
 tags:
-  - Analytics
-  - Artificial Intelligence
-  - Cloud Computing
-  - Computing
-  - Containers
-  - Databases
-  - Devops
-  - Iaas
-  - Infrastructure
-  - Machine Learning
-  - Networking
-  - Paas
-  - Platform As A Service
-  - Security
-  - Serverless
-  - Storage
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Amazon Web Services (AWS) API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Amazon EC2 API
-      - Amazon S3 API
-      - Amazon Lambda API
-      - Amazon RDS API
-      - Amazon DynamoDB API
-      - Amazon API Gateway API
-      - Amazon SQS API
-      - Amazon SNS API
-      - AWS CloudFormation API
-      - AWS IAM API
-      - Amazon ECS API
-      - Amazon EKS API
-      - Amazon CloudWatch API
-      - Amazon Kinesis API
-      - Amazon CloudFront API
-      - Amazon Route 53 API
-      - Amazon Cognito API
-      - AWS Step Functions API
-      - Amazon SageMaker API
-      - Amazon Bedrock API
-      - Amazon EventBridge API
-      - Elastic Load Balancing API
-      - Amazon VPC API
-      - AWS Secrets Manager API
-      - Amazon Athena API
-      - Amazon Aurora API
-      - Amazon AppFlow API
-      - AWS AppSync API
-      - AWS App Runner API
-      - AWS Batch API
-      - AWS Backup API
-      - AWS Certificate Manager API
-      - AWS CloudTrail API
-      - Amazon CloudSearch API
-      - AWS CodeBuild API
-      - AWS CodeDeploy API
-      - AWS CodePipeline API
-      - Amazon Comprehend API
-      - AWS Config API
-      - Amazon Connect API
-      - AWS Database Migration Service API
-      - AWS Direct Connect API
-      - Amazon DocumentDB API
-      - Amazon ECR API
-      - Amazon EBS API
-      - Amazon EFS API
-      - Amazon ElastiCache API
-      - AWS Elastic Beanstalk API
-      - Amazon EMR API
-      - AWS Fargate API
-      - Amazon FSx API
-      - AWS Global Accelerator API
-      - AWS Glue API
-      - Amazon GuardDuty API
-      - Amazon Inspector API
-      - AWS IoT Core API
-      - Amazon Kendra API
-      - Amazon Keyspaces API
-      - AWS KMS API
-      - AWS Lake Formation API
-      - Amazon Lex API
-      - Amazon Lightsail API
-      - Amazon Macie API
-      - Amazon MemoryDB API
-      - Amazon MQ API
-      - Amazon MSK API
-      - Amazon OpenSearch Service API
-      - AWS Organizations API
-      - Amazon Personalize API
-      - Amazon Pinpoint API
-      - Amazon Polly API
-      - Amazon QuickSight API
-      - Amazon Rekognition API
-      - Amazon SES API
-      - AWS Security Hub API
-      - AWS Systems Manager API
-      - Amazon Textract API
-      - Amazon Timestream API
-      - Amazon Transcribe API
-      - Amazon Translate API
-      - AWS Transit Gateway API
-      - AWS WAF API
-      - AWS X-Ray API
-      - Amazon Location Service API
-      - AWS Amplify API
-      - AWS Storage Gateway API
-      - AWS DataSync API
-      - Amazon S3 Glacier API
-      - AWS Shield API
-      - Amazon Detective API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Amazon EC2 API
-      - Amazon S3 API
-      - Amazon Lambda API
-      - Amazon RDS API
-      - Amazon DynamoDB API
-      - Amazon API Gateway API
-      - Amazon SQS API
-      - Amazon SNS API
-      - AWS CloudFormation API
-      - AWS IAM API
-      - Amazon ECS API
-      - Amazon EKS API
-      - Amazon CloudWatch API
-      - Amazon Kinesis API
-      - Amazon CloudFront API
-      - Amazon Route 53 API
-      - Amazon Cognito API
-      - AWS Step Functions API
-      - Amazon SageMaker API
-      - Amazon Bedrock API
-      - Amazon EventBridge API
-      - Elastic Load Balancing API
-      - Amazon VPC API
-      - AWS Secrets Manager API
-      - Amazon Athena API
-      - Amazon Aurora API
-      - Amazon AppFlow API
-      - AWS AppSync API
-      - AWS App Runner API
-      - AWS Batch API
-      - AWS Backup API
-      - AWS Certificate Manager API
-      - AWS CloudTrail API
-      - Amazon CloudSearch API
-      - AWS CodeBuild API
-      - AWS CodeDeploy API
-      - AWS CodePipeline API
-      - Amazon Comprehend API
-      - AWS Config API
-      - Amazon Connect API
-      - AWS Database Migration Service API
-      - AWS Direct Connect API
-      - Amazon DocumentDB API
-      - Amazon ECR API
-      - Amazon EBS API
-      - Amazon EFS API
-      - Amazon ElastiCache API
-      - AWS Elastic Beanstalk API
-      - Amazon EMR API
-      - AWS Fargate API
-      - Amazon FSx API
-      - AWS Global Accelerator API
-      - AWS Glue API
-      - Amazon GuardDuty API
-      - Amazon Inspector API
-      - AWS IoT Core API
-      - Amazon Kendra API
-      - Amazon Keyspaces API
-      - AWS KMS API
-      - AWS Lake Formation API
-      - Amazon Lex API
-      - Amazon Lightsail API
-      - Amazon Macie API
-      - Amazon MemoryDB API
-      - Amazon MQ API
-      - Amazon MSK API
-      - Amazon OpenSearch Service API
-      - AWS Organizations API
-      - Amazon Personalize API
-      - Amazon Pinpoint API
-      - Amazon Polly API
-      - Amazon QuickSight API
-      - Amazon Rekognition API
-      - Amazon SES API
-      - AWS Security Hub API
-      - AWS Systems Manager API
-      - Amazon Textract API
-      - Amazon Timestream API
-      - Amazon Transcribe API
-      - Amazon Translate API
-      - AWS Transit Gateway API
-      - AWS WAF API
-      - AWS X-Ray API
-      - Amazon Location Service API
-      - AWS Amplify API
-      - AWS Storage Gateway API
-      - AWS DataSync API
-      - Amazon S3 Glacier API
-      - AWS Shield API
-      - Amazon Detective API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Amazon EC2 API
-      - Amazon S3 API
-      - Amazon Lambda API
-      - Amazon RDS API
-      - Amazon DynamoDB API
-      - Amazon API Gateway API
-      - Amazon SQS API
-      - Amazon SNS API
-      - AWS CloudFormation API
-      - AWS IAM API
-      - Amazon ECS API
-      - Amazon EKS API
-      - Amazon CloudWatch API
-      - Amazon Kinesis API
-      - Amazon CloudFront API
-      - Amazon Route 53 API
-      - Amazon Cognito API
-      - AWS Step Functions API
-      - Amazon SageMaker API
-      - Amazon Bedrock API
-      - Amazon EventBridge API
-      - Elastic Load Balancing API
-      - Amazon VPC API
-      - AWS Secrets Manager API
-      - Amazon Athena API
-      - Amazon Aurora API
-      - Amazon AppFlow API
-      - AWS AppSync API
-      - AWS App Runner API
-      - AWS Batch API
-      - AWS Backup API
-      - AWS Certificate Manager API
-      - AWS CloudTrail API
-      - Amazon CloudSearch API
-      - AWS CodeBuild API
-      - AWS CodeDeploy API
-      - AWS CodePipeline API
-      - Amazon Comprehend API
-      - AWS Config API
-      - Amazon Connect API
-      - AWS Database Migration Service API
-      - AWS Direct Connect API
-      - Amazon DocumentDB API
-      - Amazon ECR API
-      - Amazon EBS API
-      - Amazon EFS API
-      - Amazon ElastiCache API
-      - AWS Elastic Beanstalk API
-      - Amazon EMR API
-      - AWS Fargate API
-      - Amazon FSx API
-      - AWS Global Accelerator API
-      - AWS Glue API
-      - Amazon GuardDuty API
-      - Amazon Inspector API
-      - AWS IoT Core API
-      - Amazon Kendra API
-      - Amazon Keyspaces API
-      - AWS KMS API
-      - AWS Lake Formation API
-      - Amazon Lex API
-      - Amazon Lightsail API
-      - Amazon Macie API
-      - Amazon MemoryDB API
-      - Amazon MQ API
-      - Amazon MSK API
-      - Amazon OpenSearch Service API
-      - AWS Organizations API
-      - Amazon Personalize API
-      - Amazon Pinpoint API
-      - Amazon Polly API
-      - Amazon QuickSight API
-      - Amazon Rekognition API
-      - Amazon SES API
-      - AWS Security Hub API
-      - AWS Systems Manager API
-      - Amazon Textract API
-      - Amazon Timestream API
-      - Amazon Transcribe API
-      - Amazon Translate API
-      - AWS Transit Gateway API
-      - AWS WAF API
-      - AWS X-Ray API
-      - Amazon Location Service API
-      - AWS Amplify API
-      - AWS Storage Gateway API
-      - AWS DataSync API
-      - Amazon S3 Glacier API
-      - AWS Shield API
-      - Amazon Detective API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Amazon EC2 API
-      - Amazon S3 API
-      - Amazon Lambda API
-      - Amazon RDS API
-      - Amazon DynamoDB API
-      - Amazon API Gateway API
-      - Amazon SQS API
-      - Amazon SNS API
-      - AWS CloudFormation API
-      - AWS IAM API
-      - Amazon ECS API
-      - Amazon EKS API
-      - Amazon CloudWatch API
-      - Amazon Kinesis API
-      - Amazon CloudFront API
-      - Amazon Route 53 API
-      - Amazon Cognito API
-      - AWS Step Functions API
-      - Amazon SageMaker API
-      - Amazon Bedrock API
-      - Amazon EventBridge API
-      - Elastic Load Balancing API
-      - Amazon VPC API
-      - AWS Secrets Manager API
-      - Amazon Athena API
-      - Amazon Aurora API
-      - Amazon AppFlow API
-      - AWS AppSync API
-      - AWS App Runner API
-      - AWS Batch API
-      - AWS Backup API
-      - AWS Certificate Manager API
-      - AWS CloudTrail API
-      - Amazon CloudSearch API
-      - AWS CodeBuild API
-      - AWS CodeDeploy API
-      - AWS CodePipeline API
-      - Amazon Comprehend API
-      - AWS Config API
-      - Amazon Connect API
-      - AWS Database Migration Service API
-      - AWS Direct Connect API
-      - Amazon DocumentDB API
-      - Amazon ECR API
-      - Amazon EBS API
-      - Amazon EFS API
-      - Amazon ElastiCache API
-      - AWS Elastic Beanstalk API
-      - Amazon EMR API
-      - AWS Fargate API
-      - Amazon FSx API
-      - AWS Global Accelerator API
-      - AWS Glue API
-      - Amazon GuardDuty API
-      - Amazon Inspector API
-      - AWS IoT Core API
-      - Amazon Kendra API
-      - Amazon Keyspaces API
-      - AWS KMS API
-      - AWS Lake Formation API
-      - Amazon Lex API
-      - Amazon Lightsail API
-      - Amazon Macie API
-      - Amazon MemoryDB API
-      - Amazon MQ API
-      - Amazon MSK API
-      - Amazon OpenSearch Service API
-      - AWS Organizations API
-      - Amazon Personalize API
-      - Amazon Pinpoint API
-      - Amazon Polly API
-      - Amazon QuickSight API
-      - Amazon Rekognition API
-      - Amazon SES API
-      - AWS Security Hub API
-      - AWS Systems Manager API
-      - Amazon Textract API
-      - Amazon Timestream API
-      - Amazon Transcribe API
-      - Amazon Translate API
-      - AWS Transit Gateway API
-      - AWS WAF API
-      - AWS X-Ray API
-      - Amazon Location Service API
-      - AWS Amplify API
-      - AWS Storage Gateway API
-      - AWS DataSync API
-      - Amazon S3 Glacier API
-      - AWS Shield API
-      - Amazon Detective API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Amazon EC2 API
-      - Amazon S3 API
-      - Amazon Lambda API
-      - Amazon RDS API
-      - Amazon DynamoDB API
-      - Amazon API Gateway API
-      - Amazon SQS API
-      - Amazon SNS API
-      - AWS CloudFormation API
-      - AWS IAM API
-      - Amazon ECS API
-      - Amazon EKS API
-      - Amazon CloudWatch API
-      - Amazon Kinesis API
-      - Amazon CloudFront API
-      - Amazon Route 53 API
-      - Amazon Cognito API
-      - AWS Step Functions API
-      - Amazon SageMaker API
-      - Amazon Bedrock API
-      - Amazon EventBridge API
-      - Elastic Load Balancing API
-      - Amazon VPC API
-      - AWS Secrets Manager API
-      - Amazon Athena API
-      - Amazon Aurora API
-      - Amazon AppFlow API
-      - AWS AppSync API
-      - AWS App Runner API
-      - AWS Batch API
-      - AWS Backup API
-      - AWS Certificate Manager API
-      - AWS CloudTrail API
-      - Amazon CloudSearch API
-      - AWS CodeBuild API
-      - AWS CodeDeploy API
-      - AWS CodePipeline API
-      - Amazon Comprehend API
-      - AWS Config API
-      - Amazon Connect API
-      - AWS Database Migration Service API
-      - AWS Direct Connect API
-      - Amazon DocumentDB API
-      - Amazon ECR API
-      - Amazon EBS API
-      - Amazon EFS API
-      - Amazon ElastiCache API
-      - AWS Elastic Beanstalk API
-      - Amazon EMR API
-      - AWS Fargate API
-      - Amazon FSx API
-      - AWS Global Accelerator API
-      - AWS Glue API
-      - Amazon GuardDuty API
-      - Amazon Inspector API
-      - AWS IoT Core API
-      - Amazon Kendra API
-      - Amazon Keyspaces API
-      - AWS KMS API
-      - AWS Lake Formation API
-      - Amazon Lex API
-      - Amazon Lightsail API
-      - Amazon Macie API
-      - Amazon MemoryDB API
-      - Amazon MQ API
-      - Amazon MSK API
-      - Amazon OpenSearch Service API
-      - AWS Organizations API
-      - Amazon Personalize API
-      - Amazon Pinpoint API
-      - Amazon Polly API
-      - Amazon QuickSight API
-      - Amazon Rekognition API
-      - Amazon SES API
-      - AWS Security Hub API
-      - AWS Systems Manager API
-      - Amazon Textract API
-      - Amazon Timestream API
-      - Amazon Transcribe API
-      - Amazon Translate API
-      - AWS Transit Gateway API
-      - AWS WAF API
-      - AWS X-Ray API
-      - Amazon Location Service API
-      - AWS Amplify API
-      - AWS Storage Gateway API
-      - AWS DataSync API
-      - Amazon S3 Glacier API
-      - AWS Shield API
-      - Amazon Detective API
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers:
-  - name: Kin Lane
-    email: kin@apievangelist.com
-    url: https://apievangelist.com
+- Rate Limiting
+- Quotas
+- Throttling
+- Cloud Computing

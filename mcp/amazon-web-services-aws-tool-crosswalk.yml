@@ -1,0 +1,84 @@
+generated: '2026-09-01'
+method: derived
+source: >-
+  mcp/amazon-web-services-aws-mcp.yml (live tools/list, 2026-09-01) bound against
+  openapi/amazon-web-services-aws-amazon-ec2-api-api-openapi.yml and
+  wsdl/amazon-web-services-aws-amazon-s3.wsdl / -amazon-sqs.wsdl.
+note: >-
+  The crosswalk's headline finding is a clean surface divergence, not a mapping. Every tool the hosted
+  AWS Knowledge MCP Server exposes is a DOCUMENTATION and METADATA tool — read the docs, search the docs,
+  list regions, check regional availability, fetch a skill. None of them binds to an AWS control-plane
+  operation, so the REST/Query contract in openapi/ and the remote MCP surface do not overlap at all.
+  The control plane is reachable over MCP only through the local-stdio awslabs servers, which execute
+  under the operator's own IAM credentials and are therefore not introspectable anonymously; their tool
+  schemas need an authenticated local run to capture.
+surfaces:
+  openapi:
+    file: openapi/amazon-web-services-aws-amazon-ec2-api-api-openapi.yml
+    gated: false
+    note: >-
+      One operation, invokeEc2Action — the EC2 Query API is a single POST endpoint dispatched by an
+      Action parameter, so operation granularity lives in the Action vocabulary, not in paths.
+  wsdl:
+    files:
+    - wsdl/amazon-web-services-aws-amazon-s3.wsdl
+    - wsdl/amazon-web-services-aws-amazon-sqs.wsdl
+    gated: false
+    note: 32 SOAP operations across the two legacy contracts AWS still serves.
+  mcp:
+    url: https://knowledge-mcp.global.api.aws/mcp
+    gated: false
+    note: Anonymous; tools/list returned HTTP 200.
+  mcp_local:
+    repository: https://github.com/awslabs/mcp
+    gated: true
+    note: >-
+      62 stdio servers. Tool schemas require an authenticated local run under AWS credentials; not
+      captured here rather than guessed.
+  graphql:
+    endpoint: null
+    note: >-
+      AWS AppSync is a service that HOSTS customer GraphQL APIs; AWS does not publish a GraphQL API of
+      its own to introspect. See graphql/amazon-web-services-aws-graphql.md.
+crosswalk: []
+mcp_only:
+- tool: aws___read_documentation
+  reason: Documentation retrieval; no AWS control-plane operation backs it.
+- tool: aws___search_documentation
+  reason: Documentation search; no AWS control-plane operation backs it.
+- tool: aws___list_regions
+  reason: >-
+    Region metadata. The nearest public control-plane equivalent is the EC2 DescribeRegions Action, but
+    the tool is served from a documentation index and requires no credentials, so it is not a binding.
+- tool: aws___get_regional_availability
+  reason: Service/region availability metadata sourced from the docs index, not from a callable API.
+- tool: aws___retrieve_skill
+  reason: >-
+    Returns provider-authored SKILL.md documents (see skills/). No REST operation; this is the MCP
+    delivery channel for AWS Agent Skills.
+rest_only:
+- capability: EC2 control plane
+  source: openapi/amazon-web-services-aws-amazon-ec2-api-api-openapi.yml
+  operations: [invokeEc2Action]
+  note: >-
+    Dispatches the full EC2 Action vocabulary (RunInstances, DescribeInstances, TerminateInstances, …).
+    No hosted MCP tool reaches it.
+- capability: Amazon S3 (SOAP)
+  source: wsdl/amazon-web-services-aws-amazon-s3.wsdl
+  operations: [CreateBucket, DeleteBucket, ListAllMyBuckets, ListBucket, PutObject, PutObjectInline,
+    GetObject, GetObjectExtended, DeleteObject, CopyObject, GetBucketAccessControlPolicy,
+    SetBucketAccessControlPolicy, GetObjectAccessControlPolicy, SetObjectAccessControlPolicy,
+    GetBucketLoggingStatus, SetBucketLoggingStatus]
+- capability: Amazon SQS (SOAP)
+  source: wsdl/amazon-web-services-aws-amazon-sqs.wsdl
+  operations: [AddPermission, ChangeMessageVisibility, ChangeMessageVisibilityBatch, CreateQueue,
+    DeleteMessage, DeleteMessageBatch, DeleteQueue, GetQueueAttributes, GetQueueUrl,
+    ListDeadLetterSourceQueues, ListQueues, ReceiveMessage, RemovePermission, SendMessage,
+    SendMessageBatch, SetQueueAttributes]
+coverage:
+  tools_named: 5
+  tools_bound: 0
+  mcp_only: 5
+  rest_ops_total: 33
+  rest_ops_with_tool: 0
+  overlap: none

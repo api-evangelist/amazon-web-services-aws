@@ -1,0 +1,153 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://docs.aws.amazon.com/AWSEC2/latest/APIReference/CommonParameters.html,
+  https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html,
+  https://docs.aws.amazon.com/AWSEC2/latest/APIReference/throttling.html,
+  https://docs.aws.amazon.com/AWSEC2/latest/APIReference/CommonErrors.html,
+  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html
+scope: >-
+  These are the cross-cutting semantics of the AWS Query/JSON control-plane APIs, read from the EC2 API
+  Reference where AWS documents them canonically. They hold across services with the usual AWS caveat
+  that each service names its own actions and error codes.
+authentication:
+  style: request-signing
+  scheme: AWS Signature Version 4 (SigV4)
+  header: Authorization
+  algorithm: AWS4-HMAC-SHA256
+  alt: >-
+    Query-string signing is supported (X-Amz-Algorithm / X-Amz-Credential / X-Amz-Date / X-Amz-Signature
+    / X-Amz-SignedHeaders), which is what pre-signed URLs are.
+  temporary_credentials: X-Amz-Security-Token, from AWS STS
+  docs: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html
+  cross_reference: authentication/amazon-web-services-aws-authentication.yml
+idempotency:
+  supported: true
+  mechanism: client-token
+  parameter: ClientToken
+  scope: per-action, per-account, per-Region
+  token_format: unique case-sensitive string of up to 64 ASCII characters
+  mismatch_error: IdempotentParameterMismatch
+  retention: >-
+    Not published as a fixed window. AWS documents the behaviour (a retry with the same token and the
+    same parameters succeeds without acting again) but does not state how long a client token is
+    remembered, so no window is asserted here.
+  idempotent_by_default:
+  - AssociateAddress
+  - CreateVpnConnection
+  - DisassociateAddress
+  - ReplaceNetworkAclAssociation
+  - TerminateInstances
+  client_token_actions_count: ~90
+  client_token_examples:
+  - RunInstances
+  - CreateFleet
+  - CreateVolume
+  - CreateNatGateway
+  - CreateLaunchTemplate
+  - CreateCapacityReservation
+  - CreateNetworkInterface
+  - CreateVpcEndpoint
+  - ImportImage
+  - CopyImage
+  docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html
+dry_run_mode:
+  supported: true
+  mechanism: DryRun boolean parameter on EC2 actions
+  behaviour: >-
+    Checks whether the caller has the required permissions without making the request. Success is
+    signalled by the DryRunOperation error; failure by UnauthorizedOperation.
+  scope: >-
+    Permission rehearsal only — it does not validate business preconditions such as capacity or quota.
+  docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html
+reversibility:
+  grade: verified
+  note: >-
+    Graded verified because at least one write surface publishes both a reversal operation and the
+    window it works inside. AWS is not uniform here and the honest summary is a split: state changes
+    (stop/start, detach/attach, disassociate/associate) are freely reversible, resource DELETIONS are
+    generally NOT — TerminateInstances and DeleteVolume are permanent and no undo exists — while a few
+    account- and domain-level destructions carry an explicit, dated grace period. Every window below is
+    quoted from AWS documentation; no window is inferred.
+  surfaces:
+  - action: CloseAccount (AWS account closure)
+    reversal: Reopen the account by contacting AWS Support
+    window: 90 days
+    window_stated: true
+    docs: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/close-account.html
+    evidence: >-
+      "The post-closure period is 90 days. During the post-closure period, you can access your content
+      and AWS services only by reopening your account. After the post-closure period, AWS permanently
+      closes your AWS account."
+    grade: verified
+  - action: StopInstances
+    reversal: StartInstances
+    window: none stated — a stopped instance can be started at any time while it exists
+    window_stated: false
+    docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StopInstances.html
+    grade: documented
+  - action: DetachVolume
+    reversal: AttachVolume
+    window_stated: false
+    docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachVolume.html
+    grade: documented
+  - action: DisassociateAddress
+    reversal: AssociateAddress
+    window_stated: false
+    docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html
+    grade: documented
+  - action: TerminateInstances
+    reversal: none
+    window_stated: false
+    docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html
+    note: >-
+      IRREVERSIBLE. Termination is permanent; instance-store data and any EBS volume with
+      DeleteOnTermination set are destroyed. An agent must treat this as a one-way door. The only
+      pre-emptive protection is the DisableApiTermination attribute, set before the fact.
+    grade: none
+  - action: DeleteSnapshot / DeleteVolume
+    reversal: none
+    window_stated: false
+    note: IRREVERSIBLE once the call succeeds; recovery depends on a snapshot taken beforehand.
+    grade: none
+pagination:
+  style: token
+  request_params: [MaxResults, NextToken]
+  response_fields: [NextToken]
+  note: >-
+    Uniform across AWS APIs. An absent or null NextToken in the response means the last page. MaxResults
+    caps vary per action and are documented on each action page.
+versioning:
+  style: dated-api-version-parameter
+  parameter: Version
+  example: '2016-11-15'
+  cross_reference: lifecycle/amazon-web-services-aws-lifecycle.yml
+request_tracing:
+  response_header: x-amzn-RequestId
+  query_xml_field: RequestID
+  note: >-
+    Every AWS response carries a request id; AWS Support asks for it first. Amazon S3 additionally
+    returns x-amz-id-2 as the extended request id.
+error_envelope:
+  query_xml: <Response><Errors><Error><Code/><Message/></Error></Errors><RequestID/></Response>
+  json: '{"__type": "<ErrorCode>", "message": "<text>"}'
+  error_type_header: x-amzn-ErrorType
+  problem_json: false
+  cross_reference: errors/amazon-web-services-aws-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  note: >-
+    AWS publishes no RateLimit-*/X-RateLimit-* response headers and no Retry-After on throttled calls.
+    Exhaustion is signalled only by the error code — RequestLimitExceeded (EC2, HTTP 503) or
+    ThrottlingException (HTTP 400) — and the client is expected to back off exponentially with jitter.
+    This is the weakest runtime signal in the AWS contract from an agent's point of view: the limit is
+    documented but never echoed on the wire, so an agent cannot see how close it is until it fails.
+  cross_reference: rate-limits/amazon-web-services-aws-rate-limits.yml
+field_expansion:
+  supported: false
+  note: >-
+    No sparse-fieldset or expansion syntax. Response shaping is done with per-action Filters and, on
+    some actions, an Attribute/Include parameter.
+metadata:
+  mechanism: resource tags (key/value), applied with CreateTags or TagSpecifications on create
+  docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html

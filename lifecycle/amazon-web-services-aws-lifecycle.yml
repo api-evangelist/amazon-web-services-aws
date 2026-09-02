@@ -1,0 +1,46 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html,
+  https://docs.aws.amazon.com/sdkref/latest/guide/version-support-matrix.html,
+  https://aws.amazon.com/legal/service-level-agreements/, https://health.aws.amazon.com/health/status
+versioning:
+  scheme: date-stamped-api-version
+  current: '2016-11-15'
+  note: >-
+    AWS versions each service API with a dated version string carried in the request (EC2 Query:
+    Version=2016-11-15) rather than in the URL path. A service API version is effectively permanent —
+    AWS's long-standing posture is that an existing API version keeps working; new capability arrives as
+    new Actions and new parameters on the same version.
+  docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html
+deprecation:
+  policy_url: https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html
+  support_matrix: https://docs.aws.amazon.com/sdkref/latest/guide/version-support-matrix.html
+  sunset_header: false
+  note: >-
+    The published, dated deprecation policy covers the AWS SDKs and Tools, not the service APIs: each
+    SDK major version moves through generally-available, maintenance announcement, maintenance mode and
+    end-of-support, with the phase dates published in the version support matrix. AWS does not emit
+    RFC 8594 Sunset/Deprecation response headers on its APIs; deprecation is communicated through
+    documentation, the What's New feed and account notifications. Service and feature retirements are
+    announced individually rather than under one company-wide API deprecation policy.
+  observed_maintenance_lines:
+  - package: aws-sdk (npm, JavaScript v2)
+    last_published: '2025-12-09'
+  - package: com.amazonaws:aws-java-sdk (Java 1.x)
+    last_published: '2025-12-30'
+sla:
+  url: https://aws.amazon.com/legal/service-level-agreements/
+  note: >-
+    Per-service SLAs, not one company-wide number. Amazon EC2's SLA (https://aws.amazon.com/ec2/sla/)
+    is the reference for the compute plane. Credits are the sole remedy.
+status_page: https://health.aws.amazon.com/health/status
+status_page_note: >-
+  https://status.aws.amazon.com/ redirects here (HTTP 200 on 2026-09-01). Account-scoped events are
+  delivered through AWS Health and the AWS Health API rather than the public page.
+changelog: https://aws.amazon.com/new/
+changelog_feed: https://aws.amazon.com/about-aws/whats-new/recent/feed/
+deprecated_operations: []
+deprecated_operations_note: >-
+  Derived from openapi/. The harvested EC2 contract declares a single dispatch operation and marks
+  nothing deprecated, so this list is empty by measurement, not by omission.

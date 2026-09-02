@@ -1,7 +1,14 @@
 name: Amazon Web Services (AWS)
 description: >-
-  Amazon Web Services offers reliable, scalable, and inexpensive cloud computing services. Free to join, pay only for
-  what you use.
+  Amazon Web Services is the cloud computing arm of Amazon and the largest public cloud provider in the
+  world, offering more than 200 services across compute, storage, databases, networking, analytics,
+  machine learning, security and developer tooling from data centers in dozens of Regions. Nearly every
+  service is API-first: capacity is created, configured and destroyed through signed HTTPS calls, and the
+  console, the AWS CLI and the CloudFormation and CDK toolchains are all clients of the same control
+  plane. Requests are authenticated with AWS Signature Version 4 and authorized by IAM policy rather than
+  by OAuth scope, versioned with a dated API version parameter instead of a URL path, and paginated
+  uniformly with MaxResults and NextToken. Pricing is usage-based per service with a credit-capped Free
+  Tier for new accounts rather than API request plans.
 deliveryModel:
   model: saas
   open_source: false
@@ -28,8 +35,8 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-created: '2024'
-modified: '2026-04-19'
+created: '2024-01-01'
+modified: '2026-09-01'
 specificationVersion: '0.23'
 tags:
 - Analytics
@@ -1245,6 +1252,8 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-detective
 common:
+- type: Website
+  url: https://aws.amazon.com/
 - type: CapabilityMap
   url: capabilities/amazon-web-services-aws-capability-edges.yml
   name: Amazon Web Services (AWS) Business Capability Map
@@ -1271,7 +1280,7 @@ common:
 - type: Support
   url: https://aws.amazon.com/support/
 - type: StatusPage
-  url: https://status.aws.amazon.com/
+  url: https://health.aws.amazon.com/health/status
 - type: TermsOfService
   url: https://aws.amazon.com/terms/
 - type: PrivacyPolicy
@@ -1324,7 +1333,100 @@ common:
   data:
   - name: Cloud Operations
     description: Use Amazon Web Services AWS to manage and automate cloud operations.
+- type: OpenAPI
+  name: Amazon EC2 API (Query) OpenAPI
+  url: openapi/amazon-web-services-aws-amazon-ec2-api-api-openapi.yml
+- type: WSDL
+  name: Amazon S3 SOAP contract (2006-03-01, 16 operations)
+  url: wsdl/amazon-web-services-aws-amazon-s3.wsdl
+- type: WSDL
+  name: Amazon SQS SOAP contract (2012-11-05, 16 operations)
+  url: wsdl/amazon-web-services-aws-amazon-sqs.wsdl
+- type: WellKnown
+  name: AWS /.well-known discovery probe
+  url: well-known/amazon-web-services-aws-well-known.yml
+- type: SecurityTxt
+  name: AWS security.txt (RFC 9116)
+  url: well-known/amazon-web-services-aws-security.txt
+- type: LLMsTxt
+  name: AWS Documentation llms.txt (provider-published)
+  url: llms/amazon-web-services-aws-llms.txt
+- type: MCPServer
+  name: AWS MCP servers (hosted Knowledge MCP + 62 awslabs stdio servers)
+  url: mcp/amazon-web-services-aws-mcp.yml
+- type: ToolCrosswalk
+  name: AWS MCP tool to API operation crosswalk
+  url: mcp/amazon-web-services-aws-tool-crosswalk.yml
+- type: Packages
+  name: AWS first-party SDK packages across nine registries
+  url: packages/amazon-web-services-aws-packages.yml
+- type: Conformance
+  name: AWS standards conformance
+  url: conformance/amazon-web-services-aws-conformance.yml
+- type: ErrorCatalog
+  name: AWS common error catalog
+  url: errors/amazon-web-services-aws-problem-types.yml
+- type: Lifecycle
+  name: AWS API versioning, deprecation, SLA and status
+  url: lifecycle/amazon-web-services-aws-lifecycle.yml
+- type: Deprecation
+  name: AWS SDKs and Tools maintenance policy
+  url: https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html
+- type: Conventions
+  name: AWS cross-cutting API conventions
+  url: conventions/amazon-web-services-aws-conventions.yml
+- type: Idempotency
+  name: AWS client-token idempotency
+  url: conventions/amazon-web-services-aws-conventions.yml
+- type: ChangeLog
+  name: AWS What's New announcement stream
+  url: changelog/amazon-web-services-aws-changelog.yml
+- type: CLI
+  name: AWS CLI command surface
+  url: cli/amazon-web-services-aws-cli.yml
+- type: Components
+  name: AWS embeddable UI components
+  url: components/amazon-web-services-aws-components.yml
+- type: Sandbox
+  name: AWS test and dry-run surface
+  url: sandbox/amazon-web-services-aws-sandbox.yml
+- type: RateLimits
+  name: Amazon EC2 API throttling limits
+  url: rate-limits/amazon-web-services-aws-rate-limits.yml
+- type: Plans
+  name: AWS Free Tier and Paid plan
+  url: plans/amazon-web-services-aws-plans-pricing.yml
+- type: Webhooks
+  name: AWS outbound event and webhook surface
+  url: asyncapi/amazon-web-services-aws-events.yml
+- type: AgentSkill
+  name: AWS-published Agent Skills
+  url: skills/_index.yml
+- type: Overlay
+  name: API Evangelist overlay for the Amazon EC2 API
+  url: overlays/amazon-web-services-aws-amazon-ec2-api-api-overlay.yaml
+- type: Examples
+  name: Amazon EC2 API request and response examples
+  url: examples/amazon-web-services-aws-example.json
+- type: FinOps
+  name: AWS FinOps / FOCUS alignment
+  url: finops/amazon-web-services-aws-finops.yml
+- type: APIReference
+  name: Amazon EC2 API Reference
+  url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+- type: Roadmap
+  name: AWS Containers public roadmap
+  url: https://github.com/aws/containers-roadmap
+- type: SignUp
+  url: https://portal.aws.amazon.com/billing/signup
+- type: GitHubOrganization
+  url: https://github.com/aws
 maintainers:
 - name: Kin Lane
   email: kin@apievangelist.com
   url: https://apievangelist.com
+x-enrichment:
+  date: '2026-09-01'
+  status: enriched
+  artifacts_added: 26
+  pass: local-v1

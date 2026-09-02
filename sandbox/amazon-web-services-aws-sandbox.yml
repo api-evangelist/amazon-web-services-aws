@@ -1,0 +1,57 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html,
+  https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html, https://aws.amazon.com/free/
+note: >-
+  AWS has NO test-mode account and no test/live key separation. There is no `sk_test_`-style prefix, no
+  parallel sandbox environment, and no set of magic test values — an AWS API key is a production key and
+  every call it makes creates real, billable resources. What AWS offers instead is three different
+  things that are often mistaken for a sandbox, recorded separately below so the difference is visible
+  to an agent deciding whether it can rehearse safely.
+test_live_separation:
+  supported: false
+  key_prefixes: []
+  note: >-
+    Credentials are not marked test or live. The nearest equivalent is an isolated AWS account, usually
+    a dedicated dev/sandbox account inside AWS Organizations, which is an operational practice rather
+    than an API feature.
+dry_run:
+  supported: true
+  scope: permission-check only
+  mechanism: DryRun boolean parameter on Amazon EC2 actions
+  success_signal: DryRunOperation error
+  failure_signal: UnauthorizedOperation error
+  docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html
+  cli: aws ec2 <operation> --dry-run
+  note: >-
+    Answers "am I allowed to do this?" and nothing more. It does not validate capacity, quota, or any
+    other business precondition, so a DryRunOperation result is not a guarantee the real call succeeds.
+    Not universal — it is an EC2-family parameter, not an AWS-wide one.
+service_sandboxes:
+- name: Amazon SNS SMS sandbox
+  docs: https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html
+  description: >-
+    Every new AWS account starts in the SMS sandbox, where SNS will only send text messages to phone
+    numbers that have been added and verified with a one-time password. Leaving it requires a support
+    request. This is a genuine AWS-published sandbox, scoped to one channel of one service.
+  test_values: none published — the consumer verifies their own destination numbers
+- name: AWS Free Tier account
+  docs: https://aws.amazon.com/free/
+  description: >-
+    A credit-capped account ($100 immediately, up to $200 over 6 months) that auto-closes at 6 months or
+    on credit exhaustion and is never billed unless converted. This is the practical way to exercise the
+    real API without financial exposure. See plans/.
+  test_values: null
+local_emulation:
+- name: AWS SAM CLI local invoke / start-api
+  official: true
+  docs: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/using-sam-cli-local.html
+  scope: Lambda and API Gateway only
+- name: DynamoDB Local
+  official: true
+  docs: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
+  scope: Amazon DynamoDB only
+- name: LocalStack
+  official: false
+  note: Third-party AWS emulator. Recorded for completeness; it is not an AWS product.

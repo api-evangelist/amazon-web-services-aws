@@ -1,0 +1,112 @@
+generated: '2026-09-01'
+method: searched
+source: live probes of the AWS website, docs and API hosts, 2026-09-01
+note: >-
+  Probed the closed path list against the corporate host (aws.amazon.com), the documentation host
+  (docs.aws.amazon.com), the EC2 Query API host (ec2.amazonaws.com) and the AWS Knowledge MCP host
+  (knowledge-mcp.global.api.aws). One real document was served: RFC 9116 security.txt on aws.amazon.com.
+  knowledge-mcp.global.api.aws is a PATH-ECHOING CATCH-ALL — it answers HTTP 200 with a 314KB HTML SPA
+  shell for every /.well-known/* path INCLUDING the negative control, so every apparent hit on that host
+  is discarded and nothing from it is credited.
+hit_count: 1
+hosts:
+- host: https://aws.amazon.com
+  path_echo_control: passed
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: amazon-web-services-aws-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 404
+- host: https://docs.aws.amazon.com
+  path_echo_control: passed
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 404
+- host: https://ec2.amazonaws.com
+  path_echo_control: passed
+  note: >-
+    The EC2 Query API host answers 401 with an XML SigV4 challenge for every path, including the
+    negative control. No discovery documents are served.
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+  - path: /.well-known/aauth-resource.json
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+  - path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 401
+- host: https://knowledge-mcp.global.api.aws
+  path_echo_control: failed
+  note: >-
+    DISCARDED. Every /.well-known/* path returns HTTP 200 with a 314KB text/html SPA shell, including
+    /.well-known/apis-io-negative-control-7f3ab91c.json, which cannot exist. No document on this host is
+    counted and no pointer is emitted for it.
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    counted: false
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    counted: false
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: text/html
+    counted: false
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    counted: false
+  - path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 200
+    content_type: text/html
+    counted: false

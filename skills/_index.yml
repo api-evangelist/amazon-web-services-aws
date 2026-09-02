@@ -1,0 +1,72 @@
+generated: '2026-09-01'
+method: searched
+source: https://github.com/awslabs/agent-plugins
+note: >-
+  AWS PUBLISHES ITS OWN AGENT SKILLS — nothing here is generated on AWS's behalf. Two first-party
+  repositories carry them: awslabs/agent-plugins ships 34 SKILL.md files organised as agent plugins for
+  serverless, deployment, SageMaker AI, databases, Amplify, Location Service and Transform, and
+  awslabs/hcls-agent-skills ships 41 more for healthcare and life sciences. A third delivery channel
+  exists on the wire: the hosted AWS Knowledge MCP Server exposes an `aws___retrieve_skill` tool that
+  returns SKILL.md documents to an agent at runtime (see mcp/). The six below were harvested VERBATIM
+  as the marquee, API-grounded set; the rest are indexed by URL rather than copied.
+upstream:
+- repository: https://github.com/awslabs/agent-plugins
+  skill_count: 34
+  license: Apache-2.0
+  description: Agent Plugins for AWS — skills for architecting, deploying and operating on AWS.
+  agents_md: https://github.com/awslabs/agent-plugins/blob/main/AGENTS.md
+- repository: https://github.com/awslabs/hcls-agent-skills
+  skill_count: 41
+  description: >-
+    Healthcare and life-sciences agent skills — genomics, imaging, claims, drug discovery. Works with
+    Amazon Quick, Kiro, Amazon AgentCore, AWS Strands SDK and any Agent Skills-compatible platform.
+- repository: https://github.com/awslabs/startups
+  description: Plugins, skills and tools for startup builders on AWS.
+- channel: mcp
+  tool: aws___retrieve_skill
+  endpoint: https://knowledge-mcp.global.api.aws/mcp
+  description: Runtime retrieval of AWS skills over MCP; returns SKILL.md, or a named file within a skill.
+skills:
+- file: amazon-web-services-aws-api-gateway.md
+  name: api-gateway
+  description: >-
+    Build, manage and operate APIs with Amazon API Gateway (REST, HTTP and WebSocket) — custom domains,
+    Lambda authorizers, usage plans, throttling, CORS, VPC links, private APIs, and 4xx/5xx triage.
+  api: https://aws.amazon.com/api-gateway/
+  method: searched
+  source: https://github.com/awslabs/agent-plugins/blob/main/plugins/aws-serverless/skills/api-gateway/SKILL.md
+- file: amazon-web-services-aws-lambda.md
+  name: aws-lambda
+  description: AWS Lambda function development, packaging, configuration and troubleshooting.
+  api: https://aws.amazon.com/lambda/
+  method: searched
+  source: https://github.com/awslabs/agent-plugins/blob/main/plugins/aws-serverless/skills/aws-lambda/SKILL.md
+- file: amazon-web-services-aws-step-functions.md
+  name: aws-step-functions
+  description: Author and operate AWS Step Functions state machines.
+  api: https://aws.amazon.com/step-functions/
+  method: searched
+  source: https://github.com/awslabs/agent-plugins/blob/main/plugins/aws-serverless/skills/aws-step-functions/SKILL.md
+- file: amazon-web-services-aws-amazon-location-service.md
+  name: amazon-location-service
+  description: Maps, places, routes and geofencing with Amazon Location Service.
+  api: https://aws.amazon.com/location/
+  method: searched
+  source: https://github.com/awslabs/agent-plugins/blob/main/plugins/amazon-location-service/skills/amazon-location-service/SKILL.md
+- file: amazon-web-services-aws-deploy-on-aws.md
+  name: deploy
+  description: Deploy an application onto AWS — service selection and the deployment flow.
+  api: https://aws.amazon.com/
+  method: searched
+  source: https://github.com/awslabs/agent-plugins/blob/main/plugins/deploy-on-aws/skills/deploy/SKILL.md
+- file: amazon-web-services-aws-aurora-dsql.md
+  name: dsql
+  description: Build on Amazon Aurora DSQL — the serverless distributed SQL database.
+  api: https://aws.amazon.com/rds/aurora/dsql/
+  method: searched
+  source: https://github.com/awslabs/agent-plugins/blob/main/plugins/databases-on-aws/skills/dsql/SKILL.md
+not_copied:
+  count: 69
+  note: >-
+    The remaining 28 skills in awslabs/agent-plugins and all 41 in awslabs/hcls-agent-skills are left in
+    place upstream rather than duplicated here. Browse them at the repository URLs above.

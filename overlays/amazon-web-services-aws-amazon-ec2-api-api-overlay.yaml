@@ -1,0 +1,67 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Amazon EC2 API
+  version: 1.0.0
+extends: openapi/amazon-web-services-aws-amazon-ec2-api-api-openapi.yml
+x-generated: '2026-09-01'
+x-method: generated
+x-source: >-
+  Enhancements derived from the artifacts harvested in this repository on 2026-09-01 — conventions/,
+  rate-limits/, errors/, authentication/ and lifecycle/. The harvested contract is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: amazon-web-services-aws
+    x-apievangelist-enriched: '2026-09-01'
+    x-api-conventions: conventions/amazon-web-services-aws-conventions.yml
+    x-error-catalog: errors/amazon-web-services-aws-problem-types.yml
+    x-rate-limits: rate-limits/amazon-web-services-aws-rate-limits.yml
+    x-lifecycle: lifecycle/amazon-web-services-aws-lifecycle.yml
+- target: $.info
+  update:
+    x-agent-notes: >-
+      The EC2 Query API is a single dispatch endpoint. Operation identity lives in the form-encoded
+      Action parameter, not in the path, so an agent must read the Action vocabulary from the EC2 API
+      Reference rather than from paths[]. Every request is SigV4-signed; there is no bearer token.
+- target: $.components.securitySchemes.SigV4
+  update:
+    x-auth-profile: authentication/amazon-web-services-aws-authentication.yml
+    x-signing-algorithm: AWS4-HMAC-SHA256
+    x-temporary-credentials-header: X-Amz-Security-Token
+- target: $.paths['/'].post
+  update:
+    x-idempotency:
+      supported: true
+      mechanism: client-token
+      parameter: ClientToken
+      scope: per-action, per-account, per-Region
+      mismatch_error: IdempotentParameterMismatch
+      docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html
+    x-dry-run:
+      supported: true
+      parameter: DryRun
+      success_signal: DryRunOperation
+      failure_signal: UnauthorizedOperation
+      scope: permission-check only
+    x-rate-limit:
+      algorithm: token-bucket
+      scope: per-account per-Region per-action
+      exhaustion_error: RequestLimitExceeded
+      exhaustion_status: 503
+      response_headers: []
+      docs: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/throttling.html
+    x-pagination:
+      style: token
+      request_params: [MaxResults, NextToken]
+      response_fields: [NextToken]
+    x-reversibility:
+      grade: mixed
+      note: >-
+        State changes are reversible (StopInstances/StartInstances, DetachVolume/AttachVolume).
+        TerminateInstances, DeleteVolume and DeleteSnapshot are one-way doors with no undo and no
+        window. See conventions/amazon-web-services-aws-conventions.yml.
+- target: $.servers[0]
+  update:
+    x-region-variable: >-
+      The region path variable is required in practice — there is no global EC2 endpoint. Each Region is
+      an independent control plane and a resource created in one is invisible from another.

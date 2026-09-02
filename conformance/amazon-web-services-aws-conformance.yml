@@ -1,0 +1,90 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://aws.amazon.com/compliance/programs/, https://aws.amazon.com/artifact/,
+  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html, plus the contracts in
+  openapi/ and wsdl/ in this repo.
+standards:
+- id: aws-sigv4
+  conforms: true
+  evidence: >-
+    Every AWS API request is signed with AWS Signature Version 4. The EC2 OpenAPI declares a SigV4
+    securityScheme; the process is specified at
+    https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html
+  note: >-
+    AWS's own request-signing scheme, not an IETF standard. It is the single most widely implemented
+    non-standard API auth scheme in the industry and every AWS SDK implements it.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    AWS control-plane APIs do not accept OAuth 2.0 bearer tokens; they require SigV4. Amazon Cognito is
+    an OAuth 2.0 / OIDC authorization server AWS OPERATES FOR CUSTOMERS, which is a different claim.
+- id: oidc
+  conforms: partial
+  evidence: >-
+    AWS IAM accepts external OIDC identity providers for federation (IAM OIDC identity providers,
+    AssumeRoleWithWebIdentity), and Amazon Cognito user pools are a certified OpenID Provider. AWS does
+    not itself publish an /.well-known/openid-configuration for its own APIs — probed 404 on
+    aws.amazon.com on 2026-09-01.
+- id: soap-1.1-wsdl-1.1
+  conforms: true
+  evidence: >-
+    AWS still serves WSDL 1.1 contracts at https://s3.amazonaws.com/doc/2006-03-01/AmazonS3.wsdl (16
+    operations) and https://queue.amazonaws.com/doc/2012-11-05/QueueService.wsdl (16 operations),
+    harvested verbatim to wsdl/.
+  note: The SOAP surface is legacy; the Query/JSON and REST surfaces are the supported path.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    AWS error responses are service-specific XML (Query APIs) or JSON envelopes carrying an error Code
+    and Message; no application/problem+json is served. See errors/.
+- id: pagination
+  conforms: true
+  evidence: >-
+    Token-based pagination is uniform across AWS APIs — MaxResults on request, NextToken on both
+    request and response.
+- id: idempotency
+  conforms: true
+  evidence: >-
+    Client-token idempotency is a published AWS API convention. Five EC2 actions are idempotent by
+    default and ~90 more accept a ClientToken; a mismatched retry returns IdempotentParameterMismatch.
+    https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html
+- id: soc2
+  conforms: true
+  evidence: >-
+    SOC 1/2/3 reports are published to customers through AWS Artifact.
+    https://aws.amazon.com/compliance/soc-faqs/
+- id: iso-27001
+  conforms: true
+  evidence: https://aws.amazon.com/compliance/iso-27001-faqs/
+- id: pci-dss
+  conforms: true
+  evidence: https://aws.amazon.com/compliance/pci-dss-level-1-faqs/
+- id: hipaa
+  conforms: true
+  evidence: https://aws.amazon.com/compliance/hipaa-compliance/
+- id: fedramp
+  conforms: true
+  evidence: https://aws.amazon.com/compliance/fedramp/
+- id: gdpr
+  conforms: true
+  evidence: https://aws.amazon.com/compliance/gdpr-center/
+- id: fips-140
+  conforms: true
+  evidence: >-
+    FIPS 140-validated endpoints are published per service and region.
+    https://aws.amazon.com/compliance/fips/
+- id: csa-star
+  conforms: true
+  evidence: https://aws.amazon.com/compliance/csa/
+domain_standard:
+  market: cloud infrastructure / IaaS
+  finding: none-applicable
+  note: >-
+    REWARD-ONLY, and correctly unscored here. Cloud infrastructure has no cross-vendor interface
+    standard the contract could declare — there is no IaaS equivalent of FHIR, SCIM, OpenRTB or
+    ISO 20022. The nearest candidates were checked and none is declared by an AWS contract: SCIM 2.0
+    appears only in AWS IAM Identity Center as a CONSUMER of a customer's IdP, not in an AWS-published
+    contract; OData, OpenRTB, Sparkplug, ActivityPub, OAI-PMH and the education/library schemes are all
+    out of market. Recorded as a checked absence, not invented to fill the slot.
+  probed_for: [scim2, odata, openrtb, sparkplug, activitypub, oai-pmh, hl7v2, iso-20022, x12]

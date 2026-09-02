@@ -1,0 +1,224 @@
+generated: '2026-09-01'
+method: searched
+source: >-
+  https://aws.amazon.com/tools/ plus the public registry metadata endpoints (registry.npmjs.org,
+  pypi.org/pypi/*/json, rubygems.org/api/v1, crates.io/api/v1, proxy.golang.org, repo1.maven.org,
+  api.nuget.org, repo.packagist.org), all read unauthenticated on 2026-09-01.
+note: >-
+  AWS ships a first-party SDK in every major language, generated per-service from its internal Smithy
+  service models. Where a language has hundreds of per-service artifacts, one representative client is
+  recorded alongside the umbrella/core package rather than enumerating the whole set. Currency is the
+  headline here: every actively maintained SDK line published within the last week of the probe. The one
+  clear decay signal is the v2 generation — npm `aws-sdk` (v2) last published 2025-12-09 and Maven
+  `com.amazonaws:aws-java-sdk` (v1) 2025-12-30, both formally in maintenance while their v3/v2 successors
+  release daily.
+packages:
+- language: python
+  registry: pypi
+  name: boto3
+  url: https://pypi.org/project/boto3/
+  install: pip install boto3
+  official: true
+  version: 1.43.86
+  published: '2026-09-01'
+- language: python
+  registry: pypi
+  name: botocore
+  url: https://pypi.org/project/botocore/
+  install: pip install botocore
+  official: true
+  version: 1.43.86
+  published: '2026-09-01'
+  note: The low-level core that carries the JSON service models every Python client is generated from.
+- language: python
+  registry: pypi
+  name: awscli
+  url: https://pypi.org/project/awscli/
+  install: pip install awscli
+  official: true
+  version: 1.46.1
+  published: '2026-08-27'
+  note: AWS CLI v1. CLI v2 is distributed as a signed installer/bundle, not from PyPI.
+- language: python
+  registry: pypi
+  name: awscrt
+  url: https://pypi.org/project/awscrt/
+  install: pip install awscrt
+  official: true
+  version: 0.36.2
+  published: '2026-08-11'
+- language: python
+  registry: pypi
+  name: awslabs.aws-api-mcp-server
+  url: https://pypi.org/project/awslabs.aws-api-mcp-server/
+  install: uvx awslabs.aws-api-mcp-server@latest
+  official: true
+  version: 1.5.4
+  published: '2026-09-01'
+  note: One of the 62 first-party MCP servers in github.com/awslabs/mcp; see mcp/ for the full deployment record.
+- language: javascript
+  registry: npm
+  name: "@aws-sdk/client-ec2"
+  url: https://www.npmjs.com/package/@aws-sdk/client-ec2
+  install: npm install @aws-sdk/client-ec2
+  official: true
+  version: 3.1124.0
+  published: '2026-09-01'
+- language: javascript
+  registry: npm
+  name: "@aws-sdk/client-s3"
+  url: https://www.npmjs.com/package/@aws-sdk/client-s3
+  install: npm install @aws-sdk/client-s3
+  official: true
+  version: 3.1124.0
+  published: '2026-09-01'
+- language: javascript
+  registry: npm
+  name: "@aws-sdk/client-bedrock-runtime"
+  url: https://www.npmjs.com/package/@aws-sdk/client-bedrock-runtime
+  install: npm install @aws-sdk/client-bedrock-runtime
+  official: true
+  version: 3.1124.0
+  published: '2026-09-01'
+- language: javascript
+  registry: npm
+  name: aws-sdk
+  url: https://www.npmjs.com/package/aws-sdk
+  install: npm install aws-sdk
+  official: true
+  version: 2.1693.0
+  published: '2025-12-09'
+  note: >-
+    AWS SDK for JavaScript v2 — maintenance mode. Nearly nine months behind the v3 modular clients,
+    which publish daily. This is the SDK decay signal for the JavaScript line.
+- language: javascript
+  registry: npm
+  name: aws-cdk-lib
+  url: https://www.npmjs.com/package/aws-cdk-lib
+  install: npm install aws-cdk-lib
+  official: true
+  version: 2.267.0
+  published: '2026-08-27'
+- language: javascript
+  registry: npm
+  name: "@aws-amplify/core"
+  url: https://www.npmjs.com/package/@aws-amplify/core
+  install: npm install aws-amplify
+  official: true
+  version: 6.18.0
+  published: '2026-07-30'
+- language: java
+  registry: maven
+  name: software.amazon.awssdk:bom
+  url: https://central.sonatype.com/artifact/software.amazon.awssdk/bom
+  install: "<dependency><groupId>software.amazon.awssdk</groupId><artifactId>bom</artifactId><version>2.54.10</version></dependency>"
+  official: true
+  version: 2.54.10
+  published: '2026-09-01'
+  note: AWS SDK for Java 2.x bill of materials.
+- language: java
+  registry: maven
+  name: software.amazon.awssdk:s3
+  url: https://central.sonatype.com/artifact/software.amazon.awssdk/s3
+  install: "<dependency><groupId>software.amazon.awssdk</groupId><artifactId>s3</artifactId></dependency>"
+  official: true
+  version: 2.54.10
+  published: '2026-09-01'
+- language: java
+  registry: maven
+  name: com.amazonaws:aws-java-sdk
+  url: https://central.sonatype.com/artifact/com.amazonaws/aws-java-sdk
+  install: "<dependency><groupId>com.amazonaws</groupId><artifactId>aws-java-sdk</artifactId></dependency>"
+  official: true
+  version: 1.12.797
+  published: '2025-12-30'
+  note: AWS SDK for Java 1.x — end-of-support line. Eight months behind the 2.x releases.
+- language: dotnet
+  registry: nuget
+  name: AWSSDK.Core
+  url: https://www.nuget.org/packages/AWSSDK.Core
+  install: dotnet add package AWSSDK.Core
+  official: true
+  version: 4.0.102.1
+  published: '2026-08-24'
+- language: dotnet
+  registry: nuget
+  name: AWSSDK.EC2
+  url: https://www.nuget.org/packages/AWSSDK.EC2
+  install: dotnet add package AWSSDK.EC2
+  official: true
+  version: 4.0.115
+  published: '2026-09-01'
+- language: go
+  registry: gomodules
+  name: github.com/aws/aws-sdk-go-v2
+  url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2
+  install: go get github.com/aws/aws-sdk-go-v2
+  official: true
+  version: v1.45.1
+  published: '2026-08-28'
+- language: go
+  registry: gomodules
+  name: github.com/aws/aws-sdk-go-v2/service/ec2
+  url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/ec2
+  install: go get github.com/aws/aws-sdk-go-v2/service/ec2
+  official: true
+  version: v1.327.0
+  published: '2026-09-01'
+- language: ruby
+  registry: rubygems
+  name: aws-sdk-ec2
+  url: https://rubygems.org/gems/aws-sdk-ec2
+  install: gem install aws-sdk-ec2
+  official: true
+  version: 1.642.0
+  published: '2026-09-01'
+- language: ruby
+  registry: rubygems
+  name: aws-sdk-s3
+  url: https://rubygems.org/gems/aws-sdk-s3
+  install: gem install aws-sdk-s3
+  official: true
+  version: 1.229.0
+  published: '2026-08-06'
+- language: ruby
+  registry: rubygems
+  name: aws-sdk
+  url: https://rubygems.org/gems/aws-sdk
+  install: gem install aws-sdk
+  official: true
+  version: 3.3.0
+  published: '2025-06-02'
+  note: Umbrella meta-gem that pulls in every per-service gem; the per-service gems are the live line.
+- language: php
+  registry: packagist
+  name: aws/aws-sdk-php
+  url: https://packagist.org/packages/aws/aws-sdk-php
+  install: composer require aws/aws-sdk-php
+  official: true
+  version: 3.394.6
+  published: '2026-09-01'
+- language: rust
+  registry: crates
+  name: aws-sdk-ec2
+  url: https://crates.io/crates/aws-sdk-ec2
+  install: cargo add aws-sdk-ec2
+  official: true
+  version: 1.252.0
+  published: '2026-09-01'
+- language: rust
+  registry: crates
+  name: aws-sdk-s3
+  url: https://crates.io/crates/aws-sdk-s3
+  install: cargo add aws-sdk-s3
+  official: true
+  version: 1.144.0
+  published: '2026-08-25'
+- language: rust
+  registry: crates
+  name: aws-config
+  url: https://crates.io/crates/aws-config
+  install: cargo add aws-config
+  official: true
+  version: 1.11.0
+  published: '2026-08-20'

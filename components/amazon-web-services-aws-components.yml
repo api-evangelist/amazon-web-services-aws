@@ -1,0 +1,44 @@
+generated: '2026-09-01'
+method: searched
+source: https://ui.docs.amplify.aws/
+note: >-
+  AWS's client-side component story is narrower than its API story and lives almost entirely in Amplify
+  UI. Recorded because it is real and first-party; not padded with SDKs, which belong in packages/.
+families:
+- name: Amplify UI
+  docs: https://ui.docs.amplify.aws/
+  description: >-
+    A first-party open-source component library that renders connected UI for AWS-backed features —
+    hosted authentication flows, storage browsers, geo maps, chat and in-app messaging — across React,
+    Vue, Angular, Swift, Android and Flutter.
+  loaders:
+  - registry: npm
+    name: "@aws-amplify/ui-react"
+    install: npm install @aws-amplify/ui-react aws-amplify
+  components:
+  - name: Authenticator
+    purpose: Drop-in sign-up/sign-in/MFA flow backed by Amazon Cognito.
+  - name: StorageManager / StorageImage / FileUploader
+    purpose: Upload and render objects in Amazon S3 through Amplify Storage.
+  - name: MapView / LocationSearch
+    purpose: Maps and place search backed by Amazon Location Service.
+  - name: InAppMessaging
+    purpose: In-app message display backed by Amazon Pinpoint.
+  - name: Account Settings
+    purpose: Change-password and delete-user flows over Cognito.
+- name: AWS embedded analytics
+  docs: https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html
+  description: >-
+    Amazon QuickSight dashboards, visuals, Q search bars and the full console embedded into a customer
+    application through the embedding SDK and signed embed URLs.
+  loaders:
+  - registry: npm
+    name: amazon-quicksight-embedding-sdk
+    install: npm install amazon-quicksight-embedding-sdk
+- name: Amazon Connect embedded contact control panel
+  docs: https://github.com/amazon-connect/amazon-connect-streams
+  description: An embeddable softphone/agent UI for Amazon Connect contact centers.
+  loaders:
+  - registry: npm
+    name: amazon-connect-streams
+    install: npm install amazon-connect-streams
