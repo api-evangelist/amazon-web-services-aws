@@ -1,9 +1,8 @@
 generated: '2026-09-01'
 method: searched
 status: published
-source: >-
-  https://awslabs.github.io/mcp/ and https://github.com/awslabs/mcp — plus a live anonymous
-  JSON-RPC probe of https://knowledge-mcp.global.api.aws/mcp on 2026-09-01.
+source: https://awslabs.github.io/mcp/ and https://github.com/awslabs/mcp — plus a live anonymous JSON-RPC
+  probe of https://knowledge-mcp.global.api.aws/mcp on 2026-09-01.
 deployment:
   mode: both
   endpoint: https://knowledge-mcp.global.api.aws/mcp
@@ -11,14 +10,18 @@ deployment:
   package: https://pypi.org/project/awslabs.aws-api-mcp-server/
   auth: none
   verified: probed
-note: >-
-  AWS ships BOTH shapes of MCP server and they are not the same product. The AWS Knowledge MCP Server is
-  a hosted remote endpoint an agent can POST to right now with no account, no key and no install — an
-  `initialize` and a `tools/list` both returned HTTP 200 anonymously during this pass. Separately,
+  probe_prior: (never probed)
+  probe: live
+  probe_why: live
+  checked: '2026-09-11'
+  source: claimed-backlog re-probe 2026-09-11
+note: AWS ships BOTH shapes of MCP server and they are not the same product. The AWS Knowledge MCP Server
+  is a hosted remote endpoint an agent can POST to right now with no account, no key and no install —
+  an `initialize` and a `tools/list` both returned HTTP 200 anonymously during this pass. Separately,
   github.com/awslabs/mcp publishes 62 first-party local-stdio servers (one per service area) distributed
-  through PyPI under the `awslabs.*` namespace; those require a human to install and run them on a
-  machine before any agent sees them. Both are recorded because both are real work by the provider, and
-  only the first is reachable by an agent unattended.
+  through PyPI under the `awslabs.*` namespace; those require a human to install and run them on a machine
+  before any agent sees them. Both are recorded because both are real work by the provider, and only the
+  first is reachable by an agent unattended.
 servers:
 - name: AWS Knowledge MCP Server
   kind: remote
@@ -46,8 +49,7 @@ servers:
   docs: https://awslabs.github.io/mcp/
   server_count: 62
   auth: aws-credentials
-  note: >-
-    Runs under the operator's own AWS credentials (SigV4 via the standard credential chain), so its
+  note: Runs under the operator's own AWS credentials (SigV4 via the standard credential chain), so its
     reach is whatever the caller's IAM principal is allowed to do.
   examples:
   - aws-api-mcp-server
@@ -71,11 +73,15 @@ tools:
 - name: aws___read_documentation
   description: Fetch full AWS doc pages as markdown.
   server: AWS Knowledge MCP Server
-  input_properties: [requests]
+  input_properties:
+  - requests
 - name: aws___search_documentation
   description: AWS docs search; each result's context is verbatim page text.
   server: AWS Knowledge MCP Server
-  input_properties: [limit, search_phrase, topics]
+  input_properties:
+  - limit
+  - search_phrase
+  - topics
 - name: aws___list_regions
   description: Retrieve a list of all AWS regions.
   server: AWS Knowledge MCP Server
@@ -83,14 +89,20 @@ tools:
 - name: aws___get_regional_availability
   description: AWS resource availability per region.
   server: AWS Knowledge MCP Server
-  input_properties: [regions, resource_type, filters, next_token, region]
+  input_properties:
+  - regions
+  - resource_type
+  - filters
+  - next_token
+  - region
 - name: aws___retrieve_skill
   description: Retrieve an AWS skill (workflows, references); returns SKILL.md.
   server: AWS Knowledge MCP Server
-  input_properties: [file, skill_name]
+  input_properties:
+  - file
+  - skill_name
 oauth_discovery:
   probed: '2026-09-01'
-  result: >-
-    /.well-known/oauth-protected-resource and /.well-known/oauth-authorization-server on
-    knowledge-mcp.global.api.aws both answer HTTP 200 with an HTML SPA shell, as does a negative-control
-    path that cannot exist. No OAuth metadata is served; the endpoint is anonymous.
+  result: /.well-known/oauth-protected-resource and /.well-known/oauth-authorization-server on knowledge-mcp.global.api.aws
+    both answer HTTP 200 with an HTML SPA shell, as does a negative-control path that cannot exist. No
+    OAuth metadata is served; the endpoint is anonymous.
