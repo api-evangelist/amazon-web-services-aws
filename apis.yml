@@ -1,14 +1,13 @@
 name: Amazon Web Services (AWS)
-description: >-
-  Amazon Web Services is the cloud computing arm of Amazon and the largest public cloud provider in the
-  world, offering more than 200 services across compute, storage, databases, networking, analytics,
+description: 'Amazon Web Services is the cloud computing arm of Amazon and the largest public cloud provider
+  in the world, offering more than 200 services across compute, storage, databases, networking, analytics,
   machine learning, security and developer tooling from data centers in dozens of Regions. Nearly every
-  service is API-first: capacity is created, configured and destroyed through signed HTTPS calls, and the
-  console, the AWS CLI and the CloudFormation and CDK toolchains are all clients of the same control
+  service is API-first: capacity is created, configured and destroyed through signed HTTPS calls, and
+  the console, the AWS CLI and the CloudFormation and CDK toolchains are all clients of the same control
   plane. Requests are authenticated with AWS Signature Version 4 and authorized by IAM policy rather than
-  by OAuth scope, versioned with a dated API version parameter instead of a URL path, and paginated
-  uniformly with MaxResults and NextToken. Pricing is usage-based per service with a credit-capped Free
-  Tier for new accounts rather than API request plans.
+  by OAuth scope, versioned with a dated API version parameter instead of a URL path, and paginated uniformly
+  with MaxResults and NextToken. Pricing is usage-based per service with a credit-capped Free Tier for
+  new accounts rather than API request plans.'
 deliveryModel:
   model: saas
   open_source: false
@@ -39,7 +38,7 @@ accessModel:
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 created: '2024-01-01'
-modified: '2026-09-01'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
 - Analytics
@@ -77,9 +76,8 @@ tags_raw:
 url: https://aws.amazon.com/
 apis:
 - name: Amazon Bedrock API
-  description: >-
-    Amazon Bedrock is a fully managed service that provides access to foundation models from leading AI
-    companies for building generative AI applications.
+  description: Amazon Bedrock is a fully managed service that provides access to foundation models from
+    leading AI companies for building generative AI applications.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/bedrock/
   baseURL: https://bedrock.amazonaws.com
@@ -102,9 +100,8 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-bedrock
 - name: Amazon VPC API
-  description: >-
-    Amazon Virtual Private Cloud lets you define and launch AWS resources in a logically isolated virtual
-    network with full control over your networking environment.
+  description: Amazon Virtual Private Cloud lets you define and launch AWS resources in a logically isolated
+    virtual network with full control over your networking environment.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/vpc/
   baseURL: https://ec2.amazonaws.com
@@ -127,10 +124,9 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-vpc
 - name: Amazon Aurora API
-  description: >-
-    Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud that combines
-    the performance and availability of traditional enterprise databases with the simplicity and cost-effectiveness
-    of open source databases.
+  description: Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud
+    that combines the performance and availability of traditional enterprise databases with the simplicity
+    and cost-effectiveness of open source databases.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/rds/aurora/
   baseURL: https://rds.amazonaws.com
@@ -147,16 +143,14 @@ apis:
   - type: Console
     url: https://console.aws.amazon.com/rds/
   - type: GettingStarted
-    url: >-
-      https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.html
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.html
   - type: FAQ
     url: https://aws.amazon.com/rds/aurora/faqs/
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-aurora
 - name: Amazon EBS API
-  description: >-
-    Amazon Elastic Block Store provides persistent block storage volumes for use with Amazon EC2 instances
-    in the AWS Cloud.
+  description: Amazon Elastic Block Store provides persistent block storage volumes for use with Amazon
+    EC2 instances in the AWS Cloud.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/ebs/
   baseURL: https://ec2.amazonaws.com
@@ -179,9 +173,8 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-ebs
 - name: AWS Fargate API
-  description: >-
-    AWS Fargate is a serverless compute engine for containers that works with both Amazon ECS and Amazon
-    EKS removing the need to manage servers.
+  description: AWS Fargate is a serverless compute engine for containers that works with both Amazon ECS
+    and Amazon EKS removing the need to manage servers.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/fargate/
   baseURL: https://ecs.amazonaws.com
@@ -204,9 +197,8 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-fargate
 - name: Amazon Keyspaces API
-  description: >-
-    Amazon Keyspaces is a scalable, highly available, and managed Apache Cassandra-compatible database
-    service for running Cassandra workloads in the cloud.
+  description: Amazon Keyspaces is a scalable, highly available, and managed Apache Cassandra-compatible
+    database service for running Cassandra workloads in the cloud.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/keyspaces/
   baseURL: https://cassandra.amazonaws.com
@@ -229,9 +221,8 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-keyspaces
 - name: AWS Transit Gateway API
-  description: >-
-    AWS Transit Gateway connects VPCs and on-premises networks through a central hub simplifying your
-    network and putting an end to complex peering relationships.
+  description: AWS Transit Gateway connects VPCs and on-premises networks through a central hub simplifying
+    your network and putting an end to complex peering relationships.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/transit-gateway/
   baseURL: https://ec2.amazonaws.com
@@ -254,9 +245,8 @@ apis:
   - type: GitRepository
     url: https://github.com/api-evangelist/amazon-transit-gateway
 - aid: amazon-web-services-aws:amazon-web-services-aws-amazon-ec2-api-api
-  name: Amazon Web Services (AWS) Amazon EC2 API API
-  description: >-
-    The Amazon EC2 API API from Amazon Web Services (AWS) — 1 operation(s) for amazon ec2 api.
+  name: Amazon Web Services (AWS) Amazon EC2 API
+  description: The Amazon EC2 API API from Amazon Web Services (AWS) — 1 operation(s) for amazon ec2 api.
   humanURL: https://aws.amazon.com/ec2/
   baseURL: https://ec2.amazonaws.com
   tags:
@@ -319,8 +309,7 @@ apis:
   - type: Console
     url: https://console.aws.amazon.com/dynamodb/
   - type: GettingStarted
-    url: >-
-      https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html
+    url: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html
   - type: FAQ
     url: https://aws.amazon.com/dynamodb/faqs/
   - type: GitRepository
@@ -344,8 +333,7 @@ apis:
   - type: Console
     url: https://console.aws.amazon.com/sqs/
   - type: GettingStarted
-    url: >-
-      https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.html
+    url: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.html
   - type: FAQ
     url: https://aws.amazon.com/sqs/faqs/
   - type: GitRepository
@@ -511,8 +499,7 @@ apis:
   - type: Console
     url: https://console.aws.amazon.com/ec2/home#LoadBalancers
   - type: GettingStarted
-    url: >-
-      https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html
+    url: https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html
   - type: FAQ
     url: https://aws.amazon.com/elasticloadbalancing/faqs/
   - type: GitRepository
@@ -622,8 +609,7 @@ apis:
   - type: Console
     url: https://console.aws.amazon.com/cloudtrail/
   - type: GettingStarted
-    url: >-
-      https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html
+    url: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html
   - type: FAQ
     url: https://aws.amazon.com/cloudtrail/faqs/
   - type: GitRepository
@@ -1321,11 +1307,9 @@ common:
 - type: Contact
   url: https://aws.amazon.com/contact-us/
 - type: SpectralRules
-  url: >-
-    https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/rules/amazon-web-services-aws-spectral-rules.yml
+  url: https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/rules/amazon-web-services-aws-spectral-rules.yml
 - type: Vocabulary
-  url: >-
-    https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/vocabulary/amazon-web-services-aws-vocabulary.yaml
+  url: https://raw.githubusercontent.com/api-evangelist/amazon-web-services-aws/refs/heads/main/vocabulary/amazon-web-services-aws-vocabulary.yaml
 - type: Features
   data:
   - name: Automation
