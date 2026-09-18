@@ -1,7 +1,7 @@
 {
   "provider": "amazon-web-services-aws",
   "sources": [
-    "amazon-web-services-aws-amazon-ec2-api-api-openapi.yml"
+    "_original/amazon-web-services-aws-openapi.yml"
   ],
   "outputs": [
     "amazon-web-services-aws-amazon-ec2-api-api-openapi.yml"
@@ -10,8 +10,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "amazon-web-services-aws-amazon-ec2-api-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-web-services-aws-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "amazon-web-services-aws-openapi.yml: tagged paths POST / -> Amazon EC2 API",
+    "amazon-web-services-aws-openapi.yml: declared missing tag: Amazon EC2 API",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-web-services-aws-amazon-ec2-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

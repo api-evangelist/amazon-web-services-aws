@@ -8,13 +8,11 @@ info:
 
     subnets, and related infrastructure. All operations are invoked
 
-    by POSTing form-encoded `Action=<Name>&Version=2016-11-15` to the
+    by POSTing form-encoded `Action=&Version=2016-11-15` to the
 
     regional endpoint, signed with AWS Signature Version 4 (SigV4),
 
-    and return XML responses.
-
-    '
+    and return XML responses.'
   contact:
     name: Amazon Web Services
     url: https://docs.aws.amazon.com/ec2/
@@ -35,13 +33,11 @@ paths:
       summary: Invoke an EC2 action
       description: 'EC2 operations are invoked by POSTing form-encoded parameters with
 
-        `Action=<OperationName>` and `Version=2016-11-15`. Examples include
+        `Action=` and `Version=2016-11-15`. Examples include
 
         `RunInstances`, `DescribeInstances`, `CreateVolume`,
 
-        `AuthorizeSecurityGroupIngress`, etc.
-
-        '
+        `AuthorizeSecurityGroupIngress`, etc.'
       operationId: invokeEc2Action
       parameters:
       - in: query

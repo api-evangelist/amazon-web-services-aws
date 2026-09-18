@@ -46,7 +46,7 @@ tags:
 - Cloud Computing
 - Computing
 - Containers
-- Databases
+- Database
 - DevOps
 - Infrastructure-as-a-Service
 - Infrastructure
@@ -82,6 +82,11 @@ apis:
   humanURL: https://aws.amazon.com/bedrock/
   baseURL: https://bedrock.amazonaws.com
   tags:
+  - Artificial Intelligence
+  - Foundation Models
+  - Generative AI
+  - LLM
+  tags_raw:
   - Artificial Intelligence
   - Foundation Models
   - Generative AI
